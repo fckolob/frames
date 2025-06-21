@@ -4,6 +4,8 @@ import './style.css'
 
 document.querySelector('#app').innerHTML = `
   <div>
+
+  <h1>Frames</h1>
    <form class="form-element" action="post">
   <label for="serie">Serie</label>
   <select class="form-input" name="serie" id="serie">
