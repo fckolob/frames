@@ -36,6 +36,7 @@ h1 {
 }
 
 #app {
+  width: 90%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -80,6 +81,75 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+#container{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.form-element{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .5rem;
+  margin: 0 auto;
+  background-color:gold;
+  border-radius: 1rem;
+}
+
+.form-input{
+  width: 90%;
+  text-align: left;
+  padding: .5rem;
+  margin: .5rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  
+}
+
+input:required:invalid, input:focus:invalid{
+  border: 2px dashed red;
+  background-color:rgba(255, 68, 0, 0.451)
+}
+
+input:required:valid {
+  border: 2px solid green;
+  background-color: lawngreen;
+  color: darkblue;
+}
+
+.form-label{
+  width: 90%;
+  text-align: left;
+  padding: .5rem;
+  margin: .5rem;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+}
+
+.form-submit{
+  width: 40%;
+  text-align: center;
+  padding: .5rem;
+  margin: .5rem;
+  border-radius: 1rem;
+  background-color:#646cff;
+  color: darkblue;
+  font-size: 1.5rem;
+  border: 1px solid transparent;
+  transition: border-color 0.25s;
+  transition: ease-in-out 1s;
+}
+
+.form-submit:hover{
+  border-color:coral;
+  transform: scale(120%);
+  background-color:blue;
+  color:crimson;
+  border-radius: 50%;
 }
 
 @media (prefers-color-scheme: light) {

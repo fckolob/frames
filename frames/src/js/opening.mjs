@@ -29,8 +29,8 @@ constructor(width, height, serie, color, dvh, preframe, quantity){
    }
 }
 
-framing(){
-  this.#calculatePieces();
+async framing(){
+  await this.#calculatePieces();
     if (this.serie === "s20"){
 
         const horizontalFrame = new Frame(this.serie, {abasur: "N1749", urualum: "190", juan: "204 o 190", aluminiosDelUruguay: "PN 0190"}, this.pieces.horizontalFrame.lenght, "Horizontal Frame", this.color, this.pieces.horizontalFrame.quantity);
@@ -109,18 +109,18 @@ framing(){
 
 }
 
-async #init(){
+async init(){
     await this.framing();
 
 }
 
 async getFrames(){
-    await this.#init();
+    await this.init();
     return this.frames;
 }
 
 async getGlass(){
-  await this.#init();
+  await this.init();
     return this.glass;
 }
 
