@@ -3,13 +3,14 @@ import "./js/opening.mjs"
 import Opening from './js/opening.mjs';
 import * as utils from "./js/utils.mjs";
 
-
+let traker = 0;
 
 
 document.querySelector('#app').innerHTML = `
   <div id="container">
 
   <h1>Frames</h1>
+  <h2 id="openings-added"></h2>
    <form id="add-opening-form" class="form-element" action="post">
   <label class="form-label" for="serie">Serie</label>
   <select required class="form-input" name="serie" id="serie">
@@ -32,6 +33,7 @@ document.querySelector('#app').innerHTML = `
     <option value="simple">Vidrio Simple</option>
     <option value="dvh">Vidrio DVH</option>
   </select>
+   <label class="form-label" for="preframe">Premarco</label>
   <select required class="form-input" name="preframe" id="preframe">
     <option value="Select-an-option">Select an Option</option>
     <option value="preframeTrue">Con Premarco</option>
@@ -45,21 +47,36 @@ document.querySelector('#app').innerHTML = `
   <input required class="form-input" min="1" step="1" id="quantity" name="quantity" type="number"> 
   
   <input class="form-submit" value="Add Opening" id="add-opening" name="add-opening" type="submit">
-</form> 
+</form>
+
+
   </div>
 `
 window.onload = async ()=> {
+ if(traker < 1){ utils.setLocalStorage([]);}
+ traker += 1;
+  const container = document.getElementById("container");
   const form = document.getElementById("add-opening-form");
   const submitButton = form.elements.namedItem("add-opening");
+  const serieElement = document.getElementById("serie");
+  const colorElement = document.getElementById("color");
+  const vidrioElement = document.getElementById("vidrio");
+  const preframeElement = document.getElementById("preframe");
+  const widthElement = document.getElementById("width");
+  const heightElement = document.getElementById("height");
+  const quantityElement = document.getElementById("quantity");
+  const openingsQuantityDisplay = document.getElementById("openings-added");
+  const buttons = `<button id="production">Production</button>
+<button id="calculate-materials">Calculate Materials</button>`
   submitButton.addEventListener("click",async function(event){
     event.preventDefault();
-    const serie = form.elements.namedItem("serie").value;
-    const color = form.elements.namedItem("color").value;
-    const vidrio = form.elements.namedItem("vidrio").value;
-    const preframeValue = form.elements.namedItem("serie").value;
-    const width = form.elements.namedItem("width").value;
-    const height = form.elements.namedItem("height").value;
-    const quantity = form.elements.namedItem("quantity").value;
+    let serie = form.elements.namedItem("serie").value;
+    let color = form.elements.namedItem("color").value;
+    let vidrio = form.elements.namedItem("vidrio").value;
+    let preframeValue = form.elements.namedItem("preframe").value;
+    let width = form.elements.namedItem("width").value;
+    let height = form.elements.namedItem("height").value;
+    let quantity = form.elements.namedItem("quantity").value;
     let dvh = false;
     let preframe = false;
     if(vidrio === "dvh"){
@@ -74,9 +91,35 @@ window.onload = async ()=> {
 
     
 
-    const framesResult = await opening.getFrames();
+    await opening.init();
 
-    utils.addToLocalStorage(framesResult);
-    console.log(framesResult);
+    utils.addToLocalStorage(opening);
+    console.log(opening);
+
+    serieElement.value = "Select-an-option";
+    colorElement.value = "Select-an-option";
+    vidrioElement.value = "Select-an-option";
+    preframeElement.value = "Select-an-option";
+    vidrioElement.value = "Select-an-option";
+    dvh = false;
+    preframe = false;
+    widthElement.value = "";
+    heightElement.value = "";
+    quantityElement.value = "";
+    
+    const openingsReturn = utils.getLocalStorage();
+
+    let openingsQuantity = 0;
+
+    openingsReturn.forEach(opening => {
+      openingsQuantity += parseInt(opening.quantity);
+    });
+
+    openingsQuantityDisplay.textContent = `${openingsQuantity} Openings Added`
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    container.insertAdjacentHTML("afterend", buttons);
+    
   })
 }

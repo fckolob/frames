@@ -24,7 +24,7 @@ constructor(width, height, serie, color, dvh, preframe, quantity){
     this.pieces = s20(this.width, this.height, this.quantity);
    }
 
-   if (this.serie === "25"){
+   if (this.serie === "s25"){
     this.pieces = s25(this.width, this.height, this.quantity);
    }
 }
@@ -73,9 +73,9 @@ async framing(){
 
         const screenShash = new Frame(this.serie, {abasur: "E3514", urualum: "2343", juan: "2343", aluminiosDelUruguay: "PN 2343"}, {width: this.pieces.screenWidth.lenght, height: this.pieces.screenHeight.lenght}, "Horizontal Frame", this.color, {widthQuantity: this.pieces.screenWidth.quantity, heightQuantity: this.pieces.screenHeight.quantity});
 
-        const glassWidth = {};
+        let glassWidth = {};
 
-        const glassHeight = {};
+        let glassHeight = {};
 
         let glassDvhU = {};
 
@@ -115,12 +115,12 @@ async init(){
 }
 
 async getFrames(){
-    await this.init();
+    
     return this.frames;
 }
 
 async getGlass(){
-  await this.init();
+  
     return this.glass;
 }
 
