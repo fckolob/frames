@@ -2,6 +2,8 @@ import './style.css';
 import "./js/opening.mjs"
 import Opening from './js/opening.mjs';
 import * as utils from "./js/utils.mjs";
+import calculateMaterials from './js/calculateMaterials.mjs';
+import displayBars from './js/displayBars.mjs';
 
 let traker = 0;
 
@@ -119,7 +121,56 @@ window.onload = async ()=> {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    container.insertAdjacentHTML("afterend", buttons);
+    await container.insertAdjacentHTML("afterend", buttons);
     
+    const calculateMaterialsButton = document.getElementById("calculate-materials");
+
+    calculateMaterialsButton.addEventListener("click", async () => {
+
+      let openings = [];
+
+      let openingsData = await utils.getLocalStorage();
+
+      for (const openingD of openingsData) {
+        let opening = new Opening(
+          openingD.width,
+          openingD.height,
+          openingD.serie,
+          openingD.color,
+          openingD.dvh,
+          openingD.preframe,
+          openingD.quantity
+        );
+        await opening.init();
+        openings.push(opening);
+      }
+
+      let calculateMaterials1 = new calculateMaterials(openings);
+
+      let bars = await calculateMaterials1.getFrameBars();
+
+      console.log(bars);
+
+      let displayBars1 = new displayBars(bars);
+
+      let barList = displayBars1.getBarsList();
+
+      console.log(barList);
+
+      container.innerHTML = "";
+
+      container.innerHTML = `<h1>Frames</h1>
+      <h2>Materials</h2>
+      ${barList}
+      <button id="home">Home</button>
+      `;
+
+      let home = document.getElementById("home");
+
+      home.addEventListener("click", async()=>{
+        location.reload();
+      })
+
+    })
   })
 }
