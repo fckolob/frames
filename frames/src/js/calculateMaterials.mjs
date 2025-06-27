@@ -306,7 +306,7 @@ export default class calculateMaterials{
 
     calculateFrameBarsQuantity(lenghtGroup){
         let elements = 0;
-        let bars = 0;
+        let bars = 1;
         lenghtGroup.forEach(lenght => {
             elements = elements + lenght;
             if(elements >= this.barLenght){
