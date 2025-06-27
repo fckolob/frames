@@ -57,6 +57,7 @@ document.querySelector('#app').innerHTML = `
 window.onload = async ()=> {
  if(traker < 1){ utils.setLocalStorage([]);}
  traker += 1;
+  let traker = 0;
   const container = document.getElementById("container");
   const form = document.getElementById("add-opening-form");
   const submitButton = form.elements.namedItem("add-opening");
@@ -72,6 +73,7 @@ window.onload = async ()=> {
 <button id="calculate-materials">Calculate Materials</button>`
   submitButton.addEventListener("click",async function(event){
     event.preventDefault();
+    
     let serie = form.elements.namedItem("serie").value;
     let color = form.elements.namedItem("color").value;
     let vidrio = form.elements.namedItem("vidrio").value;
@@ -121,7 +123,9 @@ window.onload = async ()=> {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    await container.insertAdjacentHTML("afterend", buttons);
+    if(traker === 0){await container.insertAdjacentHTML("afterend", buttons);}
+
+    traker += 1;
     
     const calculateMaterialsButton = document.getElementById("calculate-materials");
 
