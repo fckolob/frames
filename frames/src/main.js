@@ -7,7 +7,7 @@ import displayBars from './js/displayBars.mjs';
 
 let traker = 0;
 
-
+let buttonTraker = 0;
 document.querySelector('#app').innerHTML = `
   <div id="container">
 
@@ -57,7 +57,7 @@ document.querySelector('#app').innerHTML = `
 window.onload = async ()=> {
  if(traker < 1){ utils.setLocalStorage([]);}
  traker += 1;
-  let traker = 0;
+  
   const container = document.getElementById("container");
   const form = document.getElementById("add-opening-form");
   const submitButton = form.elements.namedItem("add-opening");
@@ -123,9 +123,9 @@ window.onload = async ()=> {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    if(traker === 0){await container.insertAdjacentHTML("afterend", buttons);}
+    if(buttonTraker === 0){await container.insertAdjacentHTML("afterend", buttons);}
 
-    traker += 1;
+    buttonTraker += 1;
     
     const calculateMaterialsButton = document.getElementById("calculate-materials");
 
