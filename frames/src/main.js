@@ -129,6 +129,42 @@ window.onload = async ()=> {
     
     const calculateMaterialsButton = document.getElementById("calculate-materials");
 
+    const productionButton = document.getElementById("production");
+
+    productionButton.addEventListener("click", async ()=>{
+      let openings = [];
+
+      let openingsData = await utils.getLocalStorage();
+
+      for (const openingD of openingsData) {
+        let opening = new Opening(
+          openingD.width,
+          openingD.height,
+          openingD.serie,
+          openingD.color,
+          openingD.dvh,
+          openingD.preframe,
+          openingD.quantity
+        );
+        await opening.init();
+        openings.push(opening);
+      }
+
+      let frameLists = "";
+
+      const frameListsArray = await Promise.all(
+        openings.map(opening => opening.getStringFrames())
+      );
+
+      frameListsArray.forEach(frameList => {
+        frameLists += frameList;
+      });
+
+      container.innerHTML = "";
+      container.insertAdjacentHTML('afterend', frameLists)
+
+    })
+
     calculateMaterialsButton.addEventListener("click", async () => {
 
       let openings = [];

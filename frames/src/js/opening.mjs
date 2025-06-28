@@ -16,6 +16,7 @@ constructor(width, height, serie, color, dvh, preframe, quantity){
     this.pieces = {};
     this.frames = {};
     this.glass = {};
+    this.stringFrames = [];
 
 }
 
@@ -111,7 +112,7 @@ async framing(){
 
 async init(){
     await this.framing();
-
+    await this.toString();
 }
 
 async getFrames(){
@@ -124,6 +125,22 @@ async getGlass(){
     return this.glass;
 }
 
+async toString(){
+    let returned = `<h2>${this.width} width x ${this.height} height ${this.serie} ${this.color} DVH? = ${this.dvh}</h2><ul class="production-list">`;
+    Object.keys(this.frames).forEach(key => {
+        if(this.frames[key].name === "Screen Shash" || this.frames[key].name === "glassDvhU"){
+            returned += `<li>width quantity = ${this.frames[key].quantity.widthQuantity} ${this.frames[key].name} ${this.frames[key].lenght.width} height quantity = ${this.frames[key].quantity.heightQuantity} ${this.frames[key].lenght.height} </li>`
+        }
+        else{
 
+       returned += `<li>${this.frames[key].quantity} ${this.frames[key].name} ${this.frames[key].lenght}</li>`}
+    });
+    returned += `</ul>`
+    this.stringFrames.push(returned);
+}
+
+async getStringFrames(){
+    return this.stringFrames;
+}
 
 }
