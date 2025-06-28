@@ -20,6 +20,7 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25Anodizado = null;
         this.smallHorizontalShashesS25Anodizado = null;
         this.screenShashesS25Anodizado = null;
+        this.glassDvhUsS25Anodizado = null;
 
         this.horizontalFramesS20Blanco = null;
         this.verticalFramesS20Blanco = null;
@@ -182,6 +183,11 @@ export default class calculateMaterials{
 
             if(opening.serie === "s25" && opening.color === "anodizado"){
 
+                if(opening.dvh === true){
+                    this.glassDvhUsS25Anodizado = [];
+                    this.glassDvhUsS25Anodizado.push(opening.frames.glassDvhU);
+                }
+
                 this.inferiorFramesS25Anodizado = [];
                 this.inferiorFramesS25Anodizado.push(opening.frames.inferiorFrame);
 
@@ -208,7 +214,7 @@ export default class calculateMaterials{
             }
         });
 
-        // Reconstruir framesArrays aquí:
+        //Reconstruyendo frame arrays.
         this.framesArrays = [
             this.horizontalFramesS20Anodizado,
             this.verticalFramesS20Anodizado,
@@ -224,6 +230,7 @@ export default class calculateMaterials{
             this.bigHorizontalShashesS25Anodizado,
             this.smallHorizontalShashesS25Anodizado,
             this.screenShashesS25Anodizado,
+            this.glassDvhUsS25Anodizado,
 
             this.horizontalFramesS20Blanco,
             this.verticalFramesS20Blanco,
@@ -292,10 +299,33 @@ export default class calculateMaterials{
         let frameElements = [];
         
 
+
         frames.forEach(frame => {
+
+            if(frame.name === "Screen Shash"){
+
+                for (let index = 0; index < frame.quantity.widthQuantity; index++) {
+        frameElements.push(frame.lenght.width);}
+
+                for (let index = 0; index < frame.quantity.heigthQuantity; index++) {
+        frameElements.push(frame.lenght.height);}
+                    
+            }
+
+
+        if(frame.name === "U Dvh"){
+
+                for (let index = 0; index < frame.quantity.widthQuantity; index++) {
+        frameElements.push(frame.lenght.width);}
+
+                for (let index = 0; index < frame.quantity.heigthQuantity; index++) {
+        frameElements.push(frame.lenght.height);}
+                    
+            }
+            else{
          
             for (let index = 0; index < frame.quantity; index++) {
-        frameElements.push(frame.lenght);}
+        frameElements.push(frame.lenght);}}
 
 
         });
@@ -322,7 +352,7 @@ export default class calculateMaterials{
         await this.classificateFrames();
     this.framesArrays.forEach(frameArray => {
         if(Array.isArray(frameArray) && frameArray.length > 0 && frameArray[0]) {
-            // Filtra frames undefined
+            // Filtrando frames undefined.
             const validFrames = frameArray.filter(f => f && typeof f.quantity !== "undefined" && typeof f.lenght !== "undefined");
             if(validFrames.length > 0){
                 let bar1 = new bar(

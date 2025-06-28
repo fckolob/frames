@@ -71,7 +71,7 @@ async framing(){
 
         const horizontalShashSmall = new Frame(this.serie, {abasur: "E2863", urualum: "4504", juan: "4504", aluminiosDelUruguay: "Not available"}, this.pieces.horizontalShashSmall.lenght, "Horizontal Shash Small", this.color, this.pieces.horizontalShashSmall.quantity);
 
-        const screenShash = new Frame(this.serie, {abasur: "E3514", urualum: "2343", juan: "2343", aluminiosDelUruguay: "PN 2343"}, {width: this.pieces.screenWidth.lenght, height: this.pieces.screenHeight.lenght}, "Horizontal Frame", this.color, {widthQuantity: this.pieces.screenWidth.quantity, heightQuantity: this.pieces.screenHeight.quantity});
+        const screenShash = new Frame(this.serie, {abasur: "E3514", urualum: "2343", juan: "2343", aluminiosDelUruguay: "PN 2343"}, {width: this.pieces.screenWidth.lenght, height: this.pieces.screenHeight.lenght}, "Screen Shash", this.color, {widthQuantity: this.pieces.screenWidth.quantity, heightQuantity: this.pieces.screenHeight.quantity});
 
         let glassWidth = {};
 
