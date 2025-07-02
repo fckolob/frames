@@ -128,8 +128,9 @@ async getGlass(){
 async toString(){
     let returned = `<h2>${this.width} width x ${this.height} height ${this.serie} ${this.color} DVH? = ${this.dvh}</h2><ul class="production-list">`;
     Object.keys(this.frames).forEach(key => {
-        if(this.frames[key].name === "Screen Shash" || this.frames[key].name === "glassDvhU"){
-            returned += `<li>width quantity = ${this.frames[key].quantity.widthQuantity} ${this.frames[key].name} ${this.frames[key].lenght.width} height quantity = ${this.frames[key].quantity.heightQuantity} ${this.frames[key].lenght.height} </li>`
+        if(this.frames[key].name === "Screen Shash" || this.frames[key].name === "U dvh"){
+            returned += `<li>width quantity = ${this.frames[key].quantity.widthQuantity} ${this.frames[key].name} ${this.frames[key].lenght.width} height quantity = ${this.frames[key].quantity.heightQuantity} ${this.frames[key].lenght.height}
+            Glass Width = ${this.glass.width} Glass Height = ${this.glass.height} </li>`
         }
         else{
 
