@@ -97,7 +97,7 @@ async framing(){
 
             glassHeight = {lenght: this.pieces.glassDvhHeight.lenght, quantity: this.pieces.glassDvhHeight.quantity};
 
-            glassDvhU = new Frame(this.serie, {abasur: "E4886", urualum: "Not available", juan: "4590", aluminiosDelUruguay: "Not available"}, {width: this.pieces.glassDvhUHorizontal.lenght, height: this.pieces.glassDvhUVertical}, "U Dvh", this.color, {widthQuantity: this.pieces.glassDvhUHorizontal.quantity, heightQuantity: this.pieces.glassDvhUVertical.quantity});
+            glassDvhU = new Frame(this.serie, {abasur: "E4886", urualum: "Not available", juan: "4590", aluminiosDelUruguay: "Not available"}, {width: this.pieces.glassDvhUHorizontal.lenght, height: this.pieces.glassDvhUVertical.lenght}, "U Dvh", this.color, {widthQuantity: this.pieces.glassDvhUHorizontal.quantity, heightQuantity: this.pieces.glassDvhUVertical.quantity});
 
             
         }
@@ -126,16 +126,18 @@ async getGlass(){
 }
 
 async toString(){
-    let returned = `<h2>${this.width} width x ${this.height} height ${this.serie} ${this.color} DVH? = ${this.dvh}</h2><ul class="production-list">`;
+    let returned = `<h2>${this.quantity} Openings of ${this.width} width x ${this.height} height ${this.serie} ${this.color} DVH? = ${this.dvh}</h2><ul class="production-list">`;
     Object.keys(this.frames).forEach(key => {
-        if(this.frames[key].name === "Screen Shash" || this.frames[key].name === "U dvh"){
-            returned += `<li>width quantity = ${this.frames[key].quantity.widthQuantity} ${this.frames[key].name} ${this.frames[key].lenght.width} height quantity = ${this.frames[key].quantity.heightQuantity} ${this.frames[key].lenght.height}
-            Glass Width = ${this.glass.width} Glass Height = ${this.glass.height} </li>`
+        if(this.frames[key] !== null && this.frames[key].name){
+        if(this.frames[key].name === "Screen Shash" || this.frames[key].name === "U Dvh"){
+            returned += `<li>${this.frames[key].name} width quantity = ${this.frames[key].quantity.widthQuantity}  ${this.frames[key].lenght.width} height quantity = ${this.frames[key].quantity.heightQuantity} ${this.frames[key].lenght.height}
+             </li>`
         }
         else{
-
+            
        returned += `<li>${this.frames[key].quantity} ${this.frames[key].name} ${this.frames[key].lenght}</li>`}
-    });
+    }});
+    returned += `<li>Glass Width = ${this.glass.glassWidth.lenght} Glass Height = ${this.glass.glassHeight.lenght} Glass Quantity = ${this.glass.glassWidth.quantity}</li>`
     returned += `</ul>`
     this.stringFrames.push(returned);
 }
