@@ -57,7 +57,8 @@ document.querySelector('#app').innerHTML = `
 window.onload = async ()=> {
  if(traker < 1){ utils.setLocalStorage([]);}
  traker += 1;
-  
+  let productionButtonEventListenerFlag = true;
+  let displayProductionFlag = true;
   const container = document.getElementById("container");
   const form = document.getElementById("add-opening-form");
   const submitButton = form.elements.namedItem("add-opening");
@@ -131,7 +132,10 @@ window.onload = async ()=> {
 
     const productionButton = document.getElementById("production");
 
-    productionButton.addEventListener("click", async ()=>{
+    
+
+    if(productionButtonEventListenerFlag){productionButton.addEventListener("click", async ()=>{
+      if(displayProductionFlag){
       let openings = [];
 
       let openingsData = await utils.getLocalStorage();
@@ -162,8 +166,10 @@ window.onload = async ()=> {
 
       container.innerHTML = "";
       container.insertAdjacentHTML('afterend', frameLists)
+      displayProductionFlag = false;
+    }})}
 
-    })
+    productionButtonEventListenerFlag = false;
 
     calculateMaterialsButton.addEventListener("click", async () => {
 
