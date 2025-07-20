@@ -19,6 +19,7 @@ document.querySelector('#app').innerHTML = `
     <option value="Select-an-option">Select an Option</option>
     <option value="s20">Serie 20</option>
     <option value="s25">Serie 25</option>
+    <option value="s25TripleRiel">Serie 25 Triple Riel</option>
   </select>
   <label class="form-label" for="color">Color</label>
   <select required class="form-input" name="color" id="color">

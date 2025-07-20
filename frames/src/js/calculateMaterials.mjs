@@ -21,6 +21,9 @@ export default class calculateMaterials{
         this.smallHorizontalShashesS25Anodizado = [];
         this.screenShashesS25Anodizado = [];
         this.glassDvhUsS25Anodizado = [];
+        this.InferiorFramesS25TripleRielAnodizado = [];
+        this.SuperiorFramesS25TripleRielAnodizado = [];
+        this.VerticalFramesS25TripleRielAnodizado = [];
 
         this.horizontalFramesS20Blanco = [];
         this.verticalFramesS20Blanco =[]
@@ -34,8 +37,9 @@ export default class calculateMaterials{
         this.lateralShashesS25Blanco = [];
         this.centralShashesS25Blanco = [];
         this.bigHorizontalShashesS25Blanco = [];
-        this.smallHorizontalShashesS25Blanco = null;
+        this.smallHorizontalShashesS25Blanco = [];
         this.screenShashesS25Blanco = [];
+        this.glassDvhUsS25Blanco = [];
 
         this.horizontalFramesS20Anolok = [];
         this.verticalFramesS20Anolok = [];
@@ -51,6 +55,7 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25Anolok = [];
         this.smallHorizontalShashesS25Anolok = [];
         this.screenShashesS25Anolok = [];
+        this.glassDvhUsS25Anolok = [];
 
         this.horizontalFramesS20ImitacionMadera = [];
         this.verticalFramesS20ImitacionMadera = [];
@@ -66,6 +71,7 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25ImitacionMadera = [];
         this.smallHorizontalShashesS25ImitacionMadera = [];
         this.screenShashesS25ImitacionMadera = [];
+        this.glassDvhUsS25ImitacionMadera = [];
 
         this.horizontalFramesS20PintadoNegro = [];
         this.verticalFramesS20PintadoNegro = [];
@@ -81,8 +87,16 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25PintadoNegro = [];
         this.smallHorizontalShashesS25PintadoNegro = [];
         this.screenShashesS25PintadoNegro = [];
-        
-        this.framesArrays = [this.horizontalFramesS20Anodizado,
+        this.glassDvhUsS25PintadoNegro = [];
+
+        this.InferiorFramesS25TripleRielAnodizado = [];
+        this.SuperiorFramesS25TripleRielAnodizado = [];
+        this.VerticalFramesS25TripleRielAnodizado = [];
+        this.framesArrays = [
+        this.InferiorFramesS25TripleRielAnodizado,
+        this.SuperiorFramesS25TripleRielAnodizado,
+        this.VerticalFramesS25TripleRielAnodizado,    
+        this.horizontalFramesS20Anodizado,
         this.verticalFramesS20Anodizado,
         this.lateralShashesS20Anodizado,
         this.centralShashesS20Anodizado,
@@ -194,10 +208,130 @@ export default class calculateMaterials{
                 this.smallHorizontalShashesS25Anodizado.push(opening.frames.horizontalShashSmall);
                 this.screenShashesS25Anodizado.push(opening.frames.screenShash);
             }
+
+            if(opening.serie === "s20" && opening.color === "blanco"){
+                this.horizontalFramesS20Blanco.push(opening.frames.horizontalFrame);
+                this.verticalFramesS20Blanco.push(opening.frames.verticalFrame);
+                this.lateralShashesS20Blanco.push(opening.frames.lateralShash);
+                this.centralShashesS20Blanco.push(opening.frames.centralShash);
+                this.horizontalShashesS20Blanco.push(opening.frames.horizontalShash);
+                this.screenShashesS20Blanco.push(opening.frames.screenShash);
+            }
+
+            if(opening.serie === "s25" && opening.color === "blanco"){
+                if(opening.dvh === true){
+                    this.glassDvhUsS25Blanco.push(opening.frames.glassDvhU);
+                }
+
+                this.inferiorFramesS25Blanco.push(opening.frames.inferiorFrame);
+                this.superiorFramesS25Blanco.push(opening.frames.superiorFrame);
+                this.verticalFramesS25Blanco.push(opening.frames.verticalFrame);
+                this.lateralShashesS25Blanco.push(opening.frames.lateralShash);
+                this.centralShashesS25Blanco.push(opening.frames.centralShash);
+                this.bigHorizontalShashesS25Blanco.push(opening.frames.horizontalShashBig);
+                this.smallHorizontalShashesS25Blanco.push(opening.frames.horizontalShashSmall);
+                this.screenShashesS25Blanco.push(opening.frames.screenShash);
+            }
+            if(opening.serie === "s20" && opening.color === "anolok"){
+                this.horizontalFramesS20Anolok.push(opening.frames.horizontalFrame);
+                this.verticalFramesS20Anolok.push(opening.frames.verticalFrame);
+                this.lateralShashesS20Anolok.push(opening.frames.lateralShash);
+                this.centralShashesS20Anolok.push(opening.frames.centralShash);
+                this.horizontalShashesS20Anolok.push(opening.frames.horizontalShash);
+                this.screenShashesS20Anolok.push(opening.frames.screenShash);
+            }
+            if(opening.serie === "s25" && opening.color === "anolok"){
+                if(opening.dvh === true){
+                    this.glassDvhUsS25Anolok.push(opening.frames.glassDvhU);
+                }
+
+                this.inferiorFramesS25Anolok.push(opening.frames.inferiorFrame);
+                this.superiorFramesS25Anolok.push(opening.frames.superiorFrame);
+                this.verticalFramesS25Anolok.push(opening.frames.verticalFrame);
+                this.lateralShashesS25Anolok.push(opening.frames.lateralShash);
+                this.centralShashesS25Anolok.push(opening.frames.centralShash);
+                this.bigHorizontalShashesS25Anolok.push(opening.frames.horizontalShashBig);
+                this.smallHorizontalShashesS25Anolok.push(opening.frames.horizontalShashSmall);
+                this.screenShashesS25Anolok.push(opening.frames.screenShash);
+            }
+
+            if(opening.serie === "s20" && opening.color === "imitacionMadera"){
+                this.horizontalFramesS20ImitacionMadera.push(opening.frames.horizontalFrame);
+                this.verticalFramesS20ImitacionMadera.push(opening.frames.verticalFrame);
+                this.lateralShashesS20ImitacionMadera.push(opening.frames.lateralShash);
+                this.centralShashesS20ImitacionMadera.push(opening.frames.centralShash);
+                this.horizontalShashesS20ImitacionMadera.push(opening.frames.horizontalShash);
+                this.screenShashesS20ImitacionMadera.push(opening.frames.screenShash);
+            }
+            if(opening.serie === "s25" && opening.color === "imitacionMadera"){
+                if(opening.dvh === true){
+                    this.glassDvhUsS25ImitacionMadera.push(opening.frames.glassDvhU);
+                }
+
+                this.inferiorFramesS25ImitacionMadera.push(opening.frames.inferiorFrame);
+                this.superiorFramesS25ImitacionMadera.push(opening.frames.superiorFrame);
+                this.verticalFramesS25ImitacionMadera.push(opening.frames.verticalFrame);
+                this.lateralShashesS25ImitacionMadera.push(opening.frames.lateralShash);
+                this.centralShashesS25ImitacionMadera.push(opening.frames.centralShash);
+                this.bigHorizontalShashesS25ImitacionMadera.push(opening.frames.horizontalShashBig);
+                this.smallHorizontalShashesS25ImitacionMadera.push(opening.frames.horizontalShashSmall);
+                this.screenShashesS25ImitacionMadera.push(opening.frames.screenShash);
+            }
+            if(opening.serie === "s20" && opening.color === "pintadoNegro"){
+                this.horizontalFramesS20PintadoNegro.push(opening.frames.horizontalFrame);
+                this.verticalFramesS20PintadoNegro.push(opening.frames.verticalFrame);
+                this.lateralShashesS20PintadoNegro.push(opening.frames.lateralShash);
+                this.centralShashesS20PintadoNegro.push(opening.frames.centralShash);
+                this.horizontalShashesS20PintadoNegro.push(opening.frames.horizontalShash);
+                this.screenShashesS20PintadoNegro.push(opening.frames.screenShash);
+            }
+            if(opening.serie === "s25" && opening.color === "pintadoNegro"){
+                if(opening.dvh === true){
+                    this.glassDvhUsS25PintadoNegro.push(opening.frames.glassDvhU);
+                }
+                this.inferiorFramesS25PintadoNegro.push(opening.frames.inferiorFrame);
+                this.superiorFramesS25PintadoNegro.push(opening.frames.superiorFrame);
+                this.verticalFramesS25PintadoNegro.push(opening.frames.verticalFrame);
+                this.lateralShashesS25PintadoNegro.push(opening.frames.lateralShash);
+                this.centralShashesS25PintadoNegro.push(opening.frames.centralShash);
+                this.bigHorizontalShashesS25PintadoNegro.push(opening.frames.horizontalShashBig);
+                this.smallHorizontalShashesS25PintadoNegro.push(opening.frames.horizontalShashSmall);
+                this.screenShashesS25PintadoNegro.push(opening.frames.screenShash);
+            }
+            if(opening.serie === "s25" && opening.color === "blanco"){
+                if(opening.dvh === true){
+                    this.glassDvhUsS25Blanco.push(opening.frames.glassDvhU);
+                }
+                this.inferiorFramesS25Blanco.push(opening.frames.inferiorFrame);
+                this.superiorFramesS25Blanco.push(opening.frames.superiorFrame);
+                this.verticalFramesS25Blanco.push(opening.frames.verticalFrame);
+                this.lateralShashesS25Blanco.push(opening.frames.lateralShash);
+                this.centralShashesS25Blanco.push(opening.frames.centralShash);
+                this.bigHorizontalShashesS25Blanco.push(opening.frames.horizontalShashBig);
+                this.smallHorizontalShashesS25Blanco.push(opening.frames.horizontalShashSmall);
+                this.screenShashesS25Blanco.push(opening.frames.screenShash);
+            }
+
+            if(opening.serie === "s25TripleRiel" && opening.color === "anodizado"){
+                if(opening.dvh === true){
+                    this.glassDvhUsS25Anodizado.push(opening.frames.glassDvhU);
+                }
+                this.InferiorFramesS25TripleRielAnodizado.push(opening.frames.inferiorFrameTripleRiel);
+                this.SuperiorFramesS25TripleRielAnodizado.push(opening.frames.superiorFrameTripleRiel);
+                this.VerticalFramesS25TripleRielAnodizado.push(opening.frames.verticalFrameTripleRiel);
+                this.lateralShashesS25Anodizado.push(opening.frames.lateralShash);
+                this.centralShashesS25Anodizado.push(opening.frames.centralShash);
+                this.bigHorizontalShashesS25Anodizado.push(opening.frames.horizontalShashBig);
+                this.smallHorizontalShashesS25Anodizado.push(opening.frames.horizontalShashSmall);
+                this.screenShashesS25Anodizado.push(opening.frames.screenShash);
+            }
         });
 
         //Reconstruyendo frame arrays.
         this.framesArrays = [
+            this.InferiorFramesS25TripleRielAnodizado,
+            this.SuperiorFramesS25TripleRielAnodizado,
+            this.VerticalFramesS25TripleRielAnodizado,   
             this.horizontalFramesS20Anodizado,
             this.verticalFramesS20Anodizado,
             this.lateralShashesS20Anodizado,
@@ -276,44 +410,31 @@ export default class calculateMaterials{
         ];
     }
 
-    calculateLenghtGroups(frames){
-
+    calculateLenghtGroups(frames) {
         let frameElements = [];
-        
-
-
         frames.forEach(frame => {
-
-            if(frame.name === "Screen Shash"){
-
+            if (frame.name === "Screen Shash") {
                 for (let index = 0; index < frame.quantity.widthQuantity; index++) {
-        frameElements.push(frame.lenght.width);}
-
-                for (let index = 0; index < frame.quantity.heigthQuantity; index++) {
-        frameElements.push(frame.lenght.height);}
-                    
-            }
-
-
-        if(frame.name === "U Dvh"){
-
+                    frameElements.push(frame.lenght.width);
+                }
+                // FIXED: typo here (was heigthQuantity)
+                for (let index = 0; index < frame.quantity.heightQuantity; index++) {
+                    frameElements.push(frame.lenght.height);
+                }
+            } else if (frame.name === "U Dvh") {
                 for (let index = 0; index < frame.quantity.widthQuantity; index++) {
-        frameElements.push(frame.lenght.width);}
-
-                for (let index = 0; index < frame.quantity.heigthQuantity; index++) {
-        frameElements.push(frame.lenght.height);}
-                    
+                    frameElements.push(frame.lenght.width);
+                }
+                for (let index = 0; index < frame.quantity.heightQuantity; index++) {
+                    frameElements.push(frame.lenght.height);
+                }
+            } else {
+                for (let index = 0; index < frame.quantity; index++) {
+                    frameElements.push(frame.lenght);
+                }
             }
-            else{
-         
-            for (let index = 0; index < frame.quantity; index++) {
-        frameElements.push(frame.lenght);}}
-
-
         });
-
         return frameElements;
-
     }
 
     calculateFrameBarsQuantity(lenghtGroup){
