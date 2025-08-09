@@ -173,8 +173,13 @@ async toString(){
             returned += `<li>${this.frames[key].name} width quantity = ${this.frames[key].quantity.widthQuantity}  ${this.frames[key].lenght.width} height quantity = ${this.frames[key].quantity.heightQuantity} ${this.frames[key].lenght.height}
              </li>`
         }
-        else{
-            
+
+        else if(this.frames[key].name === "Horizontal Frame" || this.frames[key].name === "Inferior Frame" || this.frames[key].name === "Superior Frame" || this.frames[key].name === "Lateral Shash" || this.frames[key].name === "Central Shash"){
+            returned += `<li>${this.frames[key].quantity} ${this.frames[key].name} ${this.frames[key].lenght} Half = ${this.frames[key].half}</li>`
+        }
+        
+        
+        else {   
        returned += `<li>${this.frames[key].quantity} ${this.frames[key].name} ${this.frames[key].lenght}</li>`}
     }});
     returned += `<li>Glass Width = ${this.glass.glassWidth.lenght} Glass Height = ${this.glass.glassHeight.lenght} Glass Quantity = ${this.glass.glassWidth.quantity}</li>`

@@ -6,7 +6,7 @@ import calculateMaterials from './js/calculateMaterials.mjs';
 import displayBars from './js/displayBars.mjs';
 
 let traker = 0;
-
+let printTraker = 0;
 let buttonTraker = 0;
 document.querySelector('#app').innerHTML = `
   <div id="container">
@@ -166,7 +166,15 @@ window.onload = async ()=> {
       });
 
       container.innerHTML = "";
-      container.insertAdjacentHTML('afterend', frameLists)
+      container.insertAdjacentHTML('afterend', frameLists);
+      if(printTraker === 0){
+      container.insertAdjacentHTML('afterend', `<button id="print">PRINT</button>`);
+      let print = document.getElementById("print");
+      print.addEventListener("click", async()=>{
+        window.print();
+      });
+      printTraker += 1;
+    };
       displayProductionFlag = false;
     }})}
 
@@ -211,12 +219,23 @@ window.onload = async ()=> {
       ${barList}
       <button id="home">Home</button>
       `;
+      if(printTraker === 0){
+        container.insertAdjacentHTML('afterend', `<button id="print">PRINT</button>`);
+        printTraker += 1;
+      }
 
       let home = document.getElementById("home");
 
+      let print = document.getElementById("print");
+
       home.addEventListener("click", async()=>{
         location.reload();
-      })
+
+      });
+
+      print.addEventListener("click", async()=>{
+        window.print();
+      });
 
     })
   })

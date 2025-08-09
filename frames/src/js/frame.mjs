@@ -6,6 +6,7 @@ export default class Frame{
         this.name = name;
         this.color = color;
         this.quantity = quantity;
+        this.half = this.lenght / 2;
     }
 
     
