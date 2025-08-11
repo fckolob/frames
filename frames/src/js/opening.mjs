@@ -170,7 +170,7 @@ async toString(){
     Object.keys(this.frames).forEach(key => {
         if(this.frames[key] !== null && this.frames[key].name){
         if(this.frames[key].name === "Screen Shash" || this.frames[key].name === "U Dvh"){
-            returned += `<li>${this.frames[key].name} width quantity = ${this.frames[key].quantity.widthQuantity}  ${this.frames[key].lenght.width} height quantity = ${this.frames[key].quantity.heightQuantity} ${this.frames[key].lenght.height}
+            returned += `<li>${this.frames[key].name} width quantity = ${this.frames[key].quantity.widthQuantity} of ${this.frames[key].lenght.width} height quantity = ${this.frames[key].quantity.heightQuantity} of ${this.frames[key].lenght.height}
              </li>`
         }
 
