@@ -12,6 +12,7 @@ export default class calculateMaterials{
         this.centralShashesS20Anodizado = [];
         this.horizontalShashesS20Anodizado = [];
         this.screenShashesS20Anodizado = [];
+        this.screenGuideS20Anodizado = [];
         this.inferiorFramesS25Anodizado = [];
         this.superiorFramesS25Anodizado = [];
         this.verticalFramesS25Anodizado = [];
@@ -19,6 +20,8 @@ export default class calculateMaterials{
         this.centralShashesS25Anodizado = [];
         this.bigHorizontalShashesS25Anodizado = [];
         this.smallHorizontalShashesS25Anodizado = [];
+        this.screenGuideS25LAnodizado = [];
+        this.screenGuideS25PAnodizado = [];
         this.screenShashesS25Anodizado = [];
         this.glassDvhUsS25Anodizado = [];
         this.InferiorFramesS25TripleRielAnodizado = [];
@@ -31,6 +34,7 @@ export default class calculateMaterials{
         this.centralShashesS20Blanco = [];
         this.horizontalShashesS20Blanco = [];
         this.screenShashesS20Blanco = [];
+        this.screenGuideS20Blanco = [];
         this.inferiorFramesS25Blanco = [];
         this.superiorFramesS25Blanco = [];
         this.verticalFramesS25Blanco = [];
@@ -39,6 +43,8 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25Blanco = [];
         this.smallHorizontalShashesS25Blanco = [];
         this.screenShashesS25Blanco = [];
+        this.screenGuideS25LBlanco = [];
+        this.screenGuideS25PBlanco = [];
         this.glassDvhUsS25Blanco = [];
 
         this.horizontalFramesS20Anolok = [];
@@ -47,6 +53,7 @@ export default class calculateMaterials{
         this.centralShashesS20Anolok = [];
         this.horizontalShashesS20Anolok = [];
         this.screenShashesS20Anolok = [];
+        this.screenGuideS20Anolok = [];
         this.inferiorFramesS25Anolok = [];
         this.superiorFramesS25Anolok = [];
         this.verticalFramesS25Anolok = [];
@@ -55,6 +62,8 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25Anolok = [];
         this.smallHorizontalShashesS25Anolok = [];
         this.screenShashesS25Anolok = [];
+        this.screenGuideS25LAnolok = [];
+        this.screenGuideS25PAnolok = [];
         this.glassDvhUsS25Anolok = [];
 
         this.horizontalFramesS20ImitacionMadera = [];
@@ -63,6 +72,7 @@ export default class calculateMaterials{
         this.centralShashesS20ImitacionMadera = [];
         this.horizontalShashesS20ImitacionMadera = [];
         this.screenShashesS20ImitacionMadera = [];
+        this.screenGuideS20ImitacionMadera = [];
         this.inferiorFramesS25ImitacionMadera = [];
         this.superiorFramesS25ImitacionMadera = [];
         this.verticalFramesS25ImitacionMadera = [];
@@ -71,6 +81,8 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25ImitacionMadera = [];
         this.smallHorizontalShashesS25ImitacionMadera = [];
         this.screenShashesS25ImitacionMadera = [];
+        this.screenGuideS25LImitacionMadera = [];
+        this.screenGuideS25PImitacionMadera = [];
         this.glassDvhUsS25ImitacionMadera = [];
 
         this.horizontalFramesS20PintadoNegro = [];
@@ -79,6 +91,7 @@ export default class calculateMaterials{
         this.centralShashesS20PintadoNegro = [];
         this.horizontalShashesS20PintadoNegro = [];
         this.screenShashesS20PintadoNegro = [];
+        this.screenGuideS20PintadoNegro = [];
         this.inferiorFramesS25PintadoNegro = [];
         this.superiorFramesS25PintadoNegro = [];
         this.verticalFramesS25PintadoNegro = [];
@@ -87,6 +100,8 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25PintadoNegro = [];
         this.smallHorizontalShashesS25PintadoNegro = [];
         this.screenShashesS25PintadoNegro = [];
+        this.screenGuideS25LPintadoNegro = [];
+        this.screenGuideS25PPintadoNegro = [];
         this.glassDvhUsS25PintadoNegro = [];
 
         this.InferiorFramesS25TripleRielAnodizado = [];
@@ -102,6 +117,7 @@ export default class calculateMaterials{
         this.centralShashesS20Anodizado,
         this.horizontalShashesS20Anodizado,
         this.screenShashesS20Anodizado,
+        this.screenGuideS20Anodizado,
         this.inferiorFramesS25Anodizado,
         this.superiorFramesS25Anodizado,
         this.verticalFramesS25Anodizado,
@@ -110,6 +126,8 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25Anodizado,
         this.smallHorizontalShashesS25Anodizado,
         this.screenShashesS25Anodizado,
+        this.screenGuideS25LAnodizado,
+        this.screenGuideS25PAnodizado,
 
         this.horizontalFramesS20Blanco,
         this.verticalFramesS20Blanco,
@@ -117,6 +135,7 @@ export default class calculateMaterials{
         this.centralShashesS20Blanco,
         this.horizontalShashesS20Blanco,
         this.screenShashesS20Blanco,
+        this.screenGuideS20Blanco,
         this.inferiorFramesS25Blanco,
         this.superiorFramesS25Blanco,
         this.verticalFramesS25Blanco,
@@ -125,6 +144,8 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25Blanco,
         this.smallHorizontalShashesS25Blanco,
         this.screenShashesS25Blanco,
+        this.screenGuideS25LBlanco,
+        this.screenGuideS25PBlanco,
 
         this.horizontalFramesS20Anolok,
         this.verticalFramesS20Anolok,
@@ -132,6 +153,7 @@ export default class calculateMaterials{
         this.centralShashesS20Anolok,
         this.horizontalShashesS20Anolok,
         this.screenShashesS20Anolok,
+        this.screenGuideS20Anolok,
         this.inferiorFramesS25Anolok,
         this.superiorFramesS25Anolok,
         this.verticalFramesS25Anolok,
@@ -140,6 +162,8 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25Anolok,
         this.smallHorizontalShashesS25Anolok,
         this.screenShashesS25Anolok,
+        this.screenGuideS25LAnolok,
+        this.screenGuideS25PAnolok,
 
         this.horizontalFramesS20ImitacionMadera,
         this.verticalFramesS20ImitacionMadera,
@@ -147,6 +171,7 @@ export default class calculateMaterials{
         this.centralShashesS20ImitacionMadera,
         this.horizontalShashesS20ImitacionMadera,
         this.screenShashesS20ImitacionMadera,
+        this.screenGuideS20ImitacionMadera,
         this.inferiorFramesS25ImitacionMadera,
         this.superiorFramesS25ImitacionMadera,
         this.verticalFramesS25ImitacionMadera,
@@ -155,6 +180,8 @@ export default class calculateMaterials{
         this.bigHorizontalShashesS25ImitacionMadera,
         this.smallHorizontalShashesS25ImitacionMadera,
         this.screenShashesS25ImitacionMadera,
+        this.screenGuideS25LImitacionMadera,
+        this.screenGuideS25PImitacionMadera,
 
         this.horizontalFramesS20PintadoNegro,
         this.verticalFramesS20PintadoNegro,
@@ -162,6 +189,7 @@ export default class calculateMaterials{
         this.centralShashesS20PintadoNegro,
         this.horizontalShashesS20PintadoNegro,
         this.screenShashesS20PintadoNegro,
+        this.screenGuideS20PintadoNegro,
         this.inferiorFramesS25PintadoNegro,
         this.superiorFramesS25PintadoNegro,
         this.verticalFramesS25PintadoNegro,
@@ -169,7 +197,10 @@ export default class calculateMaterials{
         this.centralShashesS25PintadoNegro,
         this.bigHorizontalShashesS25PintadoNegro,
         this.smallHorizontalShashesS25PintadoNegro,
-        this.screenShashesS25PintadoNegro]
+        this.screenShashesS25PintadoNegro,
+        this.screenGuideS25LPintadoNegro,
+        this.screenGuideS25PPintadoNegro
+    ]
 
     }
 
@@ -192,6 +223,8 @@ export default class calculateMaterials{
 
                 
                 this.screenShashesS20Anodizado.push(opening.frames.screenShash);
+
+                this.screenGuideS20Anodizado.push(opening.frames.screenGuide);
             }
 
             if(opening.serie === "s25" && opening.color === "anodizado"){
@@ -207,6 +240,8 @@ export default class calculateMaterials{
                 this.bigHorizontalShashesS25Anodizado.push(opening.frames.horizontalShashBig);
                 this.smallHorizontalShashesS25Anodizado.push(opening.frames.horizontalShashSmall);
                 this.screenShashesS25Anodizado.push(opening.frames.screenShash);
+                this.screenGuideS25LAnodizado.push(opening.frames.screenGuideS25L);
+                this.screenGuideS25PAnodizado.push(opening.frames.screenGuideS25P);
             }
 
             if(opening.serie === "s20" && opening.color === "blanco"){
@@ -216,6 +251,7 @@ export default class calculateMaterials{
                 this.centralShashesS20Blanco.push(opening.frames.centralShash);
                 this.horizontalShashesS20Blanco.push(opening.frames.horizontalShash);
                 this.screenShashesS20Blanco.push(opening.frames.screenShash);
+                this.screenGuideS20Blanco.push(opening.frames.screenGuide);
             }
 
             if(opening.serie === "s25" && opening.color === "blanco"){
@@ -231,6 +267,9 @@ export default class calculateMaterials{
                 this.bigHorizontalShashesS25Blanco.push(opening.frames.horizontalShashBig);
                 this.smallHorizontalShashesS25Blanco.push(opening.frames.horizontalShashSmall);
                 this.screenShashesS25Blanco.push(opening.frames.screenShash);
+                this.screenGuideS25LBlanco.push(opening.frames.screenGuideS25L);
+                this.screenGuideS25PBlanco.push(opening.frames.screenGuideS25P);
+
             }
             if(opening.serie === "s20" && opening.color === "anolok"){
                 this.horizontalFramesS20Anolok.push(opening.frames.horizontalFrame);
@@ -239,6 +278,7 @@ export default class calculateMaterials{
                 this.centralShashesS20Anolok.push(opening.frames.centralShash);
                 this.horizontalShashesS20Anolok.push(opening.frames.horizontalShash);
                 this.screenShashesS20Anolok.push(opening.frames.screenShash);
+                this.screenGuideS20Anolok.push(opening.frames.screenGuide);
             }
             if(opening.serie === "s25" && opening.color === "anolok"){
                 if(opening.dvh === true){
@@ -253,6 +293,8 @@ export default class calculateMaterials{
                 this.bigHorizontalShashesS25Anolok.push(opening.frames.horizontalShashBig);
                 this.smallHorizontalShashesS25Anolok.push(opening.frames.horizontalShashSmall);
                 this.screenShashesS25Anolok.push(opening.frames.screenShash);
+                this.screenGuideS25LAnolok.push(opening.frames.screenGuideS25L);
+                this.screenGuideS25PAnolok.push(opening.frames.screenGuideS25P);
             }
 
             if(opening.serie === "s20" && opening.color === "imitacionMadera"){
@@ -262,6 +304,7 @@ export default class calculateMaterials{
                 this.centralShashesS20ImitacionMadera.push(opening.frames.centralShash);
                 this.horizontalShashesS20ImitacionMadera.push(opening.frames.horizontalShash);
                 this.screenShashesS20ImitacionMadera.push(opening.frames.screenShash);
+                this.screenGuideS20ImitacionMadera.push(opening.frames.screenGuide);
             }
             if(opening.serie === "s25" && opening.color === "imitacionMadera"){
                 if(opening.dvh === true){
@@ -276,6 +319,8 @@ export default class calculateMaterials{
                 this.bigHorizontalShashesS25ImitacionMadera.push(opening.frames.horizontalShashBig);
                 this.smallHorizontalShashesS25ImitacionMadera.push(opening.frames.horizontalShashSmall);
                 this.screenShashesS25ImitacionMadera.push(opening.frames.screenShash);
+                this.screenGuideS25LImitacionMadera.push(opening.frames.screenGuideS25L);
+                this.screenGuideS25PImitacionMadera.push(opening.frames.screenGuideS25P);
             }
             if(opening.serie === "s20" && opening.color === "pintadoNegro"){
                 this.horizontalFramesS20PintadoNegro.push(opening.frames.horizontalFrame);
@@ -284,6 +329,7 @@ export default class calculateMaterials{
                 this.centralShashesS20PintadoNegro.push(opening.frames.centralShash);
                 this.horizontalShashesS20PintadoNegro.push(opening.frames.horizontalShash);
                 this.screenShashesS20PintadoNegro.push(opening.frames.screenShash);
+                this.screenGuideS20PintadoNegro.push(opening.frames.screenGuide);
             }
             if(opening.serie === "s25" && opening.color === "pintadoNegro"){
                 if(opening.dvh === true){
@@ -297,6 +343,8 @@ export default class calculateMaterials{
                 this.bigHorizontalShashesS25PintadoNegro.push(opening.frames.horizontalShashBig);
                 this.smallHorizontalShashesS25PintadoNegro.push(opening.frames.horizontalShashSmall);
                 this.screenShashesS25PintadoNegro.push(opening.frames.screenShash);
+                this.screenGuideS25PPintadoNegro.push(opening.frames.screenGuide);
+                this.screenGuideS25LPintadoNegro.push(opening.frames.screenGuideS25L);
             }
             if(opening.serie === "s25" && opening.color === "blanco"){
                 if(opening.dvh === true){
@@ -310,6 +358,8 @@ export default class calculateMaterials{
                 this.bigHorizontalShashesS25Blanco.push(opening.frames.horizontalShashBig);
                 this.smallHorizontalShashesS25Blanco.push(opening.frames.horizontalShashSmall);
                 this.screenShashesS25Blanco.push(opening.frames.screenShash);
+                this.screenGuideS25LBlanco.push(opening.frames.screenGuideS25L);
+                this.screenGuideS25PBlanco.push(opening.frames.screenGuideS25P);
             }
 
             if(opening.serie === "s25TripleRiel" && opening.color === "anodizado"){
@@ -324,6 +374,8 @@ export default class calculateMaterials{
                 this.bigHorizontalShashesS25Anodizado.push(opening.frames.horizontalShashBig);
                 this.smallHorizontalShashesS25Anodizado.push(opening.frames.horizontalShashSmall);
                 this.screenShashesS25Anodizado.push(opening.frames.screenShash);
+                this.screenGuideS25LAnodizado.push(opening.frames.screenGuideS25L);
+                this.screenGuideS25PAnodizado.push(opening.frames.screenGuideS25P);
             }
         });
 
@@ -338,6 +390,7 @@ export default class calculateMaterials{
             this.centralShashesS20Anodizado,
             this.horizontalShashesS20Anodizado,
             this.screenShashesS20Anodizado,
+            this.screenGuideS20Anodizado,
             this.inferiorFramesS25Anodizado,
             this.superiorFramesS25Anodizado,
             this.verticalFramesS25Anodizado,
@@ -346,6 +399,8 @@ export default class calculateMaterials{
             this.bigHorizontalShashesS25Anodizado,
             this.smallHorizontalShashesS25Anodizado,
             this.screenShashesS25Anodizado,
+            this.screenGuideS25LAnodizado,
+            this.screenGuideS25PAnodizado,
             this.glassDvhUsS25Anodizado,
 
             this.horizontalFramesS20Blanco,
@@ -354,6 +409,7 @@ export default class calculateMaterials{
             this.centralShashesS20Blanco,
             this.horizontalShashesS20Blanco,
             this.screenShashesS20Blanco,
+            this.screenGuideS20Blanco,
             this.inferiorFramesS25Blanco,
             this.superiorFramesS25Blanco,
             this.verticalFramesS25Blanco,
@@ -362,6 +418,8 @@ export default class calculateMaterials{
             this.bigHorizontalShashesS25Blanco,
             this.smallHorizontalShashesS25Blanco,
             this.screenShashesS25Blanco,
+            this.screenGuideS25LBlanco,
+            this.screenGuideS25PBlanco,
 
             this.horizontalFramesS20Anolok,
             this.verticalFramesS20Anolok,
@@ -369,6 +427,7 @@ export default class calculateMaterials{
             this.centralShashesS20Anolok,
             this.horizontalShashesS20Anolok,
             this.screenShashesS20Anolok,
+            this.screenGuideS20Anolok,
             this.inferiorFramesS25Anolok,
             this.superiorFramesS25Anolok,
             this.verticalFramesS25Anolok,
@@ -377,13 +436,15 @@ export default class calculateMaterials{
             this.bigHorizontalShashesS25Anolok,
             this.smallHorizontalShashesS25Anolok,
             this.screenShashesS25Anolok,
-
+            this.screenGuideS25LAnolok,
+            this.screenGuideS25PAnolok,
             this.horizontalFramesS20ImitacionMadera,
             this.verticalFramesS20ImitacionMadera,
             this.lateralShashesS20ImitacionMadera,
             this.centralShashesS20ImitacionMadera,
             this.horizontalShashesS20ImitacionMadera,
             this.screenShashesS20ImitacionMadera,
+            this.screenGuideS20ImitacionMadera,
             this.inferiorFramesS25ImitacionMadera,
             this.superiorFramesS25ImitacionMadera,
             this.verticalFramesS25ImitacionMadera,
@@ -392,6 +453,8 @@ export default class calculateMaterials{
             this.bigHorizontalShashesS25ImitacionMadera,
             this.smallHorizontalShashesS25ImitacionMadera,
             this.screenShashesS25ImitacionMadera,
+            this.screenGuideS25LImitacionMadera,
+            this.screenGuideS25PImitacionMadera,
 
             this.horizontalFramesS20PintadoNegro,
             this.verticalFramesS20PintadoNegro,
@@ -399,6 +462,7 @@ export default class calculateMaterials{
             this.centralShashesS20PintadoNegro,
             this.horizontalShashesS20PintadoNegro,
             this.screenShashesS20PintadoNegro,
+            this.screenGuideS20PintadoNegro,
             this.inferiorFramesS25PintadoNegro,
             this.superiorFramesS25PintadoNegro,
             this.verticalFramesS25PintadoNegro,
@@ -406,7 +470,9 @@ export default class calculateMaterials{
             this.centralShashesS25PintadoNegro,
             this.bigHorizontalShashesS25PintadoNegro,
             this.smallHorizontalShashesS25PintadoNegro,
-            this.screenShashesS25PintadoNegro
+            this.screenShashesS25PintadoNegro,
+            this.screenGuideS25LPintadoNegro,
+            this.screenGuideS25PPintadoNegro
         ];
     }
 

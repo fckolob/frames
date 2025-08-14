@@ -50,11 +50,13 @@ async framing(){
 
         const screenShash = new Frame(this.serie, {abasur: "E4436", urualum: "2314", juan: "214", aluminiosDelUruguay: "PN 2314"}, {width: this.pieces.screenWidth.lenght, height: this.pieces.screenHeight.lenght}, "Screen Shash", this.color, {widthQuantity: this.pieces.screenWidth.quantity, heightQuantity: this.pieces.screenHeight.quantity});
 
+        const screenGuide = new Frame(this.serie, {abasur: "E4821", urualum: "213", juan: "213", aluminiosDelUruguay: "PN 0213"}, this.pieces.screenGuideS20.lenght, "Screen Guide S20", this.color, this.pieces.screenGuideS20.quantity);
+
         const glassWidth = {lenght: this.pieces.glassWidth.lenght, quantity: this.pieces.glassWidth.quantity};
 
         const glassHeight = {lenght: this.pieces.glassHeight.lenght, quantity: this.pieces.glassHeight.quantity};
 
-        this.frames = {horizontalFrame: horizontalFrame, verticalFrame: verticalFrame, lateralShash: lateralShash, centralShash: centralShash, horizontalShash: horizontalShash, screenShash: screenShash}
+        this.frames = {horizontalFrame: horizontalFrame, verticalFrame: verticalFrame, lateralShash: lateralShash, centralShash: centralShash, horizontalShash: horizontalShash, screenShash: screenShash, screenGuide: screenGuide};
 
         this.glass = {glassWidth: glassWidth, glassHeight: glassHeight};
 
@@ -77,6 +79,10 @@ async framing(){
         const horizontalShashSmall = new Frame(this.serie, {abasur: "E2863", urualum: "4504", juan: "4504", aluminiosDelUruguay: "Not available"}, this.pieces.horizontalShashSmall.lenght, "Horizontal Shash Small", this.color, this.pieces.horizontalShashSmall.quantity);
 
         const screenShash = new Frame(this.serie, {abasur: "E3514", urualum: "2343", juan: "2343", aluminiosDelUruguay: "PN 2343"}, {width: this.pieces.screenWidth.lenght, height: this.pieces.screenHeight.lenght}, "Screen Shash", this.color, {widthQuantity: this.pieces.screenWidth.quantity, heightQuantity: this.pieces.screenHeight.quantity});
+
+        const screenGuideS25L = new Frame(this.serie, {abasur: "E4678", urualum: "213", juan: "213", aluminiosDelUruguay: "PN 0213"}, this.pieces.screenGuideS25L.lenght, "Screen Guide S25 L", this.color, this.pieces.screenGuideS25L.quantity);
+
+        const screenGuideS25P = new Frame(this.serie, {abasur: "E4677", urualum: "2344", juan: "2344", aluminiosDelUruguay: "PN 0213"}, this.pieces.screenGuideS25P.lenght, "Screen Guide S25 P", this.color, this.pieces.screenGuideS25P.quantity);
 
         let glassWidth = {};
 
@@ -107,7 +113,7 @@ async framing(){
         }
         
 
-        this.frames = {inferiorFrame: inferiorFrame, superiorFrame: superiorFrame, verticalFrame: verticalFrame, lateralShash: lateralShash, centralShash: centralShash, horizontalShashBig: horizontalShashBig, horizontalShashSmall: horizontalShashSmall, screenShash: screenShash, glassDvhU: glassDvhU};
+        this.frames = {inferiorFrame: inferiorFrame, superiorFrame: superiorFrame, verticalFrame: verticalFrame, lateralShash: lateralShash, centralShash: centralShash, horizontalShashBig: horizontalShashBig, horizontalShashSmall: horizontalShashSmall, screenShash: screenShash, glassDvhU: glassDvhU, screenGuideS25L: screenGuideS25L, screenGuideS25P: screenGuideS25P};
 
         this.glass = {glassWidth: glassWidth, glassHeight: glassHeight};
 
@@ -128,6 +134,11 @@ async framing(){
               this.color,
               {widthQuantity: this.pieces.screenWidth.quantity, heightQuantity: this.pieces.screenHeight.quantity}
             );
+
+            const screenGuideS25L = new Frame(this.serie, {abasur: "E4678", urualum: "213", juan: "213", aluminiosDelUruguay: "PN 0213"}, this.pieces.screenGuideS25L.lenght, "Screen Guide S25 L", this.color, this.pieces.screenGuideS25L.quantity);
+
+            const screenGuideS25P = new Frame(this.serie, {abasur: "E4677", urualum: "2344", juan: "2344", aluminiosDelUruguay: "PN 0213"}, this.pieces.screenGuideS25P.lenght, "Screen Guide S25 P", this.color, this.pieces.screenGuideS25P.quantity);
+            
             let glassWidth = {};
             let glassHeight = {};
             let glassDvhU = {};
@@ -142,7 +153,7 @@ async framing(){
             glassDvhU = new Frame(this.serie, {abasur: "E4886", urualum: "Not available", juan: "4590", aluminiosDelUruguay: "Not available"}, {width: this.pieces.glassDvhUHorizontal.lenght, height: this.pieces.glassDvhUVertical.lenght}, "U Dvh", this.color, {widthQuantity: this.pieces.glassDvhUHorizontal.quantity, heightQuantity: this.pieces.glassDvhUVertical.quantity});
             }
 
-            this.frames = {lateralShash: lateralShash, centralShash: centralShash, horizontalShashBig: horizontalShashBig, horizontalShashSmall: horizontalShashSmall, screenShash: screenShash, glassDvhU: glassDvhU, inferiorFrameTripleRiel: inferiorFrameTripleRiel, superiorFrameTripleRiel: superiorFrameTripleRiel, verticalFrameTripleRiel: verticalFrameTripleRiel};
+            this.frames = {lateralShash: lateralShash, centralShash: centralShash, horizontalShashBig: horizontalShashBig, horizontalShashSmall: horizontalShashSmall, screenShash: screenShash, glassDvhU: glassDvhU, inferiorFrameTripleRiel: inferiorFrameTripleRiel, superiorFrameTripleRiel: superiorFrameTripleRiel, verticalFrameTripleRiel: verticalFrameTripleRiel, screenGuideS25L: screenGuideS25L, screenGuideS25P: screenGuideS25P};
 
             this.glass = {glassWidth: glassWidth, glassHeight: glassHeight};
         }
