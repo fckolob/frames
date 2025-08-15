@@ -27,6 +27,18 @@ export default class calculateMaterials{
         this.InferiorFramesS25TripleRielAnodizado = [];
         this.SuperiorFramesS25TripleRielAnodizado = [];
         this.VerticalFramesS25TripleRielAnodizado = [];
+        this.horizontalFramesProbbaAnodizado = [];
+        this.verticalFramesProbbaAnodizado = [];
+        this.lateralShashesProbbaAnodizado = [];
+        this.centralShashesProbbaAnodizado = [];
+        this.horizontalShashesProbbaAnodizado = [];
+        this.screenShashesProbbaAnodizado = [];
+        this.screenGuideProbbaAnodizado = [];
+        this.lateralShashesProbbaAnodizado = [];
+        this.centralShashesProbbaAnodizado = [];
+        this.screenShashesProbbaAnodizado = [];
+        this.screenGuideProbbaAnodizado = [];
+        this.glassDvhUsProbbaAnodizado = [];
 
         this.horizontalFramesS20Blanco = [];
         this.verticalFramesS20Blanco =[]
@@ -377,6 +389,19 @@ export default class calculateMaterials{
                 this.screenGuideS25LAnodizado.push(opening.frames.screenGuideS25L);
                 this.screenGuideS25PAnodizado.push(opening.frames.screenGuideS25P);
             }
+
+            if(opening.serie === "probbaCorrediza" && opening.color === "anodizado"){
+                if(opening.dvh === true){
+                    this.glassDvhUsProbbaAnodizado.push(opening.frames.glassDvhU);
+                }
+                this.horizontalFramesProbbaAnodizado.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaAnodizado.push(opening.frames.verticalFrame);
+                this.lateralShashesProbbaAnodizado.push(opening.frames.lateralShash);
+                this.centralShashesProbbaAnodizado.push(opening.frames.centralShash);
+                this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShash);
+                this.screenShashesProbbaAnodizado.push(opening.frames.screenShash);
+                this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
+            }
         });
 
         //Reconstruyendo frame arrays.
@@ -402,6 +427,13 @@ export default class calculateMaterials{
             this.screenGuideS25LAnodizado,
             this.screenGuideS25PAnodizado,
             this.glassDvhUsS25Anodizado,
+            this.horizontalFramesProbbaAnodizado,
+            this.verticalFramesProbbaAnodizado,
+            this.lateralShashesProbbaAnodizado,
+            this.centralShashesProbbaAnodizado,
+            this.horizontalShashesProbbaAnodizado,
+            this.screenShashesProbbaAnodizado,
+            this.screenGuideProbbaAnodizado,
 
             this.horizontalFramesS20Blanco,
             this.verticalFramesS20Blanco,
