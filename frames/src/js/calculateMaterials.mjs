@@ -1,8 +1,9 @@
 import bar from "./bar.mjs";
 export default class calculateMaterials{
 
-    constructor(openings = [], barLenght = 6000){
+    constructor(openings = [], barLenght = 5900){
 
+        this.slice = 4;
         this.barLenght = barLenght;
         this.openings = openings;
         this.frameBars = [];
@@ -391,6 +392,9 @@ export default class calculateMaterials{
             }
 
             if(opening.serie === "probbaCorrediza" && opening.color === "anodizado"){
+
+                
+
                 if(opening.dvh === true){
                     this.glassDvhUsProbbaAnodizado.push(opening.frames.glassDvhU);
                 }
@@ -539,10 +543,10 @@ export default class calculateMaterials{
         let elements = 0;
         let bars = 1;
         lenghtGroup.forEach(lenght => {
-            elements = elements + lenght;
+            elements = elements + lenght + this.slice;
             if(elements >= this.barLenght){
                 bars += 1;
-                elements = lenght;
+                elements = lenght + this.slice;
             }
         });
         return bars;
@@ -551,25 +555,53 @@ export default class calculateMaterials{
     async calculateFrameBars(){
         
         await this.classificateFrames();
-    this.framesArrays.forEach(frameArray => {
-        if(Array.isArray(frameArray) && frameArray.length > 0 && frameArray[0]) {
-            // Filtrando frames undefined.
-            const validFrames = frameArray.filter(f => f && typeof f.quantity !== "undefined" && typeof f.lenght !== "undefined");
-            if(validFrames.length > 0){
-                let bar1 = new bar(
-                    this.calculateFrameBarsQuantity(this.calculateLenghtGroups(validFrames)),
-                    validFrames[0].name,
-                    validFrames[0].serie,
-                    validFrames[0].color,
-                    validFrames[0].code
-                );
-                this.frameBars.push(bar1);
-            }
-        }
-    });
-}
+        this.frameBars = []; // Limpia antes de calcular
 
-   init(){
+        this.framesArrays.forEach(frameArray => {
+            if(Array.isArray(frameArray) && frameArray.length > 0 && frameArray[0]) {
+                // Filtrando frames undefined.
+                const validFrames = frameArray.filter(f => f && typeof f.quantity !== "undefined" && typeof f.lenght !== "undefined");
+                if(validFrames.length > 0){
+                    // Detecta si el frame es de probbaCorrediza
+                    const isProbba = validFrames[0].serie === "probbaCorrediza";
+                    const barLengthToUse = isProbba ? 6700 : this.barLenght;
+
+                    const lenghtGroup = this.calculateLenghtGroups(validFrames);
+                    const barsQuantity = this.calculateFrameBarsQuantityWithCustomLength(lenghtGroup, barLengthToUse);
+
+                    // ...tu lógica para crear el objeto bar y pushearlo...
+                    // Ejemplo:
+                    if(barsQuantity > 0){
+                        this.frameBars.push(
+                            new bar(
+                                barsQuantity,
+                                validFrames[0].name,
+                                validFrames[0].serie,
+                                validFrames[0].color,
+                                validFrames[0].code
+                            )
+                        );
+                    }
+                }
+            }
+        });
+    }
+
+    // Nuevo método para permitir longitud de barra personalizada
+    calculateFrameBarsQuantityWithCustomLength(lenghtGroup, barLength) {
+        let elements = 0;
+        let bars = 1;
+        lenghtGroup.forEach(lenght => {
+            elements = elements + lenght + this.slice;
+            if(elements >= barLength){
+                bars += 1;
+                elements = lenght + this.slice;
+            }
+        });
+        return bars;
+    }
+    
+    init(){
         this.calculateFrameBars()
     }
 
