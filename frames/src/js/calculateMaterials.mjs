@@ -589,16 +589,38 @@ export default class calculateMaterials{
 
     // Nuevo método para permitir longitud de barra personalizada
     calculateFrameBarsQuantityWithCustomLength(lenghtGroup, barLength) {
-        let elements = 0;
-        let bars = 1;
-        lenghtGroup.forEach(lenght => {
-            elements = elements + lenght + this.slice;
-            if(elements >= barLength){
-                bars += 1;
-                elements = lenght + this.slice;
+        // Sort descending for better packing
+        const pieces = [...lenghtGroup].sort((a, b) => b - a);
+        const memo = new Map();
+
+        function helper(index, remains) {
+            // Memoization key: index + sorted remains
+            const key = index + '|' + remains.slice().sort((a, b) => b - a).join(',');
+            if (memo.has(key)) return memo.get(key);
+
+            if (index === pieces.length) return 0; // No more pieces to place
+
+            let minBars = Infinity;
+            const piece = pieces[index];
+
+            // Try to fit in any remain
+            for (let i = 0; i < remains.length; i++) {
+                if (remains[i] >= piece + 4) { // 4 is the slice
+                    const newRemains = remains.slice();
+                    newRemains[i] -= (piece + 4);
+                    minBars = Math.min(minBars, helper(index + 1, newRemains));
+                }
             }
-        });
-        return bars;
+
+            // Or start a new bar
+            const newRemain = barLength - (piece + 4);
+            minBars = Math.min(minBars, 1 + helper(index + 1, remains.concat([newRemain])));
+
+            memo.set(key, minBars);
+            return minBars;
+        }
+
+        return helper(0, []);
     }
     
     init(){
