@@ -589,30 +589,31 @@ export default class calculateMaterials{
 
     // Nuevo método para permitir longitud de barra personalizada
     calculateFrameBarsQuantityWithCustomLength(lenghtGroup, barLength) {
-        // Sort descending for better packing
+        if (lenghtGroup.length > 18) {
+            return greedyBinPacking([...lenghtGroup], barLength, 4);
+        }
         const pieces = [...lenghtGroup].sort((a, b) => b - a);
         const memo = new Map();
 
         function helper(index, remains) {
-            // Memoization key: index + sorted remains
-            const key = index + '|' + remains.slice().sort((a, b) => b - a).join(',');
+            // Remove remains that are too small
+            const filteredRemains = remains.filter(r => r >= Math.min(...pieces.slice(index)) + 4);
+            const key = index + '|' + filteredRemains.join(',');
             if (memo.has(key)) return memo.get(key);
 
-            if (index === pieces.length) return 0; // No more pieces to place
+            if (index === pieces.length) return 0;
 
             let minBars = Infinity;
             const piece = pieces[index];
 
-            // Try to fit in any remain
-            for (let i = 0; i < remains.length; i++) {
-                if (remains[i] >= piece + 4) { // 4 is the slice
-                    const newRemains = remains.slice();
+            for (let i = 0; i < filteredRemains.length; i++) {
+                if (filteredRemains[i] >= piece + 4) {
+                    const newRemains = filteredRemains.slice();
                     newRemains[i] -= (piece + 4);
                     minBars = Math.min(minBars, helper(index + 1, newRemains));
                 }
             }
 
-            // Or start a new bar
             const newRemain = barLength - (piece + 4);
             minBars = Math.min(minBars, 1 + helper(index + 1, remains.concat([newRemain])));
 
@@ -631,4 +632,23 @@ export default class calculateMaterials{
     await this.init();
     return this.frameBars;
    }
+}
+
+function greedyBinPacking(pieces, barLength, slice = 4) {
+    const bins = [];
+    pieces.sort((a, b) => b - a);
+    for (let piece of pieces) {
+        let placed = false;
+        for (let i = 0; i < bins.length; i++) {
+            if (bins[i] >= piece + slice) {
+                bins[i] -= (piece + slice);
+                placed = true;
+                break;
+            }
+        }
+        if (!placed) {
+            bins.push(barLength - (piece + slice));
+        }
+    }
+    return bins.length;
 }
