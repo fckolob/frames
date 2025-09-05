@@ -575,7 +575,7 @@ export default class calculateMaterials{
                         this.frameBars.push(
                             new bar(
                                 barsQuantity,
-                                validFrames[0].name,
+                                validFrames[0].spanishName,
                                 validFrames[0].serie,
                                 validFrames[0].color,
                                 validFrames[0].code

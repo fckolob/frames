@@ -43,14 +43,14 @@ document.querySelector('#app').innerHTML = `
     <option value="preframeTrue">Con Premarco</option>
     <option value="preframeFalse">Sin Premarco</option>
   </select>
-  <label class="form-label" for="width">Width</label>
-  <input placeholder="Width in mm" required class="form-input" id="width" min="1" step="1" name="width" type="number">
-  <label class="form-label" for="height">Height</label>
-  <input placeholder="Height in mm" required class="form-input" id="height" name="height" min="1" step="1" type="number">
-  <label class="form-label" for="quantity">Quantity</label>
+  <label class="form-label" for="width">Ancho</label>
+  <input placeholder="Ancho en mm" required class="form-input" id="width" min="1" step="1" name="width" type="number">
+  <label class="form-label" for="height">Alto</label>
+  <input placeholder="Alto en mm" required class="form-input" id="height" name="height" min="1" step="1" type="number">
+  <label class="form-label" for="quantity">Cantidad</label>
   <input required class="form-input" min="1" step="1" id="quantity" name="quantity" type="number"> 
   
-  <input class="form-submit" value="Add Opening" id="add-opening" name="add-opening" type="submit">
+  <input class="form-submit" value="Agregar Abertura" id="add-opening" name="add-opening" type="submit">
 </form>
 
 
