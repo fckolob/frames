@@ -236,23 +236,23 @@ async getGlass(){
 }
 
 async toString(){
-    let returned = `<h2>${this.quantity} Aberturas de ${this.width} Ancho x ${this.height} Alto ${this.serie} ${this.color} DVH? = ${this.dvh}</h2><ul class="production-list">`;
+    let returned = `<h2 class="production-title">${this.quantity} Aberturas de ${this.width} Ancho x ${this.height} Alto ${this.serie} ${this.color} DVH? = ${this.dvh}</h2><ul class="production-list">`;
     Object.keys(this.frames).forEach(key => {
         if(this.frames[key] !== null && this.frames[key].name){
         if(this.frames[key].name === "Screen Shash" || this.frames[key].name === "U Dvh"){
-            returned += `<li>${this.frames[key].spanishName} Anchos = ${this.frames[key].quantity.widthQuantity} de ${this.frames[key].lenght.width} Altos = ${this.frames[key].quantity.heightQuantity} de ${this.frames[key].lenght.height}
+            returned += `<li class="production-li">${this.frames[key].spanishName} Anchos = ${this.frames[key].quantity.widthQuantity} de ${this.frames[key].lenght.width} Altos = ${this.frames[key].quantity.heightQuantity} de ${this.frames[key].lenght.height}
              </li>`
         }
 
         else if(this.frames[key].name === "Horizontal Frame" || this.frames[key].name === "Inferior Frame" || this.frames[key].name === "Superior Frame" || this.frames[key].name === "Lateral Shash" || this.frames[key].name === "Central Shash"){
-            returned += `<li>${this.frames[key].quantity} ${this.frames[key].spanishName} ${this.frames[key].lenght} Mitad = ${this.frames[key].half}</li>`
+            returned += `<li class="production-li">${this.frames[key].quantity} ${this.frames[key].spanishName} ${this.frames[key].lenght} Mitad = ${this.frames[key].half}</li>`
         }
         
         
         else {   
-       returned += `<li>${this.frames[key].quantity} ${this.frames[key].spanishName} ${this.frames[key].lenght}</li>`}
+       returned += `<li class="production-li">${this.frames[key].quantity} ${this.frames[key].spanishName} ${this.frames[key].lenght}</li>`}
     }});
-    returned += `<li>Ancho de Vidrio = ${this.glass.glassWidth.lenght} Alto de Vidrio = ${this.glass.glassHeight.lenght} Cantidad de Vidrios = ${this.glass.glassWidth.quantity}</li>`
+    returned += `<li class="production-li">Ancho de Vidrio = ${this.glass.glassWidth.lenght} Alto de Vidrio = ${this.glass.glassHeight.lenght} Cantidad de Vidrios = ${this.glass.glassWidth.quantity}</li>`
     returned += `</ul>`
     this.stringFrames.push(returned);
 }
