@@ -164,3 +164,16 @@ input:required:valid {
     background-color: #f9f9f9;
   }
 }
+
+@media print {
+
+.materials-li{
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+button{
+  display: none;
+}
+
+}
