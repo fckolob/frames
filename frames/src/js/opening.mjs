@@ -50,7 +50,7 @@ async framing(){
 
         const centralShash = new Frame(this.serie, {abasur: "E2864", urualum: "189", juan: "216 o 189", aluminiosDelUruguay: "PN 0189"}, this.pieces.centralShash.lenght, "Central Shash","Enganche", this.color, this.pieces.centralShash.quantity);
 
-        const horizontalShash = new Frame(this.serie, {abasur: "N1753", urualum: "191", juan: "205 o 191", aluminiosDelUruguay: "PN 0191"}, this.pieces.horizontalShash.lenght, "Horizontal Shash","Horizontal de Hoja", this.color, this.pieces.horizontalShash.quantity);
+        const horizontalShash = new Frame(this.serie, {abasur: "N1752", urualum: "192", juan: "192", aluminiosDelUruguay: "PN 0192"}, this.pieces.horizontalShash.lenght, "Horizontal Shash","Horizontal de Hoja", this.color, this.pieces.horizontalShash.quantity);
 
         const screenShash = new Frame(this.serie, {abasur: "E4436", urualum: "2314", juan: "214", aluminiosDelUruguay: "PN 2314"}, {width: this.pieces.screenWidth.lenght, height: this.pieces.screenHeight.lenght}, "Screen Shash", "Hoja de Mosquitero", this.color, {widthQuantity: this.pieces.screenWidth.quantity, heightQuantity: this.pieces.screenHeight.quantity});
 
