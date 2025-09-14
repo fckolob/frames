@@ -244,7 +244,7 @@ async toString(){
              </li>`
         }
 
-        else if(this.frames[key].name === "Horizontal Frame" || this.frames[key].name === "Inferior Frame" || this.frames[key].name === "Superior Frame" || this.frames[key].name === "Lateral Shash" || this.frames[key].name === "Central Shash"){
+        else if(this.frames[key].name === "Horizontal Frame" || this.frames[key].name === "Inferior Frame" || this.frames[key].name === "Superior Frame" || this.frames[key].name === "Lateral Shash" || this.frames[key].name === "Central Shash" || this.frames[key].name === "Lateral Shash for DVH" || this.frames[key].name === "Central Shash for DVH" || this.frames[key].name === "Lateral Shash for Single Glass" || this.frames[key].name === "Central Shash for Single Glass"){
             returned += `<li class="production-li">${this.frames[key].quantity} ${this.frames[key].spanishName} ${this.frames[key].lenght} Mitad = ${this.frames[key].half}</li>`
         }
         
