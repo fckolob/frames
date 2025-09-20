@@ -359,21 +359,7 @@ export default class calculateMaterials{
                 this.screenGuideS25PPintadoNegro.push(opening.frames.screenGuide);
                 this.screenGuideS25LPintadoNegro.push(opening.frames.screenGuideS25L);
             }
-            if(opening.serie === "s25" && opening.color === "blanco"){
-                if(opening.dvh === true){
-                    this.glassDvhUsS25Blanco.push(opening.frames.glassDvhU);
-                }
-                this.inferiorFramesS25Blanco.push(opening.frames.inferiorFrame);
-                this.superiorFramesS25Blanco.push(opening.frames.superiorFrame);
-                this.verticalFramesS25Blanco.push(opening.frames.verticalFrame);
-                this.lateralShashesS25Blanco.push(opening.frames.lateralShash);
-                this.centralShashesS25Blanco.push(opening.frames.centralShash);
-                this.bigHorizontalShashesS25Blanco.push(opening.frames.horizontalShashBig);
-                this.smallHorizontalShashesS25Blanco.push(opening.frames.horizontalShashSmall);
-                this.screenShashesS25Blanco.push(opening.frames.screenShash);
-                this.screenGuideS25LBlanco.push(opening.frames.screenGuideS25L);
-                this.screenGuideS25PBlanco.push(opening.frames.screenGuideS25P);
-            }
+            
 
             if(opening.serie === "s25TripleRiel" && opening.color === "anodizado"){
                 if(opening.dvh === true){
@@ -534,8 +520,10 @@ export default class calculateMaterials{
                 for (let index = 0; index < frame.quantity; index++) {
                     frameElements.push(frame.lenght);
                 }
+                
             }
         });
+        console.log(`${frameElements} lenghtgroup of ${frames[0].name}`)
         return frameElements;
     }
 
@@ -652,3 +640,4 @@ function greedyBinPacking(pieces, barLength, slice = 4) {
     }
     return bins.length;
 }
+
