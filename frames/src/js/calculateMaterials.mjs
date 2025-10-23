@@ -205,8 +205,7 @@ export default class calculateMaterials{
         this.horizontalShashesS20PintadoNegro,
         this.screenShashesS20PintadoNegro,
         this.screenGuideS20PintadoNegro,
-        this.inferiorFramesS25PintadoNegro,
-        this.superiorFramesS25PintadoNegro,
+        this.inferiorFramesS25Pintado,
         this.verticalFramesS25PintadoNegro,
         this.lateralShashesS25PintadoNegro,
         this.centralShashesS25PintadoNegro,
@@ -397,15 +396,16 @@ export default class calculateMaterials{
 
             if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "anodizado"){
 
+    this.horizontalFramesTripleRielProbbaAnodizado.push(opening.frames.horizontalFrame);
+    this.verticalFramesTripleRielProbbaAnodizado.push(opening.frames.verticalFrame);
+    this.lateralShashesProbbaAnodizado.push(opening.frames.lateralShash);
+    this.centralShashesProbbaAnodizado.push(opening.frames.centralShash);
 
-                this.horizontalFramesTripleRielProbbaAnodizado.push(opening.frames.horizontalFrame);
-                this.verticalFramesTripleRielProbbaAnodizado.push(opening.frames.verticalFrame);
-                this.lateralShashesProbbaAnodizado.push(opening.frames.lateralShash);
-                this.centralShashesProbbaAnodizado.push(opening.frames.centralShash);
-                this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShashLateral);
-                this.horizontalFramesProbbaAnodizado.push(opening.frames.horizontalShashCentral)
-                this.screenShashesProbbaAnodizado.push(opening.frames.screenShash);
-                this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
+    this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShashLateral);
+    this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShashCentral);
+
+    this.screenShashesProbbaAnodizado.push(opening.frames.screenShash);
+    this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
 
 
             }
@@ -504,8 +504,7 @@ export default class calculateMaterials{
             this.horizontalShashesS20PintadoNegro,
             this.screenShashesS20PintadoNegro,
             this.screenGuideS20PintadoNegro,
-            this.inferiorFramesS25PintadoNegro,
-            this.superiorFramesS25PintadoNegro,
+            this.inferiorFramesS25Pintado,
             this.verticalFramesS25PintadoNegro,
             this.lateralShashesS25PintadoNegro,
             this.centralShashesS25PintadoNegro,
