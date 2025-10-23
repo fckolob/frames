@@ -1,4 +1,4 @@
-import { s20, s25, s25TripleRiel, probbaCorrediza} from "./calulatePieces.mjs";
+import { s20, s25, s25TripleRiel, probbaCorrediza, probbaCorredizaTripleRiel} from "./calulatePieces.mjs";
 import Frame from "./frame.mjs";
 
 
@@ -35,6 +35,10 @@ constructor(width, height, serie, color, dvh, preframe, quantity){
 
     if (this.serie === "probbaCorrediza"){
         this.pieces = probbaCorrediza(this.width, this.height, this.quantity);
+    }
+
+    if (this.serie === "probbaCorredizaTripleRiel"){
+        this.pieces = probbaCorredizaTripleRiel(this.width, this.height, this.quantity);
     }
 }
 
@@ -162,7 +166,8 @@ async framing(){
             this.glass = {glassWidth: glassWidth, glassHeight: glassHeight};
         }
 
-        if(this.serie === "probbaCorrediza"){
+       
+ if(this.serie === "probbaCorrediza"){
 
         const horizontalFrame = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 93150"}, this.pieces.horizontalFrame.lenght, "Horizontal Frame", "Horizontal de Marco", this.color, this.pieces.horizontalFrame.quantity);
 
@@ -201,6 +206,8 @@ async framing(){
 
         glassHeight = {lenght: this.pieces.glassHeight.lenght, quantity: this.pieces.glassHeight.quantity};
 
+        
+
         }
 
         
@@ -209,16 +216,81 @@ async framing(){
 
         const screenGuideProbba = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 93074"}, this.pieces.screenGuideProbba.lenght, "Screen Guide", "Guía de Mosquitero", this.color, this.pieces.screenGuideProbba.quantity);
 
-        
-
         this.frames = {horizontalFrame: horizontalFrame, verticalFrame: verticalFrame, lateralShash: lateralShash, centralShash: centralShash, horizontalShash: horizontalShash, screenShash: screenShash, screenGuideProbba: screenGuideProbba};
 
         this.glass = {glassWidth: glassWidth, glassHeight: glassHeight};
+    }
+
+
+        if(this.serie === "probbaCorredizaTripleRiel"){
+
+        const horizontalFrameTripleRiel = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 93054"}, this.pieces.horizontalFrame.lenght, "Horizontal Frame Triple Riel", "Horizontal de Marco triple Riel", this.color, this.pieces.horizontalFrame.quantity);
+
+        const verticalFrameTripleRiel = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 93073"}, this.pieces.verticalFrame.lenght, "Vertical Frame Triple Riel", "Lateral de Marco Triple Riel", this.color, this.pieces.verticalFrame.quantity);
+
+        let glassWidthLateral = {};
+        let glassWidthCentral = {};
+        let glassHeight = {};
+        let lateralShash = {};
+        let centralShash = {};
+        let horizontalShashLateral = {};
+        let horizontalShashCentral = {};
+
+
+        if (this.dvh === true) {
+
+        lateralShash = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90031"}, this.pieces.lateralShash.lenght, "Lateral Shash for DVH", "Lateral de Hoja para DVH", this.color, this.pieces.lateralShash.quantity);
+
+        centralShash = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90030"}, this.pieces.centralShash.lenght, "Central Shash for DVH", "Enganche para DVH", this.color, this.pieces.centralShash.quantity);
+
+        horizontalShashLateral = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90026"}, this.pieces.horizontalShashLateral.lenght, "Horizontal Shash for DVH (Lateral Shashes)", "Horizontal de Hoja para DVH (Hojas Laterales)", this.color, this.pieces.horizontalShashLateral.quantity);
+
+        horizontalShashCentral = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90026"}, this.pieces.horizontalShashCentral.lenght, "Horizontal Shash for DVH (Central Shash)", "Horizontal de Hoja para DVH (Hoja Central)", this.color, this.pieces.horizontalShashCentral.quantity);
+
+        glassWidthLateral = {lenght: this.pieces.glassDvhWidthLateral.lenght, quantity: this.pieces.glassDvhWidthLateral.quantity};
+
+        glassWidthCentral = {lenght: this.pieces.glassDvhWidthCentral.lenght, quantity: this.pieces.glassDvhWidthCentral.quantity};
+
+        glassHeight = {lenght: this.pieces.glassDvhHeight.lenght, quantity: this.pieces.glassDvhHeight.quantity};
 
         }
 
+        if (this.dvh === false){
 
-}
+        lateralShash = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90027"}, this.pieces.lateralShash.lenght, "Lateral Shash for Single Glass", "Lateral de Hoja para Vidrio Simple", this.color, this.pieces.lateralShash.quantity);
+
+        centralShash = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90028"}, this.pieces.centralShash.lenght, "Central Shash for Single Glass", "Enganche para Vidrio Simple", this.color, this.pieces.centralShash.quantity);
+
+        horizontalShashLateral = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90025"}, this.pieces.horizontalShashLateral.lenght, "Horizontal Shash for Single Glass (Lateral Shashes)", "Horizontal de Hoja para Vidrio Simple (Hojas Laterales)", this.color, this.pieces.horizontalShashLateral.quantity);
+
+        horizontalShashCentral = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90025"}, this.pieces.horizontalShashCentral.lenght, "Horizontal Shash for Single Glass (Central Shash)", "Horizontal de Hoja para Vidrio Simple (Hoja Central)", this.color, this.pieces.horizontalShashCentral.quantity);
+
+        glassWidthLateral = {lenght: this.pieces.glassWidthLateral.lenght, quantity: this.pieces.glassWidthLateral.quantity};
+
+        glassWidthCentral = {lenght: this.pieces.glassWidthCentral.lenght, quantity: this.pieces.glassWidthCentral.quantity};
+
+        glassHeight = {lenght: this.pieces.glassHeight.lenght, quantity: this.pieces.glassHeight.quantity};
+
+        }
+
+        
+
+        const screenShash = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 41043"}, {width: this.pieces.screenWidth.lenght, height: this.pieces.screenHeight.lenght}, "Screen Shash", "Hoja de Mosquitero", this.color, {widthQuantity: this.pieces.screenWidth.quantity, heightQuantity: this.pieces.screenHeight.quantity});
+
+        const screenGuideProbba = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 93074"}, this.pieces.screenGuideProbba.lenght, "Screen Guide", "Guía de Mosquitero", this.color, this.pieces.screenGuideProbba.quantity);
+
+        this.frames = {horizontalFrame: horizontalFrameTripleRiel, verticalFrame: verticalFrameTripleRiel, lateralShash: lateralShash, centralShash: centralShash, horizontalShashLateral: horizontalShashLateral, horizontalShashCentral: horizontalShashCentral, screenShash: screenShash, screenGuideProbba: screenGuideProbba};
+
+        this.glass = {glassWidthLateral: glassWidthLateral, glassWidthCentral: glassWidthCentral, glassHeight: glassHeight};
+    }
+        
+
+        
+
+        }
+
+        
+
 
 async init(){
     await this.framing();
@@ -237,23 +309,56 @@ async getGlass(){
 
 async toString(){
     let returned = `<h2 class="production-title">${this.quantity} Aberturas de ${this.width} Ancho x ${this.height} Alto ${this.serie} ${this.color} DVH? = ${this.dvh}</h2><ul class="production-list">`;
-    Object.keys(this.frames).forEach(key => {
-        if(this.frames[key] !== null && this.frames[key].name){
-        if(this.frames[key].name === "Screen Shash" || this.frames[key].name === "U Dvh"){
-            returned += `<li class="production-li">${this.frames[key].spanishName} Anchos = ${this.frames[key].quantity.widthQuantity} de ${this.frames[key].lenght.width} Altos = ${this.frames[key].quantity.heightQuantity} de ${this.frames[key].lenght.height}
-             </li>`
-        }
 
-        else if(this.frames[key].name === "Horizontal Frame" || this.frames[key].name === "Inferior Frame" || this.frames[key].name === "Superior Frame" || this.frames[key].name === "Lateral Shash" || this.frames[key].name === "Central Shash" || this.frames[key].name === "Lateral Shash for DVH" || this.frames[key].name === "Central Shash for DVH" || this.frames[key].name === "Lateral Shash for Single Glass" || this.frames[key].name === "Central Shash for Single Glass"){
-            returned += `<li class="production-li">${this.frames[key].quantity} ${this.frames[key].spanishName} ${this.frames[key].lenght} Mitad = ${this.frames[key].half}</li>`
+    // helper: show one decimal only when fractional part is not zero
+    const fmt = (v) => {
+        if (v === null || v === undefined) return 'N/A';
+        if (typeof v === 'number') {
+            // si es entero, mostrar sin decimales; si no, mostrar 1 decimal (redondeado)
+            return Number.isInteger(v) ? String(v) : v.toFixed(1).replace(/\.0$/, '');
         }
-        
-        
-        else {   
-       returned += `<li class="production-li">${this.frames[key].quantity} ${this.frames[key].spanishName} ${this.frames[key].lenght}</li>`}
-    }});
-    returned += `<li class="production-li">Ancho de Vidrio = ${this.glass.glassWidth.lenght} Alto de Vidrio = ${this.glass.glassHeight.lenght} Cantidad de Vidrios = ${this.glass.glassWidth.quantity}</li>`
-    returned += `</ul>`
+        return v;
+    };
+
+    Object.keys(this.frames).forEach(key => {
+        if (this.frames[key] !== null && this.frames[key].name) {
+            if (this.frames[key].name === "Screen Shash" || this.frames[key].name === "U Dvh") {
+                returned += `<li class="production-li">${this.frames[key].spanishName} Anchos = ${fmt(this.frames[key].quantity?.widthQuantity)} de ${fmt(this.frames[key].lenght?.width)} \nAltos = ${fmt(this.frames[key].quantity?.heightQuantity)} de ${fmt(this.frames[key].lenght?.height)}</li>`;
+            } else if (
+                this.frames[key].name === "Horizontal Frame" ||
+                this.frames[key].name === "Inferior Frame" ||
+                this.frames[key].name === "Superior Frame" ||
+                this.frames[key].name === "Lateral Shash" ||
+                this.frames[key].name === "Central Shash" ||
+                this.frames[key].name === "Lateral Shash for DVH" ||
+                this.frames[key].name === "Central Shash for DVH" ||
+                this.frames[key].name === "Lateral Shash for Single Glass" ||
+                this.frames[key].name === "Central Shash for Single Glass"
+            ) {
+                returned += `<li class="production-li">${fmt(this.frames[key].quantity)} ${this.frames[key].spanishName} ${fmt(this.frames[key].lenght)} Mitad = ${fmt(this.frames[key].half)}</li>`;
+            } else {
+                returned += `<li class="production-li">${fmt(this.frames[key].quantity)} ${this.frames[key].spanishName} ${fmt(this.frames[key].lenght)}</li>`;
+            }
+        }
+    });
+
+    // handle glass variations safely and formatted
+    if (this.glass && (this.glass.glassWidthLateral || this.glass.glassWidth)) {
+        if (this.glass.glassWidthLateral) {
+            const gwL = this.glass.glassWidthLateral ?? { lenght: "N/A", quantity: 0 };
+            const gwC = this.glass.glassWidthCentral ?? { lenght: "N/A", quantity: 0 };
+            const gh = this.glass.glassHeight ?? { lenght: "N/A", quantity: 0 };
+            returned += `<li class="production-li">Ancho de Vidrio Hoja Central = ${fmt(gwC.lenght)} \n Ancho de Vidrios Hojas Laterales = ${fmt(gwL.lenght)}\n Alto de Vidrios = ${fmt(gh.lenght)} \n Cantidad de Vidrios Laterales = ${fmt(gwL.quantity)} \n Cantidad de vidrios centrales = ${fmt(gwC.quantity)}</li>`;
+        } else {
+            const gw = this.glass.glassWidth ?? { lenght: "N/A", quantity: 0 };
+            const gh = this.glass.glassHeight ?? { lenght: "N/A", quantity: 0 };
+            returned += `<li class="production-li">Ancho de Vidrio = ${fmt(gw.lenght)}\n Alto de Vidrio = ${fmt(gh.lenght)}\n Cantidad de Vidrios = ${fmt(gw.quantity)}</li>`;
+        }
+    } else {
+        returned += `<li class="production-li">Ancho de Vidrio = N/A Alto de Vidrio = N/A Cantidad de Vidrios = 0</li>`;
+    }
+
+    returned += `</ul>`;
     this.stringFrames.push(returned);
 }
 

@@ -22,3 +22,9 @@ export function probbaCorrediza(width, height, quantity){
     console.log(pieces);
     return pieces;
 }
+
+export function probbaCorredizaTripleRiel(width, height, quantity){
+    const pieces = {horizontalFrame: {lenght: width - 36, quantity: quantity * 2}, verticalFrame: {lenght: parseInt(height), quantity: quantity * 2}, lateralShash: {lenght: height - 65, quantity: quantity * 2}, centralShash: {lenght: height - 65, quantity: quantity * 4}, horizontalShashLateral: {lenght: width / 3 - 7, quantity: quantity * 4}, horizontalShashCentral: {lenght: width / 3 + 12, quantity: quantity * 2},glassWidthCentral: {lenght: width / 3 - 68, quantity: quantity * 1}, glassWidthLateral: {lenght: width / 3 - 77, quantity: quantity * 2}, glassHeight: {lenght: height - 173, quantity: quantity * 3}, screenWidth: {lenght: width / 3 + 11, quantity: quantity * 2}, screenHeight: {lenght: height - 62, quantity: quantity * 2}, screenGuideProbba: {lenght: width - 5, quantity: quantity * 2},glassDvhWidthCentral:{ lenght: width / 3 - 61, quantity: quantity * 1}, glassDvhWidthLateral: {lenght: width / 3 - 70, quantity: quantity * 2}, glassDvhHeight: {lenght: height - 165, quantity: quantity * 3}};
+    console.log(pieces);
+    return pieces;
+}

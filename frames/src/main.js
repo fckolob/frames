@@ -21,6 +21,7 @@ document.querySelector('#app').innerHTML = `
     <option value="s25">Serie 25</option>
     <option value="s25TripleRiel">Serie 25 Triple Riel</option>
     <option value="probbaCorrediza">Probba Corrediza</option>
+    <option value="probbaCorredizaTripleRiel">Probba Corrediza Triple Riel</option>
   </select>
   <label class="form-label" for="color">Color</label>
   <select required class="form-input" name="color" id="color">

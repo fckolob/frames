@@ -29,7 +29,9 @@ export default class calculateMaterials{
         this.SuperiorFramesS25TripleRielAnodizado = [];
         this.VerticalFramesS25TripleRielAnodizado = [];
         this.horizontalFramesProbbaAnodizado = [];
+        this.horizontalFramesTripleRielProbbaAnodizado = [];
         this.verticalFramesProbbaAnodizado = [];
+        this.verticalFramesTripleRielProbbaAnodizado = [];
         this.lateralShashesProbbaAnodizado = [];
         this.centralShashesProbbaAnodizado = [];
         this.horizontalShashesProbbaAnodizado = [];
@@ -392,6 +394,21 @@ export default class calculateMaterials{
                 this.screenShashesProbbaAnodizado.push(opening.frames.screenShash);
                 this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
             }
+
+            if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "anodizado"){
+
+
+                this.horizontalFramesTripleRielProbbaAnodizado.push(opening.frames.horizontalFrame);
+                this.verticalFramesTripleRielProbbaAnodizado.push(opening.frames.verticalFrame);
+                this.lateralShashesProbbaAnodizado.push(opening.frames.lateralShash);
+                this.centralShashesProbbaAnodizado.push(opening.frames.centralShash);
+                this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShashLateral);
+                this.horizontalFramesProbbaAnodizado.push(opening.frames.horizontalShashCentral)
+                this.screenShashesProbbaAnodizado.push(opening.frames.screenShash);
+                this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
+
+
+            }
         });
 
         //Reconstruyendo frame arrays.
@@ -424,6 +441,8 @@ export default class calculateMaterials{
             this.horizontalShashesProbbaAnodizado,
             this.screenShashesProbbaAnodizado,
             this.screenGuideProbbaAnodizado,
+            this.horizontalFramesTripleRielProbbaAnodizado,
+            this.verticalFramesTripleRielProbbaAnodizado,
 
             this.horizontalFramesS20Blanco,
             this.verticalFramesS20Blanco,

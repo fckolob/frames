@@ -152,6 +152,13 @@ input:required:valid {
   border-radius: 50%;
 }
 
+.materials-li, .production-li{
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.production-list { white-space: pre-wrap; }
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
