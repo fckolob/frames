@@ -37,14 +37,10 @@ export default class calculateMaterials{
         this.horizontalShashesProbbaAnodizado = [];
         this.screenShashesProbbaAnodizado = [];
         this.screenGuideProbbaAnodizado = [];
-        this.lateralShashesProbbaAnodizado = [];
-        this.centralShashesProbbaAnodizado = [];
-        this.screenShashesProbbaAnodizado = [];
-        this.screenGuideProbbaAnodizado = [];
         this.glassDvhUsProbbaAnodizado = [];
 
         this.horizontalFramesS20Blanco = [];
-        this.verticalFramesS20Blanco =[]
+        this.verticalFramesS20Blanco = [];
         this.lateralShashesS20Blanco = [];
         this.centralShashesS20Blanco = [];
         this.horizontalShashesS20Blanco = [];
@@ -61,6 +57,19 @@ export default class calculateMaterials{
         this.screenGuideS25LBlanco = [];
         this.screenGuideS25PBlanco = [];
         this.glassDvhUsS25Blanco = [];
+        this.InferiorFramesS25TripleRielBlanco = [];
+        this.SuperiorFramesS25TripleRielBlanco = [];
+        this.VerticalFramesS25TripleRielBlanco = [];
+        this.horizontalFramesProbbaBlanco = [];
+        this.horizontalFramesTripleRielProbbaBlanco = [];
+        this.verticalFramesProbbaBlanco = [];
+        this.verticalFramesTripleRielProbbaBlanco = [];
+        this.lateralShashesProbbaBlanco = [];
+        this.centralShashesProbbaBlanco = [];
+        this.horizontalShashesProbbaBlanco = [];
+        this.screenShashesProbbaBlanco = [];
+        this.screenGuideProbbaBlanco = [];
+        this.glassDvhUsProbbaBlanco = [];
 
         this.horizontalFramesS20Anolok = [];
         this.verticalFramesS20Anolok = [];
@@ -80,6 +89,19 @@ export default class calculateMaterials{
         this.screenGuideS25LAnolok = [];
         this.screenGuideS25PAnolok = [];
         this.glassDvhUsS25Anolok = [];
+        this.InferiorFramesS25TripleRielAnolok = [];
+        this.SuperiorFramesS25TripleRielAnolok = [];
+        this.VerticalFramesS25TripleRielAnolok = [];
+        this.horizontalFramesProbbaAnolok = [];
+        this.horizontalFramesTripleRielProbbaAnolok = [];
+        this.verticalFramesProbbaAnolok = [];
+        this.verticalFramesTripleRielProbbaAnolok = [];
+        this.lateralShashesProbbaAnolok = [];
+        this.centralShashesProbbaAnolok = [];
+        this.horizontalShashesProbbaAnolok = [];
+        this.screenShashesProbbaAnolok = [];
+        this.screenGuideProbbaAnolok = [];
+        this.glassDvhUsProbbaAnolok = [];
 
         this.horizontalFramesS20ImitacionMadera = [];
         this.verticalFramesS20ImitacionMadera = [];
@@ -99,6 +121,19 @@ export default class calculateMaterials{
         this.screenGuideS25LImitacionMadera = [];
         this.screenGuideS25PImitacionMadera = [];
         this.glassDvhUsS25ImitacionMadera = [];
+        this.InferiorFramesS25TripleRielImitacionMadera = [];
+        this.SuperiorFramesS25TripleRielImitacionMadera = [];
+        this.VerticalFramesS25TripleRielImitacionMadera = [];
+        this.horizontalFramesProbbaImitacionMadera = [];
+        this.horizontalFramesTripleRielProbbaImitacionMadera = [];
+        this.verticalFramesProbbaImitacionMadera = [];
+        this.verticalFramesTripleRielProbbaImitacionMadera = [];
+        this.lateralShashesProbbaImitacionMadera = [];
+        this.centralShashesProbbaImitacionMadera = [];
+        this.horizontalShashesProbbaImitacionMadera = [];
+        this.screenShashesProbbaImitacionMadera = [];
+        this.screenGuideProbbaImitacionMadera = [];
+        this.glassDvhUsProbbaImitacionMadera = [];
 
         this.horizontalFramesS20PintadoNegro = [];
         this.verticalFramesS20PintadoNegro = [];
@@ -118,103 +153,21 @@ export default class calculateMaterials{
         this.screenGuideS25LPintadoNegro = [];
         this.screenGuideS25PPintadoNegro = [];
         this.glassDvhUsS25PintadoNegro = [];
+        this.InferiorFramesS25TripleRielPintadoNegro = [];
+        this.SuperiorFramesS25TripleRielPintadoNegro = [];
+        this.VerticalFramesS25TripleRielPintadoNegro = [];
+        this.horizontalFramesProbbaPintadoNegro = [];
+        this.horizontalFramesTripleRielProbbaPintadoNegro = [];
+        this.verticalFramesProbbaPintadoNegro = [];
+        this.verticalFramesTripleRielProbbaPintadoNegro = [];
+        this.lateralShashesProbbaPintadoNegro = [];
+        this.centralShashesProbbaPintadoNegro = [];
+        this.horizontalShashesProbbaPintadoNegro = [];
+        this.screenShashesProbbaPintadoNegro = [];
+        this.screenGuideProbbaPintadoNegro = [];
+        this.glassDvhUsProbbaPintadoNegro = [];
 
-        this.InferiorFramesS25TripleRielAnodizado = [];
-        this.SuperiorFramesS25TripleRielAnodizado = [];
-        this.VerticalFramesS25TripleRielAnodizado = [];
-        this.framesArrays = [
-        this.InferiorFramesS25TripleRielAnodizado,
-        this.SuperiorFramesS25TripleRielAnodizado,
-        this.VerticalFramesS25TripleRielAnodizado,    
-        this.horizontalFramesS20Anodizado,
-        this.verticalFramesS20Anodizado,
-        this.lateralShashesS20Anodizado,
-        this.centralShashesS20Anodizado,
-        this.horizontalShashesS20Anodizado,
-        this.screenShashesS20Anodizado,
-        this.screenGuideS20Anodizado,
-        this.inferiorFramesS25Anodizado,
-        this.superiorFramesS25Anodizado,
-        this.verticalFramesS25Anodizado,
-        this.lateralShashesS25Anodizado,
-        this.centralShashesS25Anodizado,
-        this.bigHorizontalShashesS25Anodizado,
-        this.smallHorizontalShashesS25Anodizado,
-        this.screenShashesS25Anodizado,
-        this.screenGuideS25LAnodizado,
-        this.screenGuideS25PAnodizado,
-
-        this.horizontalFramesS20Blanco,
-        this.verticalFramesS20Blanco,
-        this.lateralShashesS20Blanco,
-        this.centralShashesS20Blanco,
-        this.horizontalShashesS20Blanco,
-        this.screenShashesS20Blanco,
-        this.screenGuideS20Blanco,
-        this.inferiorFramesS25Blanco,
-        this.superiorFramesS25Blanco,
-        this.verticalFramesS25Blanco,
-        this.lateralShashesS25Blanco,
-        this.centralShashesS25Blanco,
-        this.bigHorizontalShashesS25Blanco,
-        this.smallHorizontalShashesS25Blanco,
-        this.screenShashesS25Blanco,
-        this.screenGuideS25LBlanco,
-        this.screenGuideS25PBlanco,
-
-        this.horizontalFramesS20Anolok,
-        this.verticalFramesS20Anolok,
-        this.lateralShashesS20Anolok,
-        this.centralShashesS20Anolok,
-        this.horizontalShashesS20Anolok,
-        this.screenShashesS20Anolok,
-        this.screenGuideS20Anolok,
-        this.inferiorFramesS25Anolok,
-        this.superiorFramesS25Anolok,
-        this.verticalFramesS25Anolok,
-        this.lateralShashesS25Anolok,
-        this.centralShashesS25Anolok,
-        this.bigHorizontalShashesS25Anolok,
-        this.smallHorizontalShashesS25Anolok,
-        this.screenShashesS25Anolok,
-        this.screenGuideS25LAnolok,
-        this.screenGuideS25PAnolok,
-
-        this.horizontalFramesS20ImitacionMadera,
-        this.verticalFramesS20ImitacionMadera,
-        this.lateralShashesS20ImitacionMadera,
-        this.centralShashesS20ImitacionMadera,
-        this.horizontalShashesS20ImitacionMadera,
-        this.screenShashesS20ImitacionMadera,
-        this.screenGuideS20ImitacionMadera,
-        this.inferiorFramesS25ImitacionMadera,
-        this.superiorFramesS25ImitacionMadera,
-        this.verticalFramesS25ImitacionMadera,
-        this.lateralShashesS25ImitacionMadera,
-        this.centralShashesS25ImitacionMadera,
-        this.bigHorizontalShashesS25ImitacionMadera,
-        this.smallHorizontalShashesS25ImitacionMadera,
-        this.screenShashesS25ImitacionMadera,
-        this.screenGuideS25LImitacionMadera,
-        this.screenGuideS25PImitacionMadera,
-
-        this.horizontalFramesS20PintadoNegro,
-        this.verticalFramesS20PintadoNegro,
-        this.lateralShashesS20PintadoNegro,
-        this.centralShashesS20PintadoNegro,
-        this.horizontalShashesS20PintadoNegro,
-        this.screenShashesS20PintadoNegro,
-        this.screenGuideS20PintadoNegro,
-        this.inferiorFramesS25Pintado,
-        this.verticalFramesS25PintadoNegro,
-        this.lateralShashesS25PintadoNegro,
-        this.centralShashesS25PintadoNegro,
-        this.bigHorizontalShashesS25PintadoNegro,
-        this.smallHorizontalShashesS25PintadoNegro,
-        this.screenShashesS25PintadoNegro,
-        this.screenGuideS25LPintadoNegro,
-        this.screenGuideS25PPintadoNegro
-    ]
+        this.framesArrays = []; // This will be assigned at the end of calculateMaterials constructor or classificateFrames
 
     }
 
@@ -378,10 +331,71 @@ export default class calculateMaterials{
                 this.screenGuideS25PAnodizado.push(opening.frames.screenGuideS25P);
             }
 
+            if(opening.serie === "s25TripleRiel" && opening.color === "blanco"){
+                if(opening.dvh === true){
+                    this.glassDvhUsS25Blanco.push(opening.frames.glassDvhU);
+                }
+                this.InferiorFramesS25TripleRielBlanco.push(opening.frames.inferiorFrameTripleRiel);
+                this.SuperiorFramesS25TripleRielBlanco.push(opening.frames.superiorFrameTripleRiel);
+                this.VerticalFramesS25TripleRielBlanco.push(opening.frames.verticalFrameTripleRiel);
+                this.lateralShashesS25Blanco.push(opening.frames.lateralShash);
+                this.centralShashesS25Blanco.push(opening.frames.centralShash);
+                this.bigHorizontalShashesS25Blanco.push(opening.frames.horizontalShashBig);
+                this.smallHorizontalShashesS25Blanco.push(opening.frames.horizontalShashSmall);
+                this.screenShashesS25Blanco.push(opening.frames.screenShash);
+                this.screenGuideS25LBlanco.push(opening.frames.screenGuideS25L);
+                this.screenGuideS25PBlanco.push(opening.frames.screenGuideS25P);
+            }
+
+            if(opening.serie === "s25TripleRiel" && opening.color === "anolok"){
+                if(opening.dvh === true){
+                    this.glassDvhUsS25Anolok.push(opening.frames.glassDvhU);
+                }
+                this.InferiorFramesS25TripleRielAnolok.push(opening.frames.inferiorFrameTripleRiel);
+                this.SuperiorFramesS25TripleRielAnolok.push(opening.frames.superiorFrameTripleRiel);
+                this.VerticalFramesS25TripleRielAnolok.push(opening.frames.verticalFrameTripleRiel);
+                this.lateralShashesS25Anolok.push(opening.frames.lateralShash);
+                this.centralShashesS25Anolok.push(opening.frames.centralShash);
+                this.bigHorizontalShashesS25Anolok.push(opening.frames.horizontalShashBig);
+                this.smallHorizontalShashesS25Anolok.push(opening.frames.horizontalShashSmall);
+                this.screenShashesS25Anolok.push(opening.frames.screenShash);
+                this.screenGuideS25LAnolok.push(opening.frames.screenGuideS25L);
+                this.screenGuideS25PAnolok.push(opening.frames.screenGuideS25P);
+            }
+
+            if(opening.serie === "s25TripleRiel" && opening.color === "imitacionMadera"){
+                if(opening.dvh === true){
+                    this.glassDvhUsS25ImitacionMadera.push(opening.frames.glassDvhU);
+                }
+                this.InferiorFramesS25TripleRielImitacionMadera.push(opening.frames.inferiorFrameTripleRiel);
+                this.SuperiorFramesS25TripleRielImitacionMadera.push(opening.frames.superiorFrameTripleRiel);
+                this.VerticalFramesS25TripleRielImitacionMadera.push(opening.frames.verticalFrameTripleRiel);
+                this.lateralShashesS25ImitacionMadera.push(opening.frames.lateralShash);
+                this.centralShashesS25ImitacionMadera.push(opening.frames.centralShash);
+                this.bigHorizontalShashesS25ImitacionMadera.push(opening.frames.horizontalShashBig);
+                this.smallHorizontalShashesS25ImitacionMadera.push(opening.frames.horizontalShashSmall);
+                this.screenShashesS25ImitacionMadera.push(opening.frames.screenShash);
+                this.screenGuideS25LImitacionMadera.push(opening.frames.screenGuideS25L);
+                this.screenGuideS25PImitacionMadera.push(opening.frames.screenGuideS25P);
+            }
+
+            if(opening.serie === "s25TripleRiel" && opening.color === "pintadoNegro"){
+                if(opening.dvh === true){
+                    this.glassDvhUsS25PintadoNegro.push(opening.frames.glassDvhU);
+                }
+                this.InferiorFramesS25TripleRielPintadoNegro.push(opening.frames.inferiorFrameTripleRiel);
+                this.SuperiorFramesS25TripleRielPintadoNegro.push(opening.frames.superiorFrameTripleRiel);
+                this.VerticalFramesS25TripleRielPintadoNegro.push(opening.frames.verticalFrameTripleRiel);
+                this.lateralShashesS25PintadoNegro.push(opening.frames.lateralShash);
+                this.centralShashesS25PintadoNegro.push(opening.frames.centralShash);
+                this.bigHorizontalShashesS25PintadoNegro.push(opening.frames.horizontalShashBig);
+                this.smallHorizontalShashesS25PintadoNegro.push(opening.frames.horizontalShashSmall);
+                this.screenShashesS25PintadoNegro.push(opening.frames.screenShash);
+                this.screenGuideS25LPintadoNegro.push(opening.frames.screenGuideS25L);
+                this.screenGuideS25PPintadoNegro.push(opening.frames.screenGuideS25P);
+            }
+
             if(opening.serie === "probbaCorrediza" && opening.color === "anodizado"){
-
-                
-
                 if(opening.dvh === true){
                     this.glassDvhUsProbbaAnodizado.push(opening.frames.glassDvhU);
                 }
@@ -394,20 +408,111 @@ export default class calculateMaterials{
                 this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
             }
 
+            if(opening.serie === "probbaCorrediza" && opening.color === "blanco"){
+                if(opening.dvh === true){
+                    this.glassDvhUsProbbaBlanco.push(opening.frames.glassDvhU);
+                }
+                this.horizontalFramesProbbaBlanco.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaBlanco.push(opening.frames.verticalFrame);
+                this.lateralShashesProbbaBlanco.push(opening.frames.lateralShash);
+                this.centralShashesProbbaBlanco.push(opening.frames.centralShash);
+                this.horizontalShashesProbbaBlanco.push(opening.frames.horizontalShash);
+                this.screenShashesProbbaBlanco.push(opening.frames.screenShash);
+                this.screenGuideProbbaBlanco.push(opening.frames.screenGuideProbba);
+            }
+
+            if(opening.serie === "probbaCorrediza" && opening.color === "anolok"){
+                if(opening.dvh === true){
+                    this.glassDvhUsProbbaAnolok.push(opening.frames.glassDvhU);
+                }
+                this.horizontalFramesProbbaAnolok.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaAnolok.push(opening.frames.verticalFrame);
+                this.lateralShashesProbbaAnolok.push(opening.frames.lateralShash);
+                this.centralShashesProbbaAnolok.push(opening.frames.centralShash);
+                this.horizontalShashesProbbaAnolok.push(opening.frames.horizontalShash);
+                this.screenShashesProbbaAnolok.push(opening.frames.screenShash);
+                this.screenGuideProbbaAnolok.push(opening.frames.screenGuideProbba);
+            }
+
+            if(opening.serie === "probbaCorrediza" && opening.color === "imitacionMadera"){
+                if(opening.dvh === true){
+                    this.glassDvhUsProbbaImitacionMadera.push(opening.frames.glassDvhU);
+                }
+                this.horizontalFramesProbbaImitacionMadera.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaImitacionMadera.push(opening.frames.verticalFrame);
+                this.lateralShashesProbbaImitacionMadera.push(opening.frames.lateralShash);
+                this.centralShashesProbbaImitacionMadera.push(opening.frames.centralShash);
+                this.horizontalShashesProbbaImitacionMadera.push(opening.frames.horizontalShash);
+                this.screenShashesProbbaImitacionMadera.push(opening.frames.screenShash);
+                this.screenGuideProbbaImitacionMadera.push(opening.frames.screenGuideProbba);
+            }
+
+            if(opening.serie === "probbaCorrediza" && opening.color === "pintadoNegro"){
+                if(opening.dvh === true){
+                    this.glassDvhUsProbbaPintadoNegro.push(opening.frames.glassDvhU);
+                }
+                this.horizontalFramesProbbaPintadoNegro.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaPintadoNegro.push(opening.frames.verticalFrame);
+                this.lateralShashesProbbaPintadoNegro.push(opening.frames.lateralShash);
+                this.centralShashesProbbaPintadoNegro.push(opening.frames.centralShash);
+                this.horizontalShashesProbbaPintadoNegro.push(opening.frames.horizontalShash);
+                this.screenShashesProbbaPintadoNegro.push(opening.frames.screenShash);
+                this.screenGuideProbbaPintadoNegro.push(opening.frames.screenGuideProbba);
+            }
+
             if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "anodizado"){
+                this.horizontalFramesTripleRielProbbaAnodizado.push(opening.frames.horizontalFrame);
+                this.verticalFramesTripleRielProbbaAnodizado.push(opening.frames.verticalFrame);
+                this.lateralShashesProbbaAnodizado.push(opening.frames.lateralShash);
+                this.centralShashesProbbaAnodizado.push(opening.frames.centralShash);
+                this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShashLateral);
+                this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShashCentral);
+                this.screenShashesProbbaAnodizado.push(opening.frames.screenShash);
+                this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
+            }
 
-    this.horizontalFramesTripleRielProbbaAnodizado.push(opening.frames.horizontalFrame);
-    this.verticalFramesTripleRielProbbaAnodizado.push(opening.frames.verticalFrame);
-    this.lateralShashesProbbaAnodizado.push(opening.frames.lateralShash);
-    this.centralShashesProbbaAnodizado.push(opening.frames.centralShash);
+            if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "blanco"){
+                this.horizontalFramesTripleRielProbbaBlanco.push(opening.frames.horizontalFrame);
+                this.verticalFramesTripleRielProbbaBlanco.push(opening.frames.verticalFrame);
+                this.lateralShashesProbbaBlanco.push(opening.frames.lateralShash);
+                this.centralShashesProbbaBlanco.push(opening.frames.centralShash);
+                this.horizontalShashesProbbaBlanco.push(opening.frames.horizontalShashLateral);
+                this.horizontalShashesProbbaBlanco.push(opening.frames.horizontalShashCentral);
+                this.screenShashesProbbaBlanco.push(opening.frames.screenShash);
+                this.screenGuideProbbaBlanco.push(opening.frames.screenGuideProbba);
+            }
 
-    this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShashLateral);
-    this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShashCentral);
+            if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "anolok"){
+                this.horizontalFramesTripleRielProbbaAnolok.push(opening.frames.horizontalFrame);
+                this.verticalFramesTripleRielProbbaAnolok.push(opening.frames.verticalFrame);
+                this.lateralShashesProbbaAnolok.push(opening.frames.lateralShash);
+                this.centralShashesProbbaAnolok.push(opening.frames.centralShash);
+                this.horizontalShashesProbbaAnolok.push(opening.frames.horizontalShashLateral);
+                this.horizontalShashesProbbaAnolok.push(opening.frames.horizontalShashCentral);
+                this.screenShashesProbbaAnolok.push(opening.frames.screenShash);
+                this.screenGuideProbbaAnolok.push(opening.frames.screenGuideProbba);
+            }
 
-    this.screenShashesProbbaAnodizado.push(opening.frames.screenShash);
-    this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
+            if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "imitacionMadera"){
+                this.horizontalFramesTripleRielProbbaImitacionMadera.push(opening.frames.horizontalFrame);
+                this.verticalFramesTripleRielProbbaImitacionMadera.push(opening.frames.verticalFrame);
+                this.lateralShashesProbbaImitacionMadera.push(opening.frames.lateralShash);
+                this.centralShashesProbbaImitacionMadera.push(opening.frames.centralShash);
+                this.horizontalShashesProbbaImitacionMadera.push(opening.frames.horizontalShashLateral);
+                this.horizontalShashesProbbaImitacionMadera.push(opening.frames.horizontalShashCentral);
+                this.screenShashesProbbaImitacionMadera.push(opening.frames.screenShash);
+                this.screenGuideProbbaImitacionMadera.push(opening.frames.screenGuideProbba);
+            }
 
-
+            if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "pintadoNegro"){
+                this.horizontalFramesTripleRielProbbaPintadoNegro.push(opening.frames.horizontalFrame);
+                this.verticalFramesTripleRielProbbaPintadoNegro.push(opening.frames.verticalFrame);
+                this.lateralShashesProbbaPintadoNegro.push(opening.frames.lateralShash);
+                this.centralShashesProbbaPintadoNegro.push(opening.frames.centralShash);
+                this.horizontalShashesProbbaPintadoNegro.push(opening.frames.horizontalShashLateral);
+                this.horizontalShashesProbbaPintadoNegro.push(opening.frames.horizontalShashCentral);
+                this.screenShashesProbbaPintadoNegro.push(opening.frames.screenShash);
+                this.screenGuideProbbaPintadoNegro.push(opening.frames.screenGuideProbba);
             }
         });
 
@@ -415,7 +520,20 @@ export default class calculateMaterials{
         this.framesArrays = [
             this.InferiorFramesS25TripleRielAnodizado,
             this.SuperiorFramesS25TripleRielAnodizado,
-            this.VerticalFramesS25TripleRielAnodizado,   
+            this.VerticalFramesS25TripleRielAnodizado,
+            this.InferiorFramesS25TripleRielBlanco,
+            this.SuperiorFramesS25TripleRielBlanco,
+            this.VerticalFramesS25TripleRielBlanco,
+            this.InferiorFramesS25TripleRielAnolok,
+            this.SuperiorFramesS25TripleRielAnolok,
+            this.VerticalFramesS25TripleRielAnolok,
+            this.InferiorFramesS25TripleRielImitacionMadera,
+            this.SuperiorFramesS25TripleRielImitacionMadera,
+            this.VerticalFramesS25TripleRielImitacionMadera,
+            this.InferiorFramesS25TripleRielPintadoNegro,
+            this.SuperiorFramesS25TripleRielPintadoNegro,
+            this.VerticalFramesS25TripleRielPintadoNegro,
+
             this.horizontalFramesS20Anodizado,
             this.verticalFramesS20Anodizado,
             this.lateralShashesS20Anodizado,
@@ -434,6 +552,7 @@ export default class calculateMaterials{
             this.screenGuideS25LAnodizado,
             this.screenGuideS25PAnodizado,
             this.glassDvhUsS25Anodizado,
+
             this.horizontalFramesProbbaAnodizado,
             this.verticalFramesProbbaAnodizado,
             this.lateralShashesProbbaAnodizado,
@@ -443,6 +562,7 @@ export default class calculateMaterials{
             this.screenGuideProbbaAnodizado,
             this.horizontalFramesTripleRielProbbaAnodizado,
             this.verticalFramesTripleRielProbbaAnodizado,
+            this.glassDvhUsProbbaAnodizado,
 
             this.horizontalFramesS20Blanco,
             this.verticalFramesS20Blanco,
@@ -461,6 +581,18 @@ export default class calculateMaterials{
             this.screenShashesS25Blanco,
             this.screenGuideS25LBlanco,
             this.screenGuideS25PBlanco,
+            this.glassDvhUsS25Blanco,
+
+            this.horizontalFramesProbbaBlanco,
+            this.verticalFramesProbbaBlanco,
+            this.lateralShashesProbbaBlanco,
+            this.centralShashesProbbaBlanco,
+            this.horizontalShashesProbbaBlanco,
+            this.screenShashesProbbaBlanco,
+            this.screenGuideProbbaBlanco,
+            this.horizontalFramesTripleRielProbbaBlanco,
+            this.verticalFramesTripleRielProbbaBlanco,
+            this.glassDvhUsProbbaBlanco,
 
             this.horizontalFramesS20Anolok,
             this.verticalFramesS20Anolok,
@@ -479,6 +611,19 @@ export default class calculateMaterials{
             this.screenShashesS25Anolok,
             this.screenGuideS25LAnolok,
             this.screenGuideS25PAnolok,
+            this.glassDvhUsS25Anolok,
+
+            this.horizontalFramesProbbaAnolok,
+            this.verticalFramesProbbaAnolok,
+            this.lateralShashesProbbaAnolok,
+            this.centralShashesProbbaAnolok,
+            this.horizontalShashesProbbaAnolok,
+            this.screenShashesProbbaAnolok,
+            this.screenGuideProbbaAnolok,
+            this.horizontalFramesTripleRielProbbaAnolok,
+            this.verticalFramesTripleRielProbbaAnolok,
+            this.glassDvhUsProbbaAnolok,
+
             this.horizontalFramesS20ImitacionMadera,
             this.verticalFramesS20ImitacionMadera,
             this.lateralShashesS20ImitacionMadera,
@@ -496,6 +641,18 @@ export default class calculateMaterials{
             this.screenShashesS25ImitacionMadera,
             this.screenGuideS25LImitacionMadera,
             this.screenGuideS25PImitacionMadera,
+            this.glassDvhUsS25ImitacionMadera,
+
+            this.horizontalFramesProbbaImitacionMadera,
+            this.verticalFramesProbbaImitacionMadera,
+            this.lateralShashesProbbaImitacionMadera,
+            this.centralShashesProbbaImitacionMadera,
+            this.horizontalShashesProbbaImitacionMadera,
+            this.screenShashesProbbaImitacionMadera,
+            this.screenGuideProbbaImitacionMadera,
+            this.horizontalFramesTripleRielProbbaImitacionMadera,
+            this.verticalFramesTripleRielProbbaImitacionMadera,
+            this.glassDvhUsProbbaImitacionMadera,
 
             this.horizontalFramesS20PintadoNegro,
             this.verticalFramesS20PintadoNegro,
@@ -504,7 +661,8 @@ export default class calculateMaterials{
             this.horizontalShashesS20PintadoNegro,
             this.screenShashesS20PintadoNegro,
             this.screenGuideS20PintadoNegro,
-            this.inferiorFramesS25Pintado,
+            this.inferiorFramesS25PintadoNegro,
+            this.superiorFramesS25PintadoNegro,
             this.verticalFramesS25PintadoNegro,
             this.lateralShashesS25PintadoNegro,
             this.centralShashesS25PintadoNegro,
@@ -512,7 +670,19 @@ export default class calculateMaterials{
             this.smallHorizontalShashesS25PintadoNegro,
             this.screenShashesS25PintadoNegro,
             this.screenGuideS25LPintadoNegro,
-            this.screenGuideS25PPintadoNegro
+            this.screenGuideS25PPintadoNegro,
+            this.glassDvhUsS25PintadoNegro,
+
+            this.horizontalFramesProbbaPintadoNegro,
+            this.verticalFramesProbbaPintadoNegro,
+            this.lateralShashesProbbaPintadoNegro,
+            this.centralShashesProbbaPintadoNegro,
+            this.horizontalShashesProbbaPintadoNegro,
+            this.screenShashesProbbaPintadoNegro,
+            this.screenGuideProbbaPintadoNegro,
+            this.horizontalFramesTripleRielProbbaPintadoNegro,
+            this.verticalFramesTripleRielProbbaPintadoNegro,
+            this.glassDvhUsProbbaPintadoNegro
         ];
     }
 

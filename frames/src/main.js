@@ -102,7 +102,7 @@ window.onload = async ()=> {
     await opening.init();
 
     utils.addToLocalStorage(opening);
-    console.log(opening);
+    // console.log(opening);
 
     serieElement.value = "Select-an-option";
     colorElement.value = "Select-an-option";

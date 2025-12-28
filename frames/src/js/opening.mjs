@@ -294,7 +294,7 @@ async framing(){
 
 async init(){
     await this.framing();
-    await this.toString();
+    await this.generateHTML();
 }
 
 async getFrames(){
@@ -307,7 +307,7 @@ async getGlass(){
     return this.glass;
 }
 
-async toString(){
+async generateHTML(){
     let returned = `<h2 class="production-title">${this.quantity} Aberturas de ${this.width} Ancho x ${this.height} Alto ${this.serie} ${this.color} DVH? = ${this.dvh}</h2><ul class="production-list">`;
 
     // helper: show one decimal only when fractional part is not zero
