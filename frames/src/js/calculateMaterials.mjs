@@ -32,9 +32,12 @@ export default class calculateMaterials{
         this.horizontalFramesTripleRielProbbaAnodizado = [];
         this.verticalFramesProbbaAnodizado = [];
         this.verticalFramesTripleRielProbbaAnodizado = [];
-        this.lateralShashesProbbaAnodizado = [];
-        this.centralShashesProbbaAnodizado = [];
-        this.horizontalShashesProbbaAnodizado = [];
+        this.lateralShashesProbbaSingleGlassAnodizado = [];
+        this.lateralShashesProbbaDvhAnodizado = [];
+        this.centralShashesProbbaSingleGlassAnodizado = [];
+        this.centralShashesProbbaDvhAnodizado = [];
+        this.horizontalShashesProbbaSingleGlassAnodizado = [];
+        this.horizontalShashesProbbaDvhAnodizado = [];
         this.screenShashesProbbaAnodizado = [];
         this.screenGuideProbbaAnodizado = [];
         this.glassDvhUsProbbaAnodizado = [];
@@ -64,9 +67,12 @@ export default class calculateMaterials{
         this.horizontalFramesTripleRielProbbaBlanco = [];
         this.verticalFramesProbbaBlanco = [];
         this.verticalFramesTripleRielProbbaBlanco = [];
-        this.lateralShashesProbbaBlanco = [];
-        this.centralShashesProbbaBlanco = [];
-        this.horizontalShashesProbbaBlanco = [];
+        this.lateralShashesProbbaSingleGlassBlanco = [];
+        this.lateralShashesProbbaDvhBlanco = [];
+        this.centralShashesProbbaSingleGlassBlanco = [];
+        this.centralShashesProbbaDvhBlanco = [];
+        this.horizontalShashesProbbaSingleGlassBlanco = [];
+        this.horizontalShashesProbbaDvhBlanco = [];
         this.screenShashesProbbaBlanco = [];
         this.screenGuideProbbaBlanco = [];
         this.glassDvhUsProbbaBlanco = [];
@@ -96,9 +102,12 @@ export default class calculateMaterials{
         this.horizontalFramesTripleRielProbbaAnolok = [];
         this.verticalFramesProbbaAnolok = [];
         this.verticalFramesTripleRielProbbaAnolok = [];
-        this.lateralShashesProbbaAnolok = [];
-        this.centralShashesProbbaAnolok = [];
-        this.horizontalShashesProbbaAnolok = [];
+        this.lateralShashesProbbaSingleGlassAnolok = [];
+        this.lateralShashesProbbaDvhAnolok = [];
+        this.centralShashesProbbaSingleGlassAnolok = [];
+        this.centralShashesProbbaDvhAnolok = [];
+        this.horizontalShashesProbbaSingleGlassAnolok = [];
+        this.horizontalShashesProbbaDvhAnolok = [];
         this.screenShashesProbbaAnolok = [];
         this.screenGuideProbbaAnolok = [];
         this.glassDvhUsProbbaAnolok = [];
@@ -128,9 +137,12 @@ export default class calculateMaterials{
         this.horizontalFramesTripleRielProbbaImitacionMadera = [];
         this.verticalFramesProbbaImitacionMadera = [];
         this.verticalFramesTripleRielProbbaImitacionMadera = [];
-        this.lateralShashesProbbaImitacionMadera = [];
-        this.centralShashesProbbaImitacionMadera = [];
-        this.horizontalShashesProbbaImitacionMadera = [];
+        this.lateralShashesProbbaSingleGlassImitacionMadera = [];
+        this.lateralShashesProbbaDvhImitacionMadera = [];
+        this.centralShashesProbbaSingleGlassImitacionMadera = [];
+        this.centralShashesProbbaDvhImitacionMadera = [];
+        this.horizontalShashesProbbaSingleGlassImitacionMadera = [];
+        this.horizontalShashesProbbaDvhImitacionMadera = [];
         this.screenShashesProbbaImitacionMadera = [];
         this.screenGuideProbbaImitacionMadera = [];
         this.glassDvhUsProbbaImitacionMadera = [];
@@ -160,9 +172,12 @@ export default class calculateMaterials{
         this.horizontalFramesTripleRielProbbaPintadoNegro = [];
         this.verticalFramesProbbaPintadoNegro = [];
         this.verticalFramesTripleRielProbbaPintadoNegro = [];
-        this.lateralShashesProbbaPintadoNegro = [];
-        this.centralShashesProbbaPintadoNegro = [];
-        this.horizontalShashesProbbaPintadoNegro = [];
+        this.lateralShashesProbbaSingleGlassPintadoNegro = [];
+        this.lateralShashesProbbaDvhPintadoNegro = [];
+        this.centralShashesProbbaSingleGlassPintadoNegro = [];
+        this.centralShashesProbbaDvhPintadoNegro = [];
+        this.horizontalShashesProbbaSingleGlassPintadoNegro = [];
+        this.horizontalShashesProbbaDvhPintadoNegro = [];
         this.screenShashesProbbaPintadoNegro = [];
         this.screenGuideProbbaPintadoNegro = [];
         this.glassDvhUsProbbaPintadoNegro = [];
@@ -398,12 +413,16 @@ export default class calculateMaterials{
             if(opening.serie === "probbaCorrediza" && opening.color === "anodizado"){
                 if(opening.dvh === true){
                     this.glassDvhUsProbbaAnodizado.push(opening.frames.glassDvhU);
+                    this.lateralShashesProbbaDvhAnodizado.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhAnodizado.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhAnodizado.push(opening.frames.horizontalShash);
+                } else {
+                    this.lateralShashesProbbaSingleGlassAnodizado.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassAnodizado.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassAnodizado.push(opening.frames.horizontalShash);
                 }
                 this.horizontalFramesProbbaAnodizado.push(opening.frames.horizontalFrame);
                 this.verticalFramesProbbaAnodizado.push(opening.frames.verticalFrame);
-                this.lateralShashesProbbaAnodizado.push(opening.frames.lateralShash);
-                this.centralShashesProbbaAnodizado.push(opening.frames.centralShash);
-                this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShash);
                 this.screenShashesProbbaAnodizado.push(opening.frames.screenShash);
                 this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
             }
@@ -411,12 +430,16 @@ export default class calculateMaterials{
             if(opening.serie === "probbaCorrediza" && opening.color === "blanco"){
                 if(opening.dvh === true){
                     this.glassDvhUsProbbaBlanco.push(opening.frames.glassDvhU);
+                    this.lateralShashesProbbaDvhBlanco.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhBlanco.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhBlanco.push(opening.frames.horizontalShash);
+                } else {
+                    this.lateralShashesProbbaSingleGlassBlanco.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassBlanco.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassBlanco.push(opening.frames.horizontalShash);
                 }
                 this.horizontalFramesProbbaBlanco.push(opening.frames.horizontalFrame);
                 this.verticalFramesProbbaBlanco.push(opening.frames.verticalFrame);
-                this.lateralShashesProbbaBlanco.push(opening.frames.lateralShash);
-                this.centralShashesProbbaBlanco.push(opening.frames.centralShash);
-                this.horizontalShashesProbbaBlanco.push(opening.frames.horizontalShash);
                 this.screenShashesProbbaBlanco.push(opening.frames.screenShash);
                 this.screenGuideProbbaBlanco.push(opening.frames.screenGuideProbba);
             }
@@ -424,12 +447,16 @@ export default class calculateMaterials{
             if(opening.serie === "probbaCorrediza" && opening.color === "anolok"){
                 if(opening.dvh === true){
                     this.glassDvhUsProbbaAnolok.push(opening.frames.glassDvhU);
+                    this.lateralShashesProbbaDvhAnolok.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhAnolok.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhAnolok.push(opening.frames.horizontalShash);
+                } else {
+                    this.lateralShashesProbbaSingleGlassAnolok.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassAnolok.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassAnolok.push(opening.frames.horizontalShash);
                 }
                 this.horizontalFramesProbbaAnolok.push(opening.frames.horizontalFrame);
                 this.verticalFramesProbbaAnolok.push(opening.frames.verticalFrame);
-                this.lateralShashesProbbaAnolok.push(opening.frames.lateralShash);
-                this.centralShashesProbbaAnolok.push(opening.frames.centralShash);
-                this.horizontalShashesProbbaAnolok.push(opening.frames.horizontalShash);
                 this.screenShashesProbbaAnolok.push(opening.frames.screenShash);
                 this.screenGuideProbbaAnolok.push(opening.frames.screenGuideProbba);
             }
@@ -437,12 +464,16 @@ export default class calculateMaterials{
             if(opening.serie === "probbaCorrediza" && opening.color === "imitacionMadera"){
                 if(opening.dvh === true){
                     this.glassDvhUsProbbaImitacionMadera.push(opening.frames.glassDvhU);
+                    this.lateralShashesProbbaDvhImitacionMadera.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhImitacionMadera.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhImitacionMadera.push(opening.frames.horizontalShash);
+                } else {
+                    this.lateralShashesProbbaSingleGlassImitacionMadera.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassImitacionMadera.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassImitacionMadera.push(opening.frames.horizontalShash);
                 }
                 this.horizontalFramesProbbaImitacionMadera.push(opening.frames.horizontalFrame);
                 this.verticalFramesProbbaImitacionMadera.push(opening.frames.verticalFrame);
-                this.lateralShashesProbbaImitacionMadera.push(opening.frames.lateralShash);
-                this.centralShashesProbbaImitacionMadera.push(opening.frames.centralShash);
-                this.horizontalShashesProbbaImitacionMadera.push(opening.frames.horizontalShash);
                 this.screenShashesProbbaImitacionMadera.push(opening.frames.screenShash);
                 this.screenGuideProbbaImitacionMadera.push(opening.frames.screenGuideProbba);
             }
@@ -450,67 +481,106 @@ export default class calculateMaterials{
             if(opening.serie === "probbaCorrediza" && opening.color === "pintadoNegro"){
                 if(opening.dvh === true){
                     this.glassDvhUsProbbaPintadoNegro.push(opening.frames.glassDvhU);
+                    this.lateralShashesProbbaDvhPintadoNegro.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhPintadoNegro.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhPintadoNegro.push(opening.frames.horizontalShash);
+                } else {
+                    this.lateralShashesProbbaSingleGlassPintadoNegro.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassPintadoNegro.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassPintadoNegro.push(opening.frames.horizontalShash);
                 }
                 this.horizontalFramesProbbaPintadoNegro.push(opening.frames.horizontalFrame);
                 this.verticalFramesProbbaPintadoNegro.push(opening.frames.verticalFrame);
-                this.lateralShashesProbbaPintadoNegro.push(opening.frames.lateralShash);
-                this.centralShashesProbbaPintadoNegro.push(opening.frames.centralShash);
-                this.horizontalShashesProbbaPintadoNegro.push(opening.frames.horizontalShash);
                 this.screenShashesProbbaPintadoNegro.push(opening.frames.screenShash);
                 this.screenGuideProbbaPintadoNegro.push(opening.frames.screenGuideProbba);
             }
 
             if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "anodizado"){
+                if(opening.dvh === true){
+                   this.lateralShashesProbbaDvhAnodizado.push(opening.frames.lateralShash);
+                   this.centralShashesProbbaDvhAnodizado.push(opening.frames.centralShash);
+                   this.horizontalShashesProbbaDvhAnodizado.push(opening.frames.horizontalShashLateral);
+                   this.horizontalShashesProbbaDvhAnodizado.push(opening.frames.horizontalShashCentral);
+                } else {
+                   this.lateralShashesProbbaSingleGlassAnodizado.push(opening.frames.lateralShash);
+                   this.centralShashesProbbaSingleGlassAnodizado.push(opening.frames.centralShash);
+                   this.horizontalShashesProbbaSingleGlassAnodizado.push(opening.frames.horizontalShashLateral);
+                   this.horizontalShashesProbbaSingleGlassAnodizado.push(opening.frames.horizontalShashCentral);
+                }
                 this.horizontalFramesTripleRielProbbaAnodizado.push(opening.frames.horizontalFrame);
                 this.verticalFramesTripleRielProbbaAnodizado.push(opening.frames.verticalFrame);
-                this.lateralShashesProbbaAnodizado.push(opening.frames.lateralShash);
-                this.centralShashesProbbaAnodizado.push(opening.frames.centralShash);
-                this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShashLateral);
-                this.horizontalShashesProbbaAnodizado.push(opening.frames.horizontalShashCentral);
                 this.screenShashesProbbaAnodizado.push(opening.frames.screenShash);
                 this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
             }
 
             if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "blanco"){
+                if(opening.dvh === true){
+                    this.lateralShashesProbbaDvhBlanco.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhBlanco.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhBlanco.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaDvhBlanco.push(opening.frames.horizontalShashCentral);
+                } else {
+                    this.lateralShashesProbbaSingleGlassBlanco.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassBlanco.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassBlanco.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaSingleGlassBlanco.push(opening.frames.horizontalShashCentral);
+                }
                 this.horizontalFramesTripleRielProbbaBlanco.push(opening.frames.horizontalFrame);
                 this.verticalFramesTripleRielProbbaBlanco.push(opening.frames.verticalFrame);
-                this.lateralShashesProbbaBlanco.push(opening.frames.lateralShash);
-                this.centralShashesProbbaBlanco.push(opening.frames.centralShash);
-                this.horizontalShashesProbbaBlanco.push(opening.frames.horizontalShashLateral);
-                this.horizontalShashesProbbaBlanco.push(opening.frames.horizontalShashCentral);
                 this.screenShashesProbbaBlanco.push(opening.frames.screenShash);
                 this.screenGuideProbbaBlanco.push(opening.frames.screenGuideProbba);
             }
 
             if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "anolok"){
+                if(opening.dvh === true){
+                    this.lateralShashesProbbaDvhAnolok.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhAnolok.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhAnolok.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaDvhAnolok.push(opening.frames.horizontalShashCentral);
+                } else {
+                    this.lateralShashesProbbaSingleGlassAnolok.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassAnolok.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassAnolok.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaSingleGlassAnolok.push(opening.frames.horizontalShashCentral);
+                }
                 this.horizontalFramesTripleRielProbbaAnolok.push(opening.frames.horizontalFrame);
                 this.verticalFramesTripleRielProbbaAnolok.push(opening.frames.verticalFrame);
-                this.lateralShashesProbbaAnolok.push(opening.frames.lateralShash);
-                this.centralShashesProbbaAnolok.push(opening.frames.centralShash);
-                this.horizontalShashesProbbaAnolok.push(opening.frames.horizontalShashLateral);
-                this.horizontalShashesProbbaAnolok.push(opening.frames.horizontalShashCentral);
                 this.screenShashesProbbaAnolok.push(opening.frames.screenShash);
                 this.screenGuideProbbaAnolok.push(opening.frames.screenGuideProbba);
             }
 
             if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "imitacionMadera"){
+                if(opening.dvh === true){
+                    this.lateralShashesProbbaDvhImitacionMadera.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhImitacionMadera.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhImitacionMadera.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaDvhImitacionMadera.push(opening.frames.horizontalShashCentral);
+                } else {
+                    this.lateralShashesProbbaSingleGlassImitacionMadera.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassImitacionMadera.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassImitacionMadera.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaSingleGlassImitacionMadera.push(opening.frames.horizontalShashCentral);
+                }
                 this.horizontalFramesTripleRielProbbaImitacionMadera.push(opening.frames.horizontalFrame);
                 this.verticalFramesTripleRielProbbaImitacionMadera.push(opening.frames.verticalFrame);
-                this.lateralShashesProbbaImitacionMadera.push(opening.frames.lateralShash);
-                this.centralShashesProbbaImitacionMadera.push(opening.frames.centralShash);
-                this.horizontalShashesProbbaImitacionMadera.push(opening.frames.horizontalShashLateral);
-                this.horizontalShashesProbbaImitacionMadera.push(opening.frames.horizontalShashCentral);
                 this.screenShashesProbbaImitacionMadera.push(opening.frames.screenShash);
                 this.screenGuideProbbaImitacionMadera.push(opening.frames.screenGuideProbba);
             }
 
             if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "pintadoNegro"){
+                if(opening.dvh === true){
+                    this.lateralShashesProbbaDvhPintadoNegro.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhPintadoNegro.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhPintadoNegro.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaDvhPintadoNegro.push(opening.frames.horizontalShashCentral);
+                } else {
+                    this.lateralShashesProbbaSingleGlassPintadoNegro.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassPintadoNegro.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassPintadoNegro.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaSingleGlassPintadoNegro.push(opening.frames.horizontalShashCentral);
+                }
                 this.horizontalFramesTripleRielProbbaPintadoNegro.push(opening.frames.horizontalFrame);
                 this.verticalFramesTripleRielProbbaPintadoNegro.push(opening.frames.verticalFrame);
-                this.lateralShashesProbbaPintadoNegro.push(opening.frames.lateralShash);
-                this.centralShashesProbbaPintadoNegro.push(opening.frames.centralShash);
-                this.horizontalShashesProbbaPintadoNegro.push(opening.frames.horizontalShashLateral);
-                this.horizontalShashesProbbaPintadoNegro.push(opening.frames.horizontalShashCentral);
                 this.screenShashesProbbaPintadoNegro.push(opening.frames.screenShash);
                 this.screenGuideProbbaPintadoNegro.push(opening.frames.screenGuideProbba);
             }
@@ -555,9 +625,12 @@ export default class calculateMaterials{
 
             this.horizontalFramesProbbaAnodizado,
             this.verticalFramesProbbaAnodizado,
-            this.lateralShashesProbbaAnodizado,
-            this.centralShashesProbbaAnodizado,
-            this.horizontalShashesProbbaAnodizado,
+            this.lateralShashesProbbaSingleGlassAnodizado,
+            this.lateralShashesProbbaDvhAnodizado,
+            this.centralShashesProbbaSingleGlassAnodizado,
+            this.centralShashesProbbaDvhAnodizado,
+            this.horizontalShashesProbbaSingleGlassAnodizado,
+            this.horizontalShashesProbbaDvhAnodizado,
             this.screenShashesProbbaAnodizado,
             this.screenGuideProbbaAnodizado,
             this.horizontalFramesTripleRielProbbaAnodizado,
@@ -585,9 +658,12 @@ export default class calculateMaterials{
 
             this.horizontalFramesProbbaBlanco,
             this.verticalFramesProbbaBlanco,
-            this.lateralShashesProbbaBlanco,
-            this.centralShashesProbbaBlanco,
-            this.horizontalShashesProbbaBlanco,
+            this.lateralShashesProbbaSingleGlassBlanco,
+            this.lateralShashesProbbaDvhBlanco,
+            this.centralShashesProbbaSingleGlassBlanco,
+            this.centralShashesProbbaDvhBlanco,
+            this.horizontalShashesProbbaSingleGlassBlanco,
+            this.horizontalShashesProbbaDvhBlanco,
             this.screenShashesProbbaBlanco,
             this.screenGuideProbbaBlanco,
             this.horizontalFramesTripleRielProbbaBlanco,
@@ -615,9 +691,12 @@ export default class calculateMaterials{
 
             this.horizontalFramesProbbaAnolok,
             this.verticalFramesProbbaAnolok,
-            this.lateralShashesProbbaAnolok,
-            this.centralShashesProbbaAnolok,
-            this.horizontalShashesProbbaAnolok,
+            this.lateralShashesProbbaSingleGlassAnolok,
+            this.lateralShashesProbbaDvhAnolok,
+            this.centralShashesProbbaSingleGlassAnolok,
+            this.centralShashesProbbaDvhAnolok,
+            this.horizontalShashesProbbaSingleGlassAnolok,
+            this.horizontalShashesProbbaDvhAnolok,
             this.screenShashesProbbaAnolok,
             this.screenGuideProbbaAnolok,
             this.horizontalFramesTripleRielProbbaAnolok,
@@ -645,9 +724,12 @@ export default class calculateMaterials{
 
             this.horizontalFramesProbbaImitacionMadera,
             this.verticalFramesProbbaImitacionMadera,
-            this.lateralShashesProbbaImitacionMadera,
-            this.centralShashesProbbaImitacionMadera,
-            this.horizontalShashesProbbaImitacionMadera,
+            this.lateralShashesProbbaSingleGlassImitacionMadera,
+            this.lateralShashesProbbaDvhImitacionMadera,
+            this.centralShashesProbbaSingleGlassImitacionMadera,
+            this.centralShashesProbbaDvhImitacionMadera,
+            this.horizontalShashesProbbaSingleGlassImitacionMadera,
+            this.horizontalShashesProbbaDvhImitacionMadera,
             this.screenShashesProbbaImitacionMadera,
             this.screenGuideProbbaImitacionMadera,
             this.horizontalFramesTripleRielProbbaImitacionMadera,
@@ -675,9 +757,12 @@ export default class calculateMaterials{
 
             this.horizontalFramesProbbaPintadoNegro,
             this.verticalFramesProbbaPintadoNegro,
-            this.lateralShashesProbbaPintadoNegro,
-            this.centralShashesProbbaPintadoNegro,
-            this.horizontalShashesProbbaPintadoNegro,
+            this.lateralShashesProbbaSingleGlassPintadoNegro,
+            this.lateralShashesProbbaDvhPintadoNegro,
+            this.centralShashesProbbaSingleGlassPintadoNegro,
+            this.centralShashesProbbaDvhPintadoNegro,
+            this.horizontalShashesProbbaSingleGlassPintadoNegro,
+            this.horizontalShashesProbbaDvhPintadoNegro,
             this.screenShashesProbbaPintadoNegro,
             this.screenGuideProbbaPintadoNegro,
             this.horizontalFramesTripleRielProbbaPintadoNegro,
