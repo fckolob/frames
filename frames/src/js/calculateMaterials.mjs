@@ -1118,20 +1118,19 @@ export default class calculateMaterials{
                     const barLengthToUse = isCustomLengthSerie ? 6700 : this.barLenght;
 
                     const lenghtGroup = this.calculateLenghtGroups(validFrames);
-                    const barsQuantity = this.calculateFrameBarsQuantityWithCustomLength(lenghtGroup, barLengthToUse);
+                    const result = this.calculateFrameBarsQuantityWithCustomLength(lenghtGroup, barLengthToUse);
 
-                    // ...tu lógica para crear el objeto bar y pushearlo...
-                    // Ejemplo:
-                    if(barsQuantity > 0){
-                        this.frameBars.push(
-                            new bar(
-                                barsQuantity,
-                                validFrames[0].spanishName,
-                                validFrames[0].serie,
-                                validFrames[0].color,
-                                validFrames[0].code
-                            )
+                    if(result.quantity > 0){
+                        // Injecting property manually because changing bar constructor might break other things if shared
+                        let newBar = new bar(
+                            result.quantity,
+                            validFrames[0].spanishName,
+                            validFrames[0].serie,
+                            validFrames[0].color,
+                            validFrames[0].code
                         );
+                        newBar.method = result.method; 
+                        this.frameBars.push(newBar);
                     }
                 }
             }
@@ -1147,12 +1146,11 @@ export default class calculateMaterials{
         const pieces = [...lenghtGroup].sort((a, b) => b - a);
         
         // 2. Initial Solution: Greedy
-        // We need to implement greedy locally or call the helper
         let bestSolution = greedyBinPacking(pieces, barLength, slice);
 
         // 3. Threshold check
-        if (pieces.length > 40) {
-            return bestSolution;
+        if (pieces.length > 60) {
+            return { quantity: bestSolution, method: "Greedy" };
         }
 
         // 4. Branch and Bound / DFS
@@ -1194,6 +1192,16 @@ export default class calculateMaterials{
 
             // Try existing bins
             for (let i = 0; i < binCount; i++) {
+                // Pruning 3: Symmetry Breaking
+                let symmetric = false;
+                for(let k=0; k < i; k++){
+                    if(Math.abs(bins[k] - bins[i]) < 0.001){
+                        symmetric = true;
+                        break;
+                    }
+                }
+                if(symmetric) continue;
+
                 if (bins[i] >= pieceSize) {
                     bins[i] -= pieceSize;
                     dfs_bnb(currentPieceIdx + 1, binCount);
@@ -1211,7 +1219,7 @@ export default class calculateMaterials{
         };
 
         dfs_bnb(0, 0);
-        return bestSolution;
+        return { quantity: bestSolution, method: "Optimal" };
     }
     
     init(){
