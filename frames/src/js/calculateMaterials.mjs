@@ -1139,40 +1139,79 @@ export default class calculateMaterials{
     }
 
     // Nuevo método para permitir longitud de barra personalizada
+    // Nuevo método para permitir longitud de barra personalizada
     calculateFrameBarsQuantityWithCustomLength(lenghtGroup, barLength) {
-        if (lenghtGroup.length > 18) {
-            return greedyBinPacking([...lenghtGroup], barLength, 4);
-        }
+        const slice = 4;
+        
+        // 1. Sort Descending
         const pieces = [...lenghtGroup].sort((a, b) => b - a);
-        const memo = new Map();
+        
+        // 2. Initial Solution: Greedy
+        // We need to implement greedy locally or call the helper
+        let bestSolution = greedyBinPacking(pieces, barLength, slice);
 
-        function helper(index, remains) {
-            // Remove remains that are too small
-            const filteredRemains = remains.filter(r => r >= Math.min(...pieces.slice(index)) + 4);
-            const key = index + '|' + filteredRemains.join(',');
-            if (memo.has(key)) return memo.get(key);
+        // 3. Threshold check
+        if (pieces.length > 40) {
+            return bestSolution;
+        }
 
-            if (index === pieces.length) return 0;
+        // 4. Branch and Bound / DFS
+        const countRef = pieces.length;
+        const bins = new Float64Array(pieces.length); // Max potential bins = number of pieces
+        
+        const dfs_bnb = (currentPieceIdx, binCount) => {
+            // Pruning 1
+            if (binCount >= bestSolution) return;
 
-            let minBars = Infinity;
-            const piece = pieces[index];
+            // Base case
+            if (currentPieceIdx >= countRef) {
+                if (binCount < bestSolution) {
+                    bestSolution = binCount;
+                }
+                return;
+            }
 
-            for (let i = 0; i < filteredRemains.length; i++) {
-                if (filteredRemains[i] >= piece + 4) {
-                    const newRemains = filteredRemains.slice();
-                    newRemains[i] -= (piece + 4);
-                    minBars = Math.min(minBars, helper(index + 1, newRemains));
+            // Pruning 2: Lower Bound
+            let remainingSum = 0;
+            for (let i = currentPieceIdx; i < countRef; i++) {
+                remainingSum += (pieces[i] + slice);
+            }
+            
+            let currentFreeSpace = 0;
+            for (let i = 0; i < binCount; i++) {
+                currentFreeSpace += bins[i]; 
+            }
+
+            let neededVolume = remainingSum - currentFreeSpace;
+            let minAdditional = 0;
+            if (neededVolume > 0) {
+                minAdditional = Math.ceil(neededVolume / barLength);
+            }
+
+            if (binCount + minAdditional >= bestSolution) return;
+
+            const pieceSize = pieces[currentPieceIdx] + slice;
+
+            // Try existing bins
+            for (let i = 0; i < binCount; i++) {
+                if (bins[i] >= pieceSize) {
+                    bins[i] -= pieceSize;
+                    dfs_bnb(currentPieceIdx + 1, binCount);
+                    bins[i] += pieceSize; // Backtrack
+                    
+                    if (bestSolution <= binCount) return;
                 }
             }
 
-            const newRemain = barLength - (piece + 4);
-            minBars = Math.min(minBars, 1 + helper(index + 1, remains.concat([newRemain])));
+            // New bin
+            if (binCount + 1 < bestSolution) {
+                bins[binCount] = barLength - pieceSize;
+                dfs_bnb(currentPieceIdx + 1, binCount + 1);
+            }
+        };
 
-            memo.set(key, minBars);
-            return minBars;
-        }
-
-        return helper(0, []);
+        dfs_bnb(0, 0);
+        return bestSolution;
     }
     
     init(){
@@ -1186,19 +1225,24 @@ export default class calculateMaterials{
 }
 
 function greedyBinPacking(pieces, barLength, slice = 4) {
-    const bins = [];
-    pieces.sort((a, b) => b - a);
+    // pieces is assumed sorted desc
+    const bins = []; 
+    // If passed unsorted, sort it:
+    // pieces.sort((a, b) => b - a); 
+    // But caller usually sorts.
+    
     for (let piece of pieces) {
         let placed = false;
+        const pieceSize = piece + slice;
         for (let i = 0; i < bins.length; i++) {
-            if (bins[i] >= piece + slice) {
-                bins[i] -= (piece + slice);
+            if (bins[i] >= pieceSize) {
+                bins[i] -= pieceSize;
                 placed = true;
                 break;
             }
         }
         if (!placed) {
-            bins.push(barLength - (piece + slice));
+            bins.push(barLength - pieceSize);
         }
     }
     return bins.length;
