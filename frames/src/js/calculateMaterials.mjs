@@ -1149,7 +1149,7 @@ export default class calculateMaterials{
         let bestSolution = greedyBinPacking(pieces, barLength, slice);
 
         // 3. Threshold check
-        if (pieces.length > 60) {
+        if (pieces.length > 40) {
             return { quantity: bestSolution, method: "Greedy" };
         }
 
