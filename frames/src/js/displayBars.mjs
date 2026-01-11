@@ -21,7 +21,7 @@ export default class displayBars{
                     <small>Codigos: Aluminios del Uruguay = ${bar.code.aluminiosDelUruguay} Juan = ${bar.code.juan} Urualum = ${bar.code.urualum} Abasur = ${bar.code.abasur}</small>
                 </div>
                 ${cuttingPlanHtml ? `<button class="toggle-plan-btn" data-target="${planId}">View Cutting Plan</button>` : ''}
-                <div id="${planId}" class="cutting-plan-wrapper">
+                <div id="${planId}" class="cutting-plan-wrapper" style="display:none;">
                     ${cuttingPlanHtml}
                 </div>
             </li>`

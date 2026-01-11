@@ -7,7 +7,7 @@ export default class DisplayCuttingPlan {
     formatCuttingPlan(bar, pieces, barLength) {
         if (!bar.cuttingPlan || !bar.wastePerBar) return "";
 
-        let html = `<div class="cutting-plan-container" style="display:none; margin-top: 10px; padding: 10px; background-color: #f5f5f5; border-radius: 5px;">`;
+        let html = `<div class="cutting-plan-container" style="margin-top: 10px; padding: 10px; background-color: #f5f5f5; border-radius: 5px;">`;
         html += `<h4>Cutting Plan (${bar.method} Method) - Bar Length: ${barLength}mm</h4>`;
         
         bar.cuttingPlan.forEach((bin, index) => {
