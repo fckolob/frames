@@ -1129,7 +1129,13 @@ export default class calculateMaterials{
                             validFrames[0].color,
                             validFrames[0].code
                         );
-                        newBar.method = result.method; 
+                        newBar.method = result.method;
+                        // Store cutting plan data
+                        newBar.cuttingPlan = result.cuttingPlan;
+                        newBar.wastePerBar = result.wastePerBar;
+                        newBar.pieces = lenghtGroup;
+                        newBar.barLength = barLengthToUse;
+                        
                         this.frameBars.push(newBar);
                     }
                 }
@@ -1146,25 +1152,30 @@ export default class calculateMaterials{
         const pieces = [...lenghtGroup].sort((a, b) => b - a);
         
         // 2. Initial Solution: Greedy
-        let bestSolution = greedyBinPacking(pieces, barLength, slice);
+        let greedyResult = greedyBinPacking(pieces, barLength, slice);
+        let bestSolution = greedyResult.quantity;
+        let bestPlan = greedyResult.cuttingPlan;  // Track the best cutting plan
 
         // 3. Threshold check
         if (pieces.length > 40) {
-            return { quantity: bestSolution, method: "Greedy" };
+            return greedyResult;
         }
 
         // 4. Branch and Bound / DFS
         const countRef = pieces.length;
         const bins = new Float64Array(pieces.length); // Max potential bins = number of pieces
+        const binContents = Array.from({ length: pieces.length }, () => []);  // Track contents
         
         const dfs_bnb = (currentPieceIdx, binCount) => {
             // Pruning 1
             if (binCount >= bestSolution) return;
 
-            // Base case
+            // Base case - Found a complete solution
             if (currentPieceIdx >= countRef) {
                 if (binCount < bestSolution) {
                     bestSolution = binCount;
+                    // Save the cutting plan
+                    bestPlan = binContents.slice(0, binCount).map(bin => [...bin]);
                 }
                 return;
             }
@@ -1204,8 +1215,15 @@ export default class calculateMaterials{
 
                 if (bins[i] >= pieceSize) {
                     bins[i] -= pieceSize;
+                    binContents[i].push({ 
+                        originalIndex: currentPieceIdx, 
+                        length: pieces[currentPieceIdx] 
+                    });
+                    
                     dfs_bnb(currentPieceIdx + 1, binCount);
-                    bins[i] += pieceSize; // Backtrack
+                    
+                    bins[i] += pieceSize;
+                    binContents[i].pop();  // Backtrack
                     
                     if (bestSolution <= binCount) return;
                 }
@@ -1214,12 +1232,25 @@ export default class calculateMaterials{
             // New bin
             if (binCount + 1 < bestSolution) {
                 bins[binCount] = barLength - pieceSize;
+                binContents[binCount].push({ 
+                    originalIndex: currentPieceIdx, 
+                    length: pieces[currentPieceIdx] 
+                });
+                
                 dfs_bnb(currentPieceIdx + 1, binCount + 1);
+                
+                binContents[binCount].pop();  // Backtrack
             }
         };
 
         dfs_bnb(0, 0);
-        return { quantity: bestSolution, method: "Optimal" };
+        
+        return { 
+            quantity: bestSolution, 
+            method: "Optimal",
+            cuttingPlan: bestPlan,
+            wastePerBar: Array.from(bins.slice(0, bestSolution))
+        };
     }
     
     init(){
@@ -1234,25 +1265,41 @@ export default class calculateMaterials{
 
 function greedyBinPacking(pieces, barLength, slice = 4) {
     // pieces is assumed sorted desc
-    const bins = []; 
-    // If passed unsorted, sort it:
-    // pieces.sort((a, b) => b - a); 
-    // But caller usually sorts.
+    const bins = [];           // Track remaining space in each bin
+    const binContents = [];    // Track which pieces are in each bin
     
-    for (let piece of pieces) {
+    pieces.forEach((piece, index) => {
         let placed = false;
         const pieceSize = piece + slice;
+        
+        // Try to place in existing bins
         for (let i = 0; i < bins.length; i++) {
             if (bins[i] >= pieceSize) {
                 bins[i] -= pieceSize;
+                binContents[i].push({ 
+                    originalIndex: index, 
+                    length: piece 
+                });
                 placed = true;
                 break;
             }
         }
+        
+        // Create new bin if needed
         if (!placed) {
             bins.push(barLength - pieceSize);
+            binContents.push([{ 
+                originalIndex: index, 
+                length: piece 
+            }]);
         }
-    }
-    return bins.length;
+    });
+    
+    return {
+        quantity: bins.length,
+        method: "Greedy",
+        cuttingPlan: binContents,
+        wastePerBar: bins
+    };
 }
 

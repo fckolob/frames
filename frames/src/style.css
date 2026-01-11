@@ -179,13 +179,18 @@ input:required:valid {
   padding: 1rem;
 }
 
-button{
-  display: none;
+button, .toggle-plan-btn{
+  display: none !important;
 }
 
 .production-title{
   font-size: 2.4rem;
   padding: 1rem;
+}
+
+.cutting-plan-wrapper, .cutting-plan-container {
+    display: block !important;
+    page-break-inside: avoid;
 }
 
 }

@@ -1,0 +1,130 @@
+Implementation Plan: Optimal Cutting Plan Tracking
+Goal
+Modify the Branch-and-Bound bin packing algorithm to track and return the optimal cutting plan (piece-to-bar assignments), and create a UI component to display the detailed cutting instructions for workshop use.
+
+User Review Required
+IMPORTANT
+
+This implementation will change the return format of the bin packing functions, which may affect how materials are displayed. The changes are backward-compatible as we're adding new properties to the returned objects rather than removing existing ones.
+
+Proposed Changes
+Backend - Bin Packing Algorithm
+[MODIFY] 
+calculateMaterials.mjs
+Modify 
+greedyBinPacking
+ function to track and return cutting plan:
+
+Change from returning just bins.length to returning an object with:
+quantity: number of bins
+method: "Greedy"
+cuttingPlan: array of arrays showing which pieces go in each bin
+wastePerBar: remaining space in each bin
+Track piece assignments as pieces are placed into bins
+Maintain piece indices to reference original pieces
+[MODIFY] 
+calculateMaterials.mjs
+Modify 
+calculateFrameBarsQuantityWithCustomLength
+ method to track optimal cutting plan:
+
+Add binContents array to track which pieces are in each bin during DFS
+Update the DFS function to:
+Push piece info when placing in a bin
+Pop piece info when backtracking
+Save the complete cutting plan when a better solution is found
+Return object with:
+quantity: minimum number of bins
+method: "Optimal" or "Greedy"
+cuttingPlan: array showing optimal piece-to-bar assignments
+wastePerBar: remaining space in each bin
+[MODIFY] 
+calculateMaterials.mjs
+Update 
+calculateFrameBars
+ method to handle new return format:
+
+Update to work with the new object return format from 
+calculateFrameBarsQuantityWithCustomLength
+Store the cutting plan in the bar object for later display
+Ensure backward compatibility with existing code
+Frontend - UI Component
+[NEW] 
+displayCuttingPlan.mjs
+Create new module to format and display cutting plans:
+
+formatCuttingPlan(bar, pieces, barLength): Generate HTML for a single bar's cutting plan
+displayAllCuttingPlans(bars): Generate complete cutting list HTML for all bars
+Display for each bar:
+Bar number and total length
+List of pieces to cut with lengths
+Slice (kerf) indicators between pieces
+Waste amount
+Method used (Optimal/Greedy)
+[MODIFY] 
+displayBars.mjs
+Enhance bar display to include cutting plan button:
+
+Add "View Cutting Plan" button/toggle for each bar type
+Integrate with new displayCuttingPlan module
+Show/hide detailed cutting instructions on demand
+[MODIFY] 
+main.js
+Update materials calculation flow to support cutting plan display:
+
+Import and use the new displayCuttingPlan module
+Add UI controls to toggle cutting plan visibility
+Ensure cutting plans are included in print view
+Data Structure
+[MODIFY] 
+bar.mjs
+Extend bar class to store cutting plan data:
+
+Add cuttingPlan property to store piece assignments
+Add wastePerBar property to store waste information
+Add pieces property to store the original piece lengths
+Ensure these properties are optional for backward compatibility
+Verification Plan
+Automated Tests
+Since there are no existing automated tests in the project, verification will be manual.
+
+Manual Verification
+Test Basic Functionality
+
+Start the dev server: npm run dev
+Add multiple openings with various dimensions
+Click "Calculate Materials"
+Verify that material quantities still display correctly
+Test Cutting Plan Display
+
+After calculating materials, look for cutting plan information
+Verify each bar shows:
+Correct number of pieces
+Piece lengths match input
+Slices (4mm) are accounted for
+Waste calculation is correct
+Method (Optimal/Greedy) is displayed
+Test Edge Cases
+
+Test with >40 pieces (should use Greedy method)
+Test with ≤40 pieces (should use Optimal method)
+Test with pieces that fit perfectly (zero waste)
+Test with very large pieces (minimal pieces per bar)
+Test Print Functionality
+
+Click "PRINT" button
+Verify cutting plans are included in print view
+Verify layout is readable and professional
+Verify Calculations
+
+Manually verify a few cutting plans:
+Sum of pieces + slices ≤ bar length
+Waste = bar length - (sum of pieces + slices)
+Number of bars matches the quantity shown
+Success Criteria
+✅ Material quantities remain accurate
+✅ Cutting plans display correctly for each bar type
+✅ Method (Optimal/Greedy) is correctly indicated
+✅ Waste calculations are accurate
+✅ Print view includes cutting plans
+✅ UI is clear and easy to understand for workshop use is the implementation plan finished? if not continue until complete it

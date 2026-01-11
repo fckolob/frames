@@ -225,6 +225,24 @@ print.addEventListener("click", () => {
       ${barList}
       <button id="home">Home</button>
       `;
+
+      // Add event listeners for cutting plan toggles
+      document.querySelectorAll('.toggle-plan-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+              const targetId = btn.getAttribute('data-target');
+              const targetElement = document.getElementById(targetId);
+              if (targetElement) {
+                  // Check computed style or inline style (DisplayCuttingPlan uses inline style='display:none' initially)
+                  if (targetElement.style.display === 'none' || targetElement.style.display === '') {
+                      targetElement.style.display = 'block';
+                      btn.textContent = 'Hide Cutting Plan';
+                  } else {
+                      targetElement.style.display = 'none';
+                      btn.textContent = 'View Cutting Plan';
+                  }
+              }
+          });
+      });
       
       let oldPrint = document.getElementById("print");
 if (oldPrint) oldPrint.remove();
