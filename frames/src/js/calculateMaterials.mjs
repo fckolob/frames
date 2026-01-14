@@ -1155,6 +1155,7 @@ export default class calculateMaterials{
         let greedyResult = greedyBinPacking(pieces, barLength, slice);
         let bestSolution = greedyResult.quantity;
         let bestPlan = greedyResult.cuttingPlan;  // Track the best cutting plan
+        let bestWaste = greedyResult.wastePerBar; // Track best waste
 
         // 3. Threshold check
         if (pieces.length > 40) {
@@ -1176,6 +1177,7 @@ export default class calculateMaterials{
                     bestSolution = binCount;
                     // Save the cutting plan
                     bestPlan = binContents.slice(0, binCount).map(bin => [...bin]);
+                    bestWaste = bins.slice(0, binCount);
                 }
                 return;
             }
@@ -1249,7 +1251,7 @@ export default class calculateMaterials{
             quantity: bestSolution, 
             method: "Optimal",
             cuttingPlan: bestPlan,
-            wastePerBar: Array.from(bins.slice(0, bestSolution))
+            wastePerBar: Array.from(bestWaste)
         };
     }
     
