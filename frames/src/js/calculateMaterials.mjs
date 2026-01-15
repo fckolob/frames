@@ -1,7 +1,7 @@
 import bar from "./bar.mjs";
 export default class calculateMaterials{
 
-    constructor(openings = [], barLenght = 5900){
+    constructor(openings = [], barLenght = 5950){
 
         this.slice = 4;
         this.barLenght = barLenght;
@@ -1115,7 +1115,7 @@ export default class calculateMaterials{
                 if(validFrames.length > 0){
                     // Detecta si el frame es de probbaCorrediza o galaCorredizaCuatroRieles
                     const isCustomLengthSerie = validFrames[0].serie === "probbaCorrediza" || validFrames[0].serie === "probbaCorredizaTripleRiel" || validFrames[0].serie === "galaCorredizaCuatroRieles" || validFrames[0].serie === "galaCorredizaTripleRiel";
-                    const barLengthToUse = isCustomLengthSerie ? 6700 : this.barLenght;
+                    const barLengthToUse = isCustomLengthSerie ? 6750 : this.barLenght;
 
                     const lenghtGroup = this.calculateLenghtGroups(validFrames);
                     const result = this.calculateFrameBarsQuantityWithCustomLength(lenghtGroup, barLengthToUse);
