@@ -40,3 +40,9 @@ export function galaCorredizaCuatroRieles(width, height, quantity){
     console.log(pieces);
     return pieces;
 }
+
+export function galaCorrediza(width, height, quantity){
+    const pieces = {horizontalFrame: {lenght: width - 36, quantity: quantity * 2}, verticalFrame: {lenght: parseInt(height), quantity: quantity * 2}, lateralShash: {lenght: height - 65, quantity: quantity * 2}, centralShash: {lenght: height - 65, quantity: quantity * 2}, horizontalShash: {lenght: width / 2 - 23, quantity: quantity * 4}, glassWidth: {lenght: width / 2 - 94, quantity: quantity * 2}, glassHeight: {lenght: height - 172, quantity: quantity * 2}, screenWidth: {lenght: width / 2 + 11, quantity: quantity * 2}, screenHeight: {lenght: height - 62, quantity: quantity * 2}, screenGuideProbba: {lenght: width - 5, quantity: quantity * 2}, glassDvhWidth: {lenght: width / 2 - 86, quantity: quantity * 2}, glassDvhHeight: {lenght: height - 165, quantity: quantity * 2}};
+    console.log(pieces);
+    return pieces;
+}

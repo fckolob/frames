@@ -237,6 +237,8 @@ export default class calculateMaterials{
         this.horizontalFramesGalaTripleRielPintadoNegro = [];
         this.verticalFramesGalaTripleRielPintadoNegro = [];
 
+
+
         this.framesArrays = []; // This will be assigned at the end of calculateMaterials constructor or classificateFrames
 
     }
@@ -819,6 +821,86 @@ export default class calculateMaterials{
                 this.screenShashesProbbaPintadoNegro.push(opening.frames.screenShash);
                 this.screenGuideProbbaPintadoNegro.push(opening.frames.screenGuideProbba);
             }
+
+            if(opening.serie === "galaCorrediza" && opening.color === "anodizado"){
+                if(opening.dvh === true){
+                    this.lateralShashesGalaDvhAnodizado.push(opening.frames.lateralShash);
+                    this.centralShashesGalaDvhAnodizado.push(opening.frames.centralShash);
+                    this.horizontalShashesGalaDvhAnodizado.push(opening.frames.horizontalShash);
+                } else {
+                    this.lateralShashesGalaSingleGlassAnodizado.push(opening.frames.lateralShash);
+                    this.centralShashesGalaSingleGlassAnodizado.push(opening.frames.centralShash);
+                    this.horizontalShashesGalaSingleGlassAnodizado.push(opening.frames.horizontalShash);
+                }
+                this.horizontalFramesProbbaAnodizado.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaAnodizado.push(opening.frames.verticalFrame);
+                this.screenShashesProbbaAnodizado.push(opening.frames.screenShash);
+                this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
+            }
+
+            if(opening.serie === "galaCorrediza" && opening.color === "blanco"){
+                if(opening.dvh === true){
+                    this.lateralShashesGalaDvhBlanco.push(opening.frames.lateralShash);
+                    this.centralShashesGalaDvhBlanco.push(opening.frames.centralShash);
+                    this.horizontalShashesGalaDvhBlanco.push(opening.frames.horizontalShash);
+                } else {
+                    this.lateralShashesGalaSingleGlassBlanco.push(opening.frames.lateralShash);
+                    this.centralShashesGalaSingleGlassBlanco.push(opening.frames.centralShash);
+                    this.horizontalShashesGalaSingleGlassBlanco.push(opening.frames.horizontalShash);
+                }
+                this.horizontalFramesProbbaBlanco.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaBlanco.push(opening.frames.verticalFrame);
+                this.screenShashesProbbaBlanco.push(opening.frames.screenShash);
+                this.screenGuideProbbaBlanco.push(opening.frames.screenGuideProbba);
+            }
+
+            if(opening.serie === "galaCorrediza" && opening.color === "anolok"){
+                if(opening.dvh === true){
+                    this.lateralShashesGalaDvhAnolok.push(opening.frames.lateralShash);
+                    this.centralShashesGalaDvhAnolok.push(opening.frames.centralShash);
+                    this.horizontalShashesGalaDvhAnolok.push(opening.frames.horizontalShash);
+                } else {
+                    this.lateralShashesGalaSingleGlassAnolok.push(opening.frames.lateralShash);
+                    this.centralShashesGalaSingleGlassAnolok.push(opening.frames.centralShash);
+                    this.horizontalShashesGalaSingleGlassAnolok.push(opening.frames.horizontalShash);
+                }
+                this.horizontalFramesProbbaAnolok.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaAnolok.push(opening.frames.verticalFrame);
+                this.screenShashesProbbaAnolok.push(opening.frames.screenShash);
+                this.screenGuideProbbaAnolok.push(opening.frames.screenGuideProbba);
+            }
+
+            if(opening.serie === "galaCorrediza" && opening.color === "imitacionMadera"){
+                if(opening.dvh === true){
+                    this.lateralShashesGalaDvhImitacionMadera.push(opening.frames.lateralShash);
+                    this.centralShashesGalaDvhImitacionMadera.push(opening.frames.centralShash);
+                    this.horizontalShashesGalaDvhImitacionMadera.push(opening.frames.horizontalShash);
+                } else {
+                    this.lateralShashesGalaSingleGlassImitacionMadera.push(opening.frames.lateralShash);
+                    this.centralShashesGalaSingleGlassImitacionMadera.push(opening.frames.centralShash);
+                    this.horizontalShashesGalaSingleGlassImitacionMadera.push(opening.frames.horizontalShash);
+                }
+                this.horizontalFramesProbbaImitacionMadera.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaImitacionMadera.push(opening.frames.verticalFrame);
+                this.screenShashesProbbaImitacionMadera.push(opening.frames.screenShash);
+                this.screenGuideProbbaImitacionMadera.push(opening.frames.screenGuideProbba);
+            }
+
+            if(opening.serie === "galaCorrediza" && opening.color === "pintadoNegro"){
+                if(opening.dvh === true){
+                    this.lateralShashesGalaDvhPintadoNegro.push(opening.frames.lateralShash);
+                    this.centralShashesGalaDvhPintadoNegro.push(opening.frames.centralShash);
+                    this.horizontalShashesGalaDvhPintadoNegro.push(opening.frames.horizontalShash);
+                } else {
+                    this.lateralShashesGalaSingleGlassPintadoNegro.push(opening.frames.lateralShash);
+                    this.centralShashesGalaSingleGlassPintadoNegro.push(opening.frames.centralShash);
+                    this.horizontalShashesGalaSingleGlassPintadoNegro.push(opening.frames.horizontalShash);
+                }
+                this.horizontalFramesProbbaPintadoNegro.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaPintadoNegro.push(opening.frames.verticalFrame);
+                this.screenShashesProbbaPintadoNegro.push(opening.frames.screenShash);
+                this.screenGuideProbbaPintadoNegro.push(opening.frames.screenGuideProbba);
+            }
         });
 
         //Reconstruyendo frame arrays.
@@ -1058,6 +1140,7 @@ export default class calculateMaterials{
             this.horizontalShashesGalaDvhPintadoNegro,
             this.horizontalFramesGalaTripleRielPintadoNegro,
             this.verticalFramesGalaTripleRielPintadoNegro,
+
         ];
     }
 
@@ -1114,7 +1197,7 @@ export default class calculateMaterials{
                 const validFrames = frameArray.filter(f => f && typeof f.quantity !== "undefined" && typeof f.lenght !== "undefined");
                 if(validFrames.length > 0){
                     // Detecta si el frame es de probbaCorrediza o galaCorredizaCuatroRieles
-                    const isCustomLengthSerie = validFrames[0].serie === "probbaCorrediza" || validFrames[0].serie === "probbaCorredizaTripleRiel" || validFrames[0].serie === "galaCorredizaCuatroRieles" || validFrames[0].serie === "galaCorredizaTripleRiel";
+                    const isCustomLengthSerie = validFrames[0].serie === "probbaCorrediza" || validFrames[0].serie === "probbaCorredizaTripleRiel" || validFrames[0].serie === "galaCorredizaCuatroRieles" || validFrames[0].serie === "galaCorredizaTripleRiel" || validFrames[0].serie === "galaCorrediza";
                     const barLengthToUse = isCustomLengthSerie ? 6750 : this.barLenght;
 
                     const lenghtGroup = this.calculateLenghtGroups(validFrames);
