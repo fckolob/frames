@@ -1,4 +1,4 @@
-import { s20, s25, s25TripleRiel, probbaCorrediza, probbaCorredizaTripleRiel, galaCorredizaCuatroRieles, galaCorredizaTripleRiel, galaCorrediza} from "./calulatePieces.mjs";
+import { s20, s25, s25TripleRiel, probbaCorrediza, probbaCorredizaTripleRiel, galaCorredizaCuatroRieles, galaCorredizaTripleRiel, galaCorrediza, probbaCorredizaTresHojasEnDosRieles} from "./calulatePieces.mjs";
 import Frame from "./frame.mjs";
 
 
@@ -51,6 +51,10 @@ constructor(width, height, serie, color, dvh, preframe, quantity){
 
     if(this.serie === "galaCorrediza"){
         this.pieces = galaCorrediza(this.width, this.height, this.quantity)
+    }
+
+    if(this.serie === "probbaCorredizaTresHojasEnDosRieles"){
+        this.pieces = probbaCorredizaTresHojasEnDosRieles(this.width, this.height, this.quantity)
     }
 }
 
@@ -292,6 +296,69 @@ async framing(){
         const screenGuideProbba = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 93074"}, this.pieces.screenGuideProbba.lenght, "Screen Guide", "Guía de Mosquitero", this.color, this.pieces.screenGuideProbba.quantity);
 
         this.frames = {horizontalFrame: horizontalFrameTripleRiel, verticalFrame: verticalFrameTripleRiel, lateralShash: lateralShash, centralShash: centralShash, horizontalShashLateral: horizontalShashLateral, horizontalShashCentral: horizontalShashCentral, screenShash: screenShash, screenGuideProbba: screenGuideProbba};
+
+        this.glass = {glassWidthLateral: glassWidthLateral, glassWidthCentral: glassWidthCentral, glassHeight: glassHeight};
+    }
+
+    if(this.serie === "probbaCorredizaTresHojasEnDosRieles"){
+
+        const horizontalFrame = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 93150"}, this.pieces.horizontalFrame.lenght, "Horizontal Frame", "Horizontal de Marco", this.color, this.pieces.horizontalFrame.quantity);
+
+        const verticalFrame = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90021"}, this.pieces.verticalFrame.lenght, "Vertical Frame", "Lateral de Marco", this.color, this.pieces.verticalFrame.quantity);
+        
+
+        let glassWidthLateral = {};
+        let glassWidthCentral = {};
+        let glassHeight = {};
+        let lateralShash = {};
+        let centralShash = {};
+        let horizontalShashLateral = {};
+        let horizontalShashCentral = {};
+
+
+        if (this.dvh === true) {
+
+        lateralShash = new Frame("probbaCorrediza", {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90031"}, this.pieces.lateralShash.lenght, "Lateral Shash for DVH", "Lateral de Hoja para DVH", this.color, this.pieces.lateralShash.quantity);
+
+        centralShash = new Frame("probbaCorrediza", {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90030"}, this.pieces.centralShash.lenght, "Central Shash for DVH", "Enganche para DVH", this.color, this.pieces.centralShash.quantity);
+
+        horizontalShashLateral = new Frame("probbaCorrediza", {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90026"}, this.pieces.horizontalShashLateral.lenght, "Horizontal Shash for DVH (Lateral Shashes)", "Horizontal de Hoja para DVH (Hojas Laterales)", this.color, this.pieces.horizontalShashLateral.quantity);
+
+        horizontalShashCentral = new Frame("probbaCorrediza", {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90026"}, this.pieces.horizontalShashCentral.lenght, "Horizontal Shash for DVH (Central Shash)", "Horizontal de Hoja para DVH (Hoja Central)", this.color, this.pieces.horizontalShashCentral.quantity);
+
+        glassWidthLateral = {lenght: this.pieces.glassDvhWidthLateral.lenght, quantity: this.pieces.glassDvhWidthLateral.quantity};
+
+        glassWidthCentral = {lenght: this.pieces.glassDvhWidthCentral.lenght, quantity: this.pieces.glassDvhWidthCentral.quantity};
+
+        glassHeight = {lenght: this.pieces.glassDvhHeight.lenght, quantity: this.pieces.glassDvhHeight.quantity};
+
+        }
+
+        if (this.dvh === false){
+
+        lateralShash = new Frame("probbaCorrediza", {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90027"}, this.pieces.lateralShash.lenght, "Lateral Shash for Single Glass", "Lateral de Hoja para Vidrio Simple", this.color, this.pieces.lateralShash.quantity);
+
+        centralShash = new Frame("probbaCorrediza", {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90028"}, this.pieces.centralShash.lenght, "Central Shash for Single Glass", "Enganche para Vidrio Simple", this.color, this.pieces.centralShash.quantity);
+
+        horizontalShashLateral = new Frame("probbaCorrediza", {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90025"}, this.pieces.horizontalShashLateral.lenght, "Horizontal Shash for Single Glass (Lateral Shashes)", "Horizontal de Hoja para Vidrio Simple (Hojas Laterales)", this.color, this.pieces.horizontalShashLateral.quantity);
+
+        horizontalShashCentral = new Frame("probbaCorrediza", {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 90025"}, this.pieces.horizontalShashCentral.lenght, "Horizontal Shash for Single Glass (Central Shash)", "Horizontal de Hoja para Vidrio Simple (Hoja Central)", this.color, this.pieces.horizontalShashCentral.quantity);
+
+        glassWidthLateral = {lenght: this.pieces.glassWidthLateral.lenght, quantity: this.pieces.glassWidthLateral.quantity};
+
+        glassWidthCentral = {lenght: this.pieces.glassWidthCentral.lenght, quantity: this.pieces.glassWidthCentral.quantity};
+
+        glassHeight = {lenght: this.pieces.glassHeight.lenght, quantity: this.pieces.glassHeight.quantity};
+
+        }
+
+        
+
+        const screenShash = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 41043"}, {width: this.pieces.screenWidth.lenght, height: this.pieces.screenHeight.lenght}, "Screen Shash", "Hoja de Mosquitero", this.color, {widthQuantity: this.pieces.screenWidth.quantity, heightQuantity: this.pieces.screenHeight.quantity});
+
+        const screenGuideProbba = new Frame(this.serie, {abasur: "Not Available", urualum: "Not Available", juan: "Not Available", aluminiosDelUruguay: "PN 93074"}, this.pieces.screenGuideProbba.lenght, "Screen Guide", "Guía de Mosquitero", this.color, this.pieces.screenGuideProbba.quantity);
+
+        this.frames = {horizontalFrame: horizontalFrame, verticalFrame: verticalFrame, lateralShash: lateralShash, centralShash: centralShash, horizontalShashLateral: horizontalShashLateral, horizontalShashCentral: horizontalShashCentral, screenShash: screenShash, screenGuideProbba: screenGuideProbba};
 
         this.glass = {glassWidthLateral: glassWidthLateral, glassWidthCentral: glassWidthCentral, glassHeight: glassHeight};
     }

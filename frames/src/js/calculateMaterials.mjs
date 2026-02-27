@@ -750,6 +750,24 @@ export default class calculateMaterials{
                 this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
             }
 
+            if(opening.serie === "probbaCorredizaTresHojasEnDosRieles" && opening.color === "anodizado"){
+                if(opening.dvh === true){
+                   this.lateralShashesProbbaDvhAnodizado.push(opening.frames.lateralShash);
+                   this.centralShashesProbbaDvhAnodizado.push(opening.frames.centralShash);
+                   this.horizontalShashesProbbaDvhAnodizado.push(opening.frames.horizontalShashLateral);
+                   this.horizontalShashesProbbaDvhAnodizado.push(opening.frames.horizontalShashCentral);
+                } else {
+                   this.lateralShashesProbbaSingleGlassAnodizado.push(opening.frames.lateralShash);
+                   this.centralShashesProbbaSingleGlassAnodizado.push(opening.frames.centralShash);
+                   this.horizontalShashesProbbaSingleGlassAnodizado.push(opening.frames.horizontalShashLateral);
+                   this.horizontalShashesProbbaSingleGlassAnodizado.push(opening.frames.horizontalShashCentral);
+                }
+                this.horizontalFramesProbbaAnodizado.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaAnodizado.push(opening.frames.verticalFrame);
+                this.screenShashesProbbaAnodizado.push(opening.frames.screenShash);
+                this.screenGuideProbbaAnodizado.push(opening.frames.screenGuideProbba);
+            }
+
             if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "blanco"){
                 if(opening.dvh === true){
                     this.lateralShashesProbbaDvhBlanco.push(opening.frames.lateralShash);
@@ -764,6 +782,24 @@ export default class calculateMaterials{
                 }
                 this.horizontalFramesTripleRielProbbaBlanco.push(opening.frames.horizontalFrame);
                 this.verticalFramesTripleRielProbbaBlanco.push(opening.frames.verticalFrame);
+                this.screenShashesProbbaBlanco.push(opening.frames.screenShash);
+                this.screenGuideProbbaBlanco.push(opening.frames.screenGuideProbba);
+            }
+
+            if(opening.serie === "probbaCorredizaTresHojasEnDosRieles" && opening.color === "blanco"){
+                if(opening.dvh === true){
+                    this.lateralShashesProbbaDvhBlanco.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhBlanco.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhBlanco.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaDvhBlanco.push(opening.frames.horizontalShashCentral);
+                } else {
+                    this.lateralShashesProbbaSingleGlassBlanco.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassBlanco.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassBlanco.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaSingleGlassBlanco.push(opening.frames.horizontalShashCentral);
+                }
+                this.horizontalFramesProbbaBlanco.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaBlanco.push(opening.frames.verticalFrame);
                 this.screenShashesProbbaBlanco.push(opening.frames.screenShash);
                 this.screenGuideProbbaBlanco.push(opening.frames.screenGuideProbba);
             }
@@ -786,6 +822,24 @@ export default class calculateMaterials{
                 this.screenGuideProbbaAnolok.push(opening.frames.screenGuideProbba);
             }
 
+            if(opening.serie === "probbaCorredizaTresHojasEnDosRieles" && opening.color === "anolok"){
+                if(opening.dvh === true){
+                    this.lateralShashesProbbaDvhAnolok.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhAnolok.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhAnolok.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaDvhAnolok.push(opening.frames.horizontalShashCentral);
+                } else {
+                    this.lateralShashesProbbaSingleGlassAnolok.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassAnolok.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassAnolok.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaSingleGlassAnolok.push(opening.frames.horizontalShashCentral);
+                }
+                this.horizontalFramesProbbaAnolok.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaAnolok.push(opening.frames.verticalFrame);
+                this.screenShashesProbbaAnolok.push(opening.frames.screenShash);
+                this.screenGuideProbbaAnolok.push(opening.frames.screenGuideProbba);
+            }
+
             if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "imitacionMadera"){
                 if(opening.dvh === true){
                     this.lateralShashesProbbaDvhImitacionMadera.push(opening.frames.lateralShash);
@@ -804,6 +858,24 @@ export default class calculateMaterials{
                 this.screenGuideProbbaImitacionMadera.push(opening.frames.screenGuideProbba);
             }
 
+            if(opening.serie === "probbaCorredizaTresHojasEnDosRieles" && opening.color === "imitacionMadera"){
+                if(opening.dvh === true){
+                    this.lateralShashesProbbaDvhImitacionMadera.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhImitacionMadera.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhImitacionMadera.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaDvhImitacionMadera.push(opening.frames.horizontalShashCentral);
+                } else {
+                    this.lateralShashesProbbaSingleGlassImitacionMadera.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassImitacionMadera.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassImitacionMadera.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaSingleGlassImitacionMadera.push(opening.frames.horizontalShashCentral);
+                }
+                this.horizontalFramesProbbaImitacionMadera.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaImitacionMadera.push(opening.frames.verticalFrame);
+                this.screenShashesProbbaImitacionMadera.push(opening.frames.screenShash);
+                this.screenGuideProbbaImitacionMadera.push(opening.frames.screenGuideProbba);
+            }
+
             if(opening.serie === "probbaCorredizaTripleRiel" && opening.color === "pintadoNegro"){
                 if(opening.dvh === true){
                     this.lateralShashesProbbaDvhPintadoNegro.push(opening.frames.lateralShash);
@@ -818,6 +890,24 @@ export default class calculateMaterials{
                 }
                 this.horizontalFramesTripleRielProbbaPintadoNegro.push(opening.frames.horizontalFrame);
                 this.verticalFramesTripleRielProbbaPintadoNegro.push(opening.frames.verticalFrame);
+                this.screenShashesProbbaPintadoNegro.push(opening.frames.screenShash);
+                this.screenGuideProbbaPintadoNegro.push(opening.frames.screenGuideProbba);
+            }
+
+            if(opening.serie === "probbaCorredizaTresHojasEnDosRieles" && opening.color === "pintadoNegro"){
+                if(opening.dvh === true){
+                    this.lateralShashesProbbaDvhPintadoNegro.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaDvhPintadoNegro.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaDvhPintadoNegro.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaDvhPintadoNegro.push(opening.frames.horizontalShashCentral);
+                } else {
+                    this.lateralShashesProbbaSingleGlassPintadoNegro.push(opening.frames.lateralShash);
+                    this.centralShashesProbbaSingleGlassPintadoNegro.push(opening.frames.centralShash);
+                    this.horizontalShashesProbbaSingleGlassPintadoNegro.push(opening.frames.horizontalShashLateral);
+                    this.horizontalShashesProbbaSingleGlassPintadoNegro.push(opening.frames.horizontalShashCentral);
+                }
+                this.horizontalFramesProbbaPintadoNegro.push(opening.frames.horizontalFrame);
+                this.verticalFramesProbbaPintadoNegro.push(opening.frames.verticalFrame);
                 this.screenShashesProbbaPintadoNegro.push(opening.frames.screenShash);
                 this.screenGuideProbbaPintadoNegro.push(opening.frames.screenGuideProbba);
             }
@@ -1197,7 +1287,7 @@ export default class calculateMaterials{
                 const validFrames = frameArray.filter(f => f && typeof f.quantity !== "undefined" && typeof f.lenght !== "undefined");
                 if(validFrames.length > 0){
                     // Detecta si el frame es de probbaCorrediza o galaCorredizaCuatroRieles
-                    const isCustomLengthSerie = validFrames[0].serie === "probbaCorrediza" || validFrames[0].serie === "probbaCorredizaTripleRiel" || validFrames[0].serie === "galaCorredizaCuatroRieles" || validFrames[0].serie === "galaCorredizaTripleRiel" || validFrames[0].serie === "galaCorrediza";
+                    const isCustomLengthSerie = validFrames[0].serie === "probbaCorrediza" || validFrames[0].serie === "probbaCorredizaTripleRiel" || validFrames[0].serie === "probbaCorredizaTresHojasEnDosRieles" || validFrames[0].serie === "galaCorredizaCuatroRieles" || validFrames[0].serie === "galaCorredizaTripleRiel" || validFrames[0].serie === "galaCorrediza";
                     const barLengthToUse = isCustomLengthSerie ? 6750 : this.barLenght;
 
                     const lenghtGroup = this.calculateLenghtGroups(validFrames);

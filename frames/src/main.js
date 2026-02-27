@@ -22,6 +22,7 @@ document.querySelector('#app').innerHTML = `
     <option value="s25TripleRiel">Serie 25 Triple Riel</option>
     <option value="probbaCorrediza">Probba Corrediza</option>
     <option value="probbaCorredizaTripleRiel">Probba Corrediza Triple Riel</option>
+    <option value="probbaCorredizaTresHojasEnDosRieles">Probba Corrediza Tres Hojas En Dos Rieles</option>
     <option value="galaCorredizaTripleRiel">Gala Corrediza Triple Riel</option>
     <option value="galaCorredizaCuatroRieles">Gala Corrediza Cuatro Rieles</option>
     <option value="galaCorrediza">Gala Corrediza</option>
