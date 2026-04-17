@@ -56,6 +56,10 @@ constructor(width, height, serie, color, dvh, preframe, quantity){
     if(this.serie === "probbaCorredizaTresHojasEnDosRieles"){
         this.pieces = probbaCorredizaTresHojasEnDosRieles(this.width, this.height, this.quantity)
     }
+
+    if(this.pieces && this.pieces.reporteDeAccesorios){
+        this.reporteDeAccesoriosObject = this.pieces.reporteDeAccesorios;
+    }
 }
 
 async framing(){

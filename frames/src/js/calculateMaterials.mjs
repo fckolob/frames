@@ -1,4 +1,5 @@
 import bar from "./bar.mjs";
+import reporteDeAccesorios from "./reporteDeAccesorios.mjs";
 export default class calculateMaterials{
 
     constructor(openings = [], barLenght = 5950){
@@ -240,6 +241,8 @@ export default class calculateMaterials{
 
 
         this.framesArrays = []; // This will be assigned at the end of calculateMaterials constructor or classificateFrames
+
+        this.totalAccesorios = new reporteDeAccesorios();
 
     }
 
@@ -1428,13 +1431,26 @@ export default class calculateMaterials{
         };
     }
     
+    calculateTotalAccesorios() {
+        this.openings.forEach(opening => {
+            if (opening.reporteDeAccesoriosObject) {
+                this.totalAccesorios.add(opening.reporteDeAccesoriosObject);
+            }
+        });
+    }
+
     init(){
-        this.calculateFrameBars()
+        this.calculateFrameBars();
+        this.calculateTotalAccesorios();
     }
 
    async getFrameBars(){
     await this.init();
     return this.frameBars;
+   }
+
+   getTotalAccesorios() {
+       return this.totalAccesorios;
    }
 }
 

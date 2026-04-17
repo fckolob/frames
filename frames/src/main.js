@@ -217,6 +217,9 @@ print.addEventListener("click", () => {
       let displayBars1 = new displayBars(bars);
 
       let barList = displayBars1.getBarsList();
+      
+      let totalAccesorios = calculateMaterials1.getTotalAccesorios();
+      let accesoriosHtml = totalAccesorios.getHTMLList();
 
       console.log(barList);
 
@@ -225,6 +228,8 @@ print.addEventListener("click", () => {
       container.innerHTML = `<h1>Frames</h1>
       <h2>Materials</h2>
       ${barList}
+      <h2>Accesorios</h2>
+      ${accesoriosHtml}
       <button id="home">Home</button>
       `;
 
