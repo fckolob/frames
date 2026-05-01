@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../../frames-c-desktop"
+		},
+		{
+			"path": "../../../../../frames-desktop-app"
+		},
+		{
+			"path": "../../../../../32-bits-frames-c-desktop"
+		}
+	],
+	"settings": {}
+}
