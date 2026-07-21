@@ -20,6 +20,7 @@ document.querySelector('#app').innerHTML = `
     <option value="s20">Serie 20</option>
     <option value="s25">Serie 25</option>
     <option value="s25TripleRiel">Serie 25 Triple Riel</option>
+    <option value="s25TresHojasEnDosRieles">Serie 25 Tres Hojas En Dos Rieles</option>
     <option value="probbaCorrediza">Probba Corrediza</option>
     <option value="probbaCorredizaTripleRiel">Probba Corrediza Triple Riel</option>
     <option value="probbaCorredizaTresHojasEnDosRieles">Probba Corrediza Tres Hojas En Dos Rieles</option>
