@@ -20,7 +20,7 @@ document.querySelector('#app').innerHTML = `
     <option value="s20">Serie 20</option>
     <option value="s25">Serie 25</option>
     <option value="s25TripleRiel">Serie 25 Triple Riel</option>
-    <option value="s25TresHojasEnDosRieles">Serie 25 Tres Hojas En Dos Rieles</option>
+    <option value="s25DosRieles">Serie 25 Dos Rieles</option>
     <option value="probbaCorrediza">Probba Corrediza</option>
     <option value="probbaCorredizaTripleRiel">Probba Corrediza Triple Riel</option>
     <option value="probbaCorredizaTresHojasEnDosRieles">Probba Corrediza Tres Hojas En Dos Rieles</option>
@@ -62,9 +62,9 @@ document.querySelector('#app').innerHTML = `
 
   </div>
 `
-window.onload = async ()=> {
- if(traker < 1){ utils.setLocalStorage([]);}
- traker += 1;
+window.onload = async () => {
+  if (traker < 1) { utils.setLocalStorage([]); }
+  traker += 1;
   let productionButtonEventListenerFlag = true;
   let displayProductionFlag = true;
   const container = document.getElementById("container");
@@ -80,9 +80,9 @@ window.onload = async ()=> {
   const openingsQuantityDisplay = document.getElementById("openings-added");
   const buttons = `<button id="production">Production</button>
 <button id="calculate-materials">Calculate Materials</button>`
-  submitButton.addEventListener("click",async function(event){
+  submitButton.addEventListener("click", async function (event) {
     event.preventDefault();
-    
+
     let serie = form.elements.namedItem("serie").value;
     let color = form.elements.namedItem("color").value;
     let vidrio = form.elements.namedItem("vidrio").value;
@@ -92,17 +92,17 @@ window.onload = async ()=> {
     let quantity = form.elements.namedItem("quantity").value;
     let dvh = false;
     let preframe = false;
-    if(vidrio === "dvh"){
+    if (vidrio === "dvh") {
       dvh = true;
     }
 
-    if(preframeValue === "preframeTrue"){
+    if (preframeValue === "preframeTrue") {
       preframe = true;
     }
 
     const opening = new Opening(width, height, serie, color, dvh, preframe, quantity);
 
-    
+
 
     await opening.init();
 
@@ -119,7 +119,7 @@ window.onload = async ()=> {
     widthElement.value = "";
     heightElement.value = "";
     quantityElement.value = "";
-    
+
     const openingsReturn = utils.getLocalStorage();
 
     let openingsQuantity = 0;
@@ -132,60 +132,63 @@ window.onload = async ()=> {
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    if(buttonTraker === 0){await container.insertAdjacentHTML("afterend", buttons);}
+    if (buttonTraker === 0) { await container.insertAdjacentHTML("afterend", buttons); }
 
     buttonTraker += 1;
-    
+
     const calculateMaterialsButton = document.getElementById("calculate-materials");
 
     const productionButton = document.getElementById("production");
 
-    
 
-    if(productionButtonEventListenerFlag){productionButton.addEventListener("click", async ()=>{
-      if(displayProductionFlag){
-      let openings = [];
 
-      let openingsData = await utils.getLocalStorage();
+    if (productionButtonEventListenerFlag) {
+      productionButton.addEventListener("click", async () => {
+        if (displayProductionFlag) {
+          let openings = [];
 
-      for (const openingD of openingsData) {
-        let opening = new Opening(
-          openingD.width,
-          openingD.height,
-          openingD.serie,
-          openingD.color,
-          openingD.dvh,
-          openingD.preframe,
-          openingD.quantity
-        );
-        await opening.init();
-        openings.push(opening);
-      }
+          let openingsData = await utils.getLocalStorage();
 
-      let frameLists = "";
+          for (const openingD of openingsData) {
+            let opening = new Opening(
+              openingD.width,
+              openingD.height,
+              openingD.serie,
+              openingD.color,
+              openingD.dvh,
+              openingD.preframe,
+              openingD.quantity
+            );
+            await opening.init();
+            openings.push(opening);
+          }
 
-      const frameListsArray = await Promise.all(
-        openings.map(opening => opening.getStringFrames())
-      );
+          let frameLists = "";
 
-      frameListsArray.forEach(frameList => {
-        frameLists += frameList;
-      });
+          const frameListsArray = await Promise.all(
+            openings.map(opening => opening.getStringFrames())
+          );
 
-      container.innerHTML = "";
-      container.insertAdjacentHTML('afterend', frameLists);
-      // Remove any existing PRINT button before adding a new one
-let oldPrint = document.getElementById("print");
-if (oldPrint) oldPrint.remove();
+          frameListsArray.forEach(frameList => {
+            frameLists += frameList;
+          });
 
-container.insertAdjacentHTML('afterend', `<button id="print">PRINT</button>`);
-let print = document.getElementById("print");
-print.addEventListener("click", () => {
-  window.print();
-});
-      
-      displayProductionFlag = false;
-    }})}
+          container.innerHTML = "";
+          container.insertAdjacentHTML('afterend', frameLists);
+          // Remove any existing PRINT button before adding a new one
+          let oldPrint = document.getElementById("print");
+          if (oldPrint) oldPrint.remove();
+
+          container.insertAdjacentHTML('afterend', `<button id="print">PRINT</button>`);
+          let print = document.getElementById("print");
+          print.addEventListener("click", () => {
+            window.print();
+          });
+
+          displayProductionFlag = false;
+        }
+      })
+    }
 
     productionButtonEventListenerFlag = false;
 
@@ -218,7 +221,7 @@ print.addEventListener("click", () => {
       let displayBars1 = new displayBars(bars);
 
       let barList = displayBars1.getBarsList();
-      
+
       let totalAccesorios = calculateMaterials1.getTotalAccesorios();
       let accesoriosHtml = totalAccesorios.getHTMLList();
 
@@ -236,41 +239,41 @@ print.addEventListener("click", () => {
 
       // Add event listeners for cutting plan toggles
       document.querySelectorAll('.toggle-plan-btn').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-              const targetId = btn.getAttribute('data-target');
-              const targetElement = document.getElementById(targetId);
-              if (targetElement) {
-                  // Check computed style or inline style (DisplayCuttingPlan uses inline style='display:none' initially)
-                  if (targetElement.style.display === 'none' || targetElement.style.display === '') {
-                      targetElement.style.display = 'block';
-                      btn.textContent = 'Hide Cutting Plan';
-                  } else {
-                      targetElement.style.display = 'none';
-                      btn.textContent = 'View Cutting Plan';
-                  }
-              }
-          });
+        btn.addEventListener('click', (e) => {
+          const targetId = btn.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            // Check computed style or inline style (DisplayCuttingPlan uses inline style='display:none' initially)
+            if (targetElement.style.display === 'none' || targetElement.style.display === '') {
+              targetElement.style.display = 'block';
+              btn.textContent = 'Hide Cutting Plan';
+            } else {
+              targetElement.style.display = 'none';
+              btn.textContent = 'View Cutting Plan';
+            }
+          }
+        });
       });
-      
-      let oldPrint = document.getElementById("print");
-if (oldPrint) oldPrint.remove();
 
-container.insertAdjacentHTML('afterend', `<button id="print">PRINT</button>`);
-let print = document.getElementById("print");
-print.addEventListener("click", () => {
-  window.print();
-});
+      let oldPrint = document.getElementById("print");
+      if (oldPrint) oldPrint.remove();
+
+      container.insertAdjacentHTML('afterend', `<button id="print">PRINT</button>`);
+      let print = document.getElementById("print");
+      print.addEventListener("click", () => {
+        window.print();
+      });
 
       let home = document.getElementById("home");
 
       print = document.getElementById("print");
 
-      home.addEventListener("click", async()=>{
+      home.addEventListener("click", async () => {
         location.reload();
 
       });
 
-      
+
 
     })
   })
