@@ -1275,6 +1275,16 @@ export default class calculateMaterials {
                 for (let index = 0; index < frame.quantity.heightQuantity; index++) {
                     frameElements.push(frame.lenght.height);
                 }
+                if (frame.quantity.fixWidthQuantity) {
+                    for (let index = 0; index < frame.quantity.fixWidthQuantity; index++) {
+                        frameElements.push(frame.lenght.fixWidth);
+                    }
+                }
+                if (frame.quantity.fixHeightQuantity) {
+                    for (let index = 0; index < frame.quantity.fixHeightQuantity; index++) {
+                        frameElements.push(frame.lenght.fixHeight);
+                    }
+                }
             } else {
                 for (let index = 0; index < frame.quantity; index++) {
                     frameElements.push(frame.lenght);
