@@ -1321,7 +1321,10 @@ export default class calculateMaterials {
                 if (validFrames.length > 0) {
                     // Detecta si el frame es de probbaCorrediza o galaCorredizaCuatroRieles
                     const isCustomLengthSerie = validFrames[0].serie === "probbaCorrediza" || validFrames[0].serie === "probbaCorredizaTripleRiel" || validFrames[0].serie === "probbaCorredizaTresHojasEnDosRieles" || validFrames[0].serie === "galaCorredizaCuatroRieles" || validFrames[0].serie === "galaCorredizaTripleRiel" || validFrames[0].serie === "galaCorrediza";
-                    const barLengthToUse = isCustomLengthSerie ? 6750 : this.barLenght;
+                    let barLengthToUse = isCustomLengthSerie ? 6750 : this.barLenght;
+                    if (validFrames[0].serie === "s20") {
+                        barLengthToUse = 5750;
+                    }
 
                     const lenghtGroup = this.calculateLenghtGroups(validFrames);
                     const result = this.calculateFrameBarsQuantityWithCustomLength(lenghtGroup, barLengthToUse);
