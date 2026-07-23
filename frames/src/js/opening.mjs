@@ -1,4 +1,4 @@
-import { s20, s25, s25TripleRiel, s25TresHojasEnDosRieles, probbaCorrediza, probbaCorredizaTripleRiel, galaCorredizaCuatroRieles, galaCorredizaTripleRiel, galaCorrediza, probbaCorredizaTresHojasEnDosRieles } from "./calulatePieces.mjs";
+import { s20, s25, s25TripleRiel, s25TresHojasEnDosRieles, probbaCorrediza, probbaCorredizaTripleRiel, galaCorredizaCuatroRieles, galaCorredizaTripleRiel, galaCorrediza, probbaCorredizaTresHojasEnDosRieles, s25ReforzadaTresHojasEnDosRieles } from "./calulatePieces.mjs";
 import Frame from "./frame.mjs";
 
 
@@ -59,6 +59,10 @@ export default class Opening {
 
         if (this.serie === "probbaCorredizaTresHojasEnDosRieles") {
             this.pieces = probbaCorredizaTresHojasEnDosRieles(this.width, this.height, this.quantity)
+        }
+
+        if (this.serie === "s25ReforzadaTresHojasEnDosRieles") {
+            this.pieces = s25ReforzadaTresHojasEnDosRieles(this.width, this.height, this.quantity)
         }
 
         if (this.pieces && this.pieces.reporteDeAccesorios) {
@@ -251,6 +255,74 @@ export default class Opening {
             }
 
             this.frames = { lateralShash: lateralShash, centralShash: centralShash, horizontalShashBig: horizontalShashBig, horizontalShashSmall: horizontalShashSmall, lateralShashFix: lateralShashFix, centralShashFix: centralShashFix, horizontalShashBigFix: horizontalShashBigFix, horizontalShashSmallFix: horizontalShashSmallFix, screenShash: screenShash, glassDvhU: glassDvhU, inferiorFrame: inferiorFrame, superiorFrame: superiorFrame, verticalFrame: verticalFrame, screenGuideS25L: screenGuideS25L, screenGuideS25P: screenGuideS25P };
+
+            this.glass = { glassWidth: glassWidth, glassHeight: glassHeight, glassWidthFix: glassWidthFix, glassHeightFix: glassHeightFix };
+        }
+
+        if (this.serie === "s25ReforzadaTresHojasEnDosRieles") {
+
+            const inferiorFrame = new Frame(this.serie, { abasur: "E2857", urualum: "2500", juan: "150 o 2500", aluminiosDelUruguay: "Not available" }, this.pieces.inferiorFrame.lenght, "Inferior Frame", "Inferior de Marco", this.color, this.pieces.inferiorFrame.quantity);
+
+            const superiorFrame = new Frame(this.serie, { abasur: "E2858", urualum: "2528", juan: "151 o 2528", aluminiosDelUruguay: "Not available" }, this.pieces.superiorFrame.lenght, "Superior Frame", "Superior de Marco", this.color, this.pieces.superiorFrame.quantity);
+
+            const verticalFrame = new Frame(this.serie, { abasur: "E3513", urualum: "2501", juan: "2501", aluminiosDelUruguay: "Not available" }, this.pieces.verticalFrame.lenght, "Vertical Frame", "Lateral de Marco", this.color, this.pieces.verticalFrame.quantity);
+
+            const lateralShash = new Frame(this.serie, { abasur: "E2862", urualum: "4505", juan: "4505", aluminiosDelUruguay: "Not available" }, this.pieces.lateralShash.lenght, "Lateral Shash", "Lateral de Hoja", this.color, this.pieces.lateralShash.quantity);
+
+            const lateralShashFix = new Frame(this.serie, { abasur: "E2862", urualum: "4505", juan: "4505", aluminiosDelUruguay: "Not available" }, this.pieces.lateralShashFix.lenght, "Lateral Shash Fix", "Lateral de Hoja Fijo", this.color, this.pieces.lateralShashFix.quantity);
+
+            const centralShash = new Frame(this.serie, { abasur: "E2861", urualum: "4507", juan: "155 o 4507", aluminiosDelUruguay: "Not available" }, this.pieces.centralShash.lenght, "Central Shash", "Enganche", this.color, this.pieces.centralShash.quantity);
+
+            const centralShashReinforced = new Frame(this.serie, { abasur: "E4496", urualum: "4537", juan: "4537", aluminiosDelUruguay: "Not available" }, this.pieces.centralShashReinforced.lenght, "Central Shash Reinforced", "Enganche Reforzado", this.color, this.pieces.centralShashReinforced.quantity);
+
+
+            const centralShashFixReinforced = new Frame(this.serie, { abasur: "E4496", urualum: "4537", juan: "4537", aluminiosDelUruguay: "Not available" }, this.pieces.centralShashFixReinforced.lenght, "Central Shash Fix Reinforced", "Enganche Fijo Reforzado", this.color, this.pieces.centralShashFixReinforced.quantity);
+
+            const horizontalShashBig = new Frame(this.serie, { abasur: "E2859", urualum: "4503", juan: "4503", aluminiosDelUruguay: "Not available" }, this.pieces.horizontalShashBig.lenght, "Horizontal Shash Big", "Horizontal de Hoja Grueso", this.color, this.pieces.horizontalShashBig.quantity);
+
+
+
+            const horizontalShashBigFix = new Frame(this.serie, { abasur: "E2859", urualum: "4503", juan: "4503", aluminiosDelUruguay: "Not available" }, this.pieces.horizontalShashBigFix.lenght, "Horizontal Shash Big Fix", "Horizontal de Hoja Grueso Fijo", this.color, this.pieces.horizontalShashBigFix.quantity);
+
+
+
+            const screenShash = new Frame(
+                this.serie,
+                { abasur: "E2860", urualum: "4506", juan: "4506", aluminiosDelUruguay: "Not available" },
+                { width: this.pieces.screenWidth.lenght, height: this.pieces.screenHeight.lenght },
+                "Screen Shash",
+                "Hoja de Mosquitero",
+                this.color,
+                { widthQuantity: this.pieces.screenWidth.quantity, heightQuantity: this.pieces.screenHeight.quantity }
+            );
+
+            const screenGuideS25L = new Frame(this.serie, { abasur: "E4678", urualum: "213", juan: "213", aluminiosDelUruguay: "PN 0213" }, this.pieces.screenGuideS25L.lenght, "Screen Guide S25 L", "Guía de Mosquitero S25 L", this.color, this.pieces.screenGuideS25L.quantity);
+
+            const screenGuideS25P = new Frame(this.serie, { abasur: "E4677", urualum: "2344", juan: "2344", aluminiosDelUruguay: "PN 0213" }, this.pieces.screenGuideS25P.lenght, "Screen Guide S25 P", "Guia de Mosquitero S25 P", this.color, this.pieces.screenGuideS25P.quantity);
+
+            let glassWidth = {};
+            let glassHeight = {};
+            let glassWidthFix = {};
+            let glassHeightFix = {};
+            let glassDvhU = {};
+
+
+            if (this.dvh === false) {
+                glassWidth = { lenght: this.pieces.glassWidth.lenght, quantity: this.pieces.glassWidth.quantity };
+                glassHeight = { lenght: this.pieces.glassHeight.lenght, quantity: this.pieces.glassHeight.quantity };
+                glassWidthFix = { lenght: this.pieces.glassWidthFix.lenght, quantity: this.pieces.glassWidthFix.quantity };
+                glassHeightFix = { lenght: this.pieces.glassHeightFix.lenght, quantity: this.pieces.glassHeightFix.quantity };
+                glassDvhU = null;
+            }
+            if (this.dvh === true) {
+                glassWidth = { lenght: this.pieces.glassDvhWidth.lenght, quantity: this.pieces.glassDvhWidth.quantity };
+                glassHeight = { lenght: this.pieces.glassDvhHeight.lenght, quantity: this.pieces.glassDvhHeight.quantity };
+                glassWidthFix = { lenght: this.pieces.glassDvhWidthFix.lenght, quantity: this.pieces.glassDvhWidthFix.quantity };
+                glassHeightFix = { lenght: this.pieces.glassDvhHeightFix.lenght, quantity: this.pieces.glassDvhHeightFix.quantity };
+                glassDvhU = new Frame(this.serie, { abasur: "E4886", urualum: "Not available", juan: "4590", aluminiosDelUruguay: "Not available" }, { width: this.pieces.glassDvhUHorizontal.lenght, height: this.pieces.glassDvhUVertical.lenght, fixWidth: this.pieces.glassDvhUHorizontalFix?.lenght, fixHeight: this.pieces.glassDvhUVerticalFix?.lenght }, "U Dvh", "U Dvh", this.color, { widthQuantity: this.pieces.glassDvhUHorizontal.quantity, heightQuantity: this.pieces.glassDvhUVertical.quantity, fixWidthQuantity: this.pieces.glassDvhUHorizontalFix?.quantity, fixHeightQuantity: this.pieces.glassDvhUVerticalFix?.quantity });
+            }
+
+            this.frames = { lateralShash: lateralShash, centralShash: centralShash, horizontalShashBig: horizontalShashBig, lateralShashFix: lateralShashFix, centralShashReinforced: centralShashReinforced, centralShashFixReinforced: centralShashFixReinforced, horizontalShashBigFix: horizontalShashBigFix, screenShash: screenShash, glassDvhU: glassDvhU, inferiorFrame: inferiorFrame, superiorFrame: superiorFrame, verticalFrame: verticalFrame, screenGuideS25L: screenGuideS25L, screenGuideS25P: screenGuideS25P };
 
             this.glass = { glassWidth: glassWidth, glassHeight: glassHeight, glassWidthFix: glassWidthFix, glassHeightFix: glassHeightFix };
         }

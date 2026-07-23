@@ -240,7 +240,19 @@ export default class calculateMaterials {
 
 
 
-        this.framesArrays = []; // This will be assigned at the end of calculateMaterials constructor or classificateFrames
+                this.centralShashesReinforcedS25Anodizado = [];
+        this.centralShashesReinforcedS25Blanco = [];
+        this.centralShashesReinforcedS25Anolok = [];
+        this.centralShashesReinforcedS25ImitacionMadera = [];
+        this.centralShashesReinforcedS25PintadoNegro = [];
+
+        this.framesArrays = [
+            this.centralShashesReinforcedS25Anodizado,
+            this.centralShashesReinforcedS25Blanco,
+            this.centralShashesReinforcedS25Anolok,
+            this.centralShashesReinforcedS25ImitacionMadera,
+            this.centralShashesReinforcedS25PintadoNegro,]; // This will be assigned at the end of calculateMaterials constructor or classificateFrames
+
 
         this.totalAccesorios = new reporteDeAccesorios();
 
@@ -269,7 +281,7 @@ export default class calculateMaterials {
                 this.screenGuideS20Anodizado.push(opening.frames.screenGuide);
             }
 
-            if ((opening.serie === "s25" || opening.serie === "s25TresHojasEnDosRieles") && opening.color === "anodizado") {
+            if ((opening.serie === "s25" || opening.serie === "s25TresHojasEnDosRieles" || opening.serie === "s25ReforzadaTresHojasEnDosRieles") && opening.color === "anodizado") {
                 if (opening.dvh === true) {
                     this.glassDvhUsS25Anodizado.push(opening.frames.glassDvhU);
                     if (opening.frames.glassDvhUFix) this.glassDvhUsS25Anodizado.push(opening.frames.glassDvhUFix);
@@ -281,6 +293,8 @@ export default class calculateMaterials {
                 if (opening.frames.lateralShashFix) this.lateralShashesS25Anodizado.push(opening.frames.lateralShashFix);
                 this.centralShashesS25Anodizado.push(opening.frames.centralShash);
                 if (opening.frames.centralShashFix) this.centralShashesS25Anodizado.push(opening.frames.centralShashFix);
+                if (opening.frames.centralShashReinforced) this.centralShashesReinforcedS25Anodizado.push(opening.frames.centralShashReinforced);
+                if (opening.frames.centralShashFixReinforced) this.centralShashesReinforcedS25Anodizado.push(opening.frames.centralShashFixReinforced);
                 this.bigHorizontalShashesS25Anodizado.push(opening.frames.horizontalShashBig);
                 if (opening.frames.horizontalShashBigFix) this.bigHorizontalShashesS25Anodizado.push(opening.frames.horizontalShashBigFix);
                 this.smallHorizontalShashesS25Anodizado.push(opening.frames.horizontalShashSmall);
@@ -300,7 +314,7 @@ export default class calculateMaterials {
                 this.screenGuideS20Blanco.push(opening.frames.screenGuide);
             }
 
-            if ((opening.serie === "s25" || opening.serie === "s25TresHojasEnDosRieles") && opening.color === "blanco") {
+            if ((opening.serie === "s25" || opening.serie === "s25TresHojasEnDosRieles" || opening.serie === "s25ReforzadaTresHojasEnDosRieles") && opening.color === "blanco") {
                 if (opening.dvh === true) {
                     this.glassDvhUsS25Blanco.push(opening.frames.glassDvhU);
                     if (opening.frames.glassDvhUFix) this.glassDvhUsS25Blanco.push(opening.frames.glassDvhUFix);
@@ -312,6 +326,8 @@ export default class calculateMaterials {
                 if (opening.frames.lateralShashFix) this.lateralShashesS25Blanco.push(opening.frames.lateralShashFix);
                 this.centralShashesS25Blanco.push(opening.frames.centralShash);
                 if (opening.frames.centralShashFix) this.centralShashesS25Blanco.push(opening.frames.centralShashFix);
+                if (opening.frames.centralShashReinforced) this.centralShashesReinforcedS25Blanco.push(opening.frames.centralShashReinforced);
+                if (opening.frames.centralShashFixReinforced) this.centralShashesReinforcedS25Blanco.push(opening.frames.centralShashFixReinforced);
                 this.bigHorizontalShashesS25Blanco.push(opening.frames.horizontalShashBig);
                 if (opening.frames.horizontalShashBigFix) this.bigHorizontalShashesS25Blanco.push(opening.frames.horizontalShashBigFix);
                 this.smallHorizontalShashesS25Blanco.push(opening.frames.horizontalShashSmall);
@@ -329,7 +345,7 @@ export default class calculateMaterials {
                 this.screenShashesS20Anolok.push(opening.frames.screenShash);
                 this.screenGuideS20Anolok.push(opening.frames.screenGuide);
             }
-            if ((opening.serie === "s25" || opening.serie === "s25TresHojasEnDosRieles") && opening.color === "anolok") {
+            if ((opening.serie === "s25" || opening.serie === "s25TresHojasEnDosRieles" || opening.serie === "s25ReforzadaTresHojasEnDosRieles") && opening.color === "anolok") {
                 if (opening.dvh === true) {
                     this.glassDvhUsS25Anolok.push(opening.frames.glassDvhU);
                     if (opening.frames.glassDvhUFix) this.glassDvhUsS25Anolok.push(opening.frames.glassDvhUFix);
@@ -341,6 +357,8 @@ export default class calculateMaterials {
                 if (opening.frames.lateralShashFix) this.lateralShashesS25Anolok.push(opening.frames.lateralShashFix);
                 this.centralShashesS25Anolok.push(opening.frames.centralShash);
                 if (opening.frames.centralShashFix) this.centralShashesS25Anolok.push(opening.frames.centralShashFix);
+                if (opening.frames.centralShashReinforced) this.centralShashesReinforcedS25Anolok.push(opening.frames.centralShashReinforced);
+                if (opening.frames.centralShashFixReinforced) this.centralShashesReinforcedS25Anolok.push(opening.frames.centralShashFixReinforced);
                 this.bigHorizontalShashesS25Anolok.push(opening.frames.horizontalShashBig);
                 if (opening.frames.horizontalShashBigFix) this.bigHorizontalShashesS25Anolok.push(opening.frames.horizontalShashBigFix);
                 this.smallHorizontalShashesS25Anolok.push(opening.frames.horizontalShashSmall);
@@ -359,7 +377,7 @@ export default class calculateMaterials {
                 this.screenShashesS20ImitacionMadera.push(opening.frames.screenShash);
                 this.screenGuideS20ImitacionMadera.push(opening.frames.screenGuide);
             }
-            if ((opening.serie === "s25" || opening.serie === "s25TresHojasEnDosRieles") && opening.color === "imitacionMadera") {
+            if ((opening.serie === "s25" || opening.serie === "s25TresHojasEnDosRieles" || opening.serie === "s25ReforzadaTresHojasEnDosRieles") && opening.color === "imitacionMadera") {
                 if (opening.dvh === true) {
                     this.glassDvhUsS25ImitacionMadera.push(opening.frames.glassDvhU);
                     if (opening.frames.glassDvhUFix) this.glassDvhUsS25ImitacionMadera.push(opening.frames.glassDvhUFix);
@@ -371,6 +389,8 @@ export default class calculateMaterials {
                 if (opening.frames.lateralShashFix) this.lateralShashesS25ImitacionMadera.push(opening.frames.lateralShashFix);
                 this.centralShashesS25ImitacionMadera.push(opening.frames.centralShash);
                 if (opening.frames.centralShashFix) this.centralShashesS25ImitacionMadera.push(opening.frames.centralShashFix);
+                if (opening.frames.centralShashReinforced) this.centralShashesReinforcedS25ImitacionMadera.push(opening.frames.centralShashReinforced);
+                if (opening.frames.centralShashFixReinforced) this.centralShashesReinforcedS25ImitacionMadera.push(opening.frames.centralShashFixReinforced);
                 this.bigHorizontalShashesS25ImitacionMadera.push(opening.frames.horizontalShashBig);
                 if (opening.frames.horizontalShashBigFix) this.bigHorizontalShashesS25ImitacionMadera.push(opening.frames.horizontalShashBigFix);
                 this.smallHorizontalShashesS25ImitacionMadera.push(opening.frames.horizontalShashSmall);
@@ -388,7 +408,7 @@ export default class calculateMaterials {
                 this.screenShashesS20PintadoNegro.push(opening.frames.screenShash);
                 this.screenGuideS20PintadoNegro.push(opening.frames.screenGuide);
             }
-            if ((opening.serie === "s25" || opening.serie === "s25TresHojasEnDosRieles") && opening.color === "pintadoNegro") {
+            if ((opening.serie === "s25" || opening.serie === "s25TresHojasEnDosRieles" || opening.serie === "s25ReforzadaTresHojasEnDosRieles") && opening.color === "pintadoNegro") {
                 if (opening.dvh === true) {
                     this.glassDvhUsS25PintadoNegro.push(opening.frames.glassDvhU);
                     if (opening.frames.glassDvhUFix) this.glassDvhUsS25PintadoNegro.push(opening.frames.glassDvhUFix);
@@ -400,6 +420,8 @@ export default class calculateMaterials {
                 if (opening.frames.lateralShashFix) this.lateralShashesS25PintadoNegro.push(opening.frames.lateralShashFix);
                 this.centralShashesS25PintadoNegro.push(opening.frames.centralShash);
                 if (opening.frames.centralShashFix) this.centralShashesS25PintadoNegro.push(opening.frames.centralShashFix);
+                if (opening.frames.centralShashReinforced) this.centralShashesReinforcedS25PintadoNegro.push(opening.frames.centralShashReinforced);
+                if (opening.frames.centralShashFixReinforced) this.centralShashesReinforcedS25PintadoNegro.push(opening.frames.centralShashFixReinforced);
                 this.bigHorizontalShashesS25PintadoNegro.push(opening.frames.horizontalShashBig);
                 if (opening.frames.horizontalShashBigFix) this.bigHorizontalShashesS25PintadoNegro.push(opening.frames.horizontalShashBigFix);
                 this.smallHorizontalShashesS25PintadoNegro.push(opening.frames.horizontalShashSmall);
@@ -1018,6 +1040,11 @@ export default class calculateMaterials {
 
         //Reconstruyendo frame arrays.
         this.framesArrays = [
+            this.centralShashesReinforcedS25Anodizado,
+            this.centralShashesReinforcedS25Blanco,
+            this.centralShashesReinforcedS25Anolok,
+            this.centralShashesReinforcedS25ImitacionMadera,
+            this.centralShashesReinforcedS25PintadoNegro,
             this.InferiorFramesS25TripleRielAnodizado,
             this.SuperiorFramesS25TripleRielAnodizado,
             this.VerticalFramesS25TripleRielAnodizado,
